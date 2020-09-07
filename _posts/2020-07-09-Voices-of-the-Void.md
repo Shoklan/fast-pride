@@ -1,7 +1,6 @@
 ---
 toc: False
 layout: post
-description: A Book review for Voices of the Void Book by David Stewart
 categories: [books,review, scifi]
 title: "Book Review: Voices of the Void"
 ---

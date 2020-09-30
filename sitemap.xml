@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://orgulo.us/jupyter/2020/02/20/test.html</loc>
-<lastmod>2020-02-20T00:00:00-06:00</lastmod>
-</url>
-<url>
 <loc>https://orgulo.us/books/review/scifi/2020/07/09/Voices-of-the-Void.html</loc>
 <lastmod>2020-07-09T00:00:00-05:00</lastmod>
 </url>
@@ -13,8 +9,12 @@
 <lastmod>2020-09-06T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://orgulo.us/books/review/scifi/2020/09/18/Game-Review-Empyrion-Galactic-Survival.html</loc>
+<loc>https://orgulo.us/games/review/scifi/survival/2020/09/18/Game-Review-Empyrion-Galactic-Survival.html</loc>
 <lastmod>2020-09-18T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>https://orgulo.us/game/review/lsd/arcade%20shooter/2020/09/30/Game-Review-Post-Void.html</loc>
+<lastmod>2020-09-30T00:00:00-05:00</lastmod>
 </url>
 <url>
 <loc>https://orgulo.us/about/</loc>

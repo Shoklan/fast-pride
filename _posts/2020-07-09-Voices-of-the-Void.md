@@ -3,6 +3,7 @@ toc: False
 layout: post
 categories: [books,review, scifi]
 title: "Book Review: Voices of the Void"
+description: Is Andrew Dalatent Insane? 
 ---
 # Book Review: Voices of the Void
 

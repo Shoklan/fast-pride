@@ -1,7 +1,7 @@
 ---
 toc: False
 layout: post
-categories: [books,review, scifi]
+categories: [games,review, scifi, survival]
 title: "Game Review: Empyrion - Galactic Survival"
 description: "Complexity is the Name of the Game."
 ---
@@ -12,7 +12,7 @@ The first time I opened the map to see all the different systems we could visit 
 
 Empyrion - Galactic Survival is - well - a Survival Game that adds the idea of different planets and systems to explore instead of simply other towns or woods or whatever that splotch over that hill is. What’s nice about it was as you explore the menus, it gives you something to plan for while trying to build up some semblance of safety where you are. As you scroll out, there are hundreds of systems to explore with their own rings of planets and moons and asteroid fields - which really is the allure of this game. I want to float around the Galaxy and do stupid things.
 
-Out of the gate, there are lots of geometries to play with when building bases or anything else which is a nice change from other Survival games where you’re kind of stuck with a few pre-defined structures. Sadly, the internal structure of the actual block shape wont impact where you can actually place anything since you’re still locked into a cubic construction system. This does make a good number of the more interesting shapes rather impractical to try and use on anything you build. 
+Out of the gate, there are lots of geometries to play with when building bases or anything else which is a nice change from other Survival games where you’re kind of stuck with a few pre-defined structures. Sadly, the internal structure of the actual block shape wont impact where you can actually place anything since you’re still locked into a cubic construction system. This does make a good number of the more interesting shapes rather impractical to try and use on anything you build.
 
 The plethora of pieces to care about makes navigating and management challenging. Finding out just how to build your first actual base was annoying until you realize that you need a core or a starter block to build off anything. Different blocks are tied to different kinds of structures which are denoted by the initials HV,CV,SV,BA which are just not explained. You’re going to be reading the descriptions of the stuff you build; you’re going to have to just about all the time because you’re going to miss important details. My mistake was not realizing that shields will require a Pentaxid to fuel them and there is no warning about this until the shields don’t work - except the last line in the text. A better idea maybe would have been that you don’t have any shields until you’ve actually fed your Vessel Pentaxid and therefore you’ll be forced to realize this. There is a good amount of finding out the hard way.
 

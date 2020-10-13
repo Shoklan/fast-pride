@@ -2,6 +2,22 @@
 /*--- IMPORT STYLES FOR FASTPAGES ---*/
 @import "minima/fastpages-styles";
 
+body{
+	background-color: rgba(200, 200, 200, .3);
+}
+
+body > header {
+  background-color: #000000;
+  min-height: 23px;
+  max-height: 23px;
+}
+
+.wrapper > .site-title{
+  color: white;
+  font-family: 'Space Mono', monospace;
+  text-transform: lowercase;
+}
+
 
 
 /*-----------------------------------*/

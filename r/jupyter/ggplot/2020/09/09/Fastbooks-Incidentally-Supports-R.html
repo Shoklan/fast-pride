@@ -1,333 +1,280 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://orgulo.us/feed.xml" rel="self" type="application/atom+xml" /><link href="https://orgulo.us/" rel="alternate" type="text/html" /><updated>2020-10-22T21:29:08-05:00</updated><id>https://orgulo.us/feed.xml</id><title type="html">Orgulo.us</title><subtitle></subtitle><entry><title type="html">Simple Introduction to Python Debugging</title><link href="https://orgulo.us/python/programming/debugging/2020/10/21/Simple-Python-Debugging-Example.html" rel="alternate" type="text/html" title="Simple Introduction to Python Debugging" /><published>2020-10-21T00:00:00-05:00</published><updated>2020-10-21T00:00:00-05:00</updated><id>https://orgulo.us/python/programming/debugging/2020/10/21/Simple-Python-Debugging-Example</id><content type="html" xml:base="https://orgulo.us/python/programming/debugging/2020/10/21/Simple-Python-Debugging-Example.html">&lt;h2 id=&quot;inspiration&quot;&gt;Inspiration&lt;/h2&gt;
-&lt;p&gt;While working on a script that I’m writing for work, I was having trouble really tracking down where my logic was failing. After looking over the code, everything looked correct but the results were showing me otherwise. So, I opened up python’s debugging system and started to dig in.&lt;/p&gt;
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Fastbooks Incidentally Supports R | Orgulo.us</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Fastbooks Incidentally Supports R" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="R and ggplot!" />
+<meta property="og:description" content="R and ggplot!" />
+<link rel="canonical" href="https://orgulo.us/r/jupyter/ggplot/2020/09/09/Fastbooks-Incidentally-Supports-R.html" />
+<meta property="og:url" content="https://orgulo.us/r/jupyter/ggplot/2020/09/09/Fastbooks-Incidentally-Supports-R.html" />
+<meta property="og:site_name" content="Orgulo.us" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-09T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"R and ggplot!","@type":"BlogPosting","headline":"Fastbooks Incidentally Supports R","dateModified":"2020-09-09T00:00:00-05:00","datePublished":"2020-09-09T00:00:00-05:00","url":"https://orgulo.us/r/jupyter/ggplot/2020/09/09/Fastbooks-Incidentally-Supports-R.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/r/jupyter/ggplot/2020/09/09/Fastbooks-Incidentally-Supports-R.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://orgulo.us/feed.xml" title="Orgulo.us" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Fastbooks Incidentally Supports R | Orgulo.us</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Fastbooks Incidentally Supports R" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="R and ggplot!" />
+<meta property="og:description" content="R and ggplot!" />
+<link rel="canonical" href="https://orgulo.us/r/jupyter/ggplot/2020/09/09/Fastbooks-Incidentally-Supports-R.html" />
+<meta property="og:url" content="https://orgulo.us/r/jupyter/ggplot/2020/09/09/Fastbooks-Incidentally-Supports-R.html" />
+<meta property="og:site_name" content="Orgulo.us" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-09T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"R and ggplot!","@type":"BlogPosting","headline":"Fastbooks Incidentally Supports R","dateModified":"2020-09-09T00:00:00-05:00","datePublished":"2020-09-09T00:00:00-05:00","url":"https://orgulo.us/r/jupyter/ggplot/2020/09/09/Fastbooks-Incidentally-Supports-R.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/r/jupyter/ggplot/2020/09/09/Fastbooks-Incidentally-Supports-R.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
 
-&lt;h2 id=&quot;what-is-debugging&quot;&gt;What is Debugging?&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;In computer programming and software development, debugging is the process of finding and resolving bugs (defects or problems that prevent correct operation) within computer programs, software, or systems.
-cf: https://en.wikipedia.org/wiki/Debugging&lt;/p&gt;
-&lt;/blockquote&gt;
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://orgulo.us/feed.xml" title="Orgulo.us" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
 
-&lt;p&gt;There are plenty of tools to do stuff like this but Python comes with its own: pdb — &lt;a href=&quot;https://docs.python.org/3/library/pdb.html&quot;&gt;The Python Debugger&lt;/a&gt;.
-To activate it, you’d simply go into your terminal and type:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;user@station# python3 -m pdb &amp;lt;script-name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;This with start the script from the top and immediately stop before running anything:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;user@station:/scripts# python3 -m pdb keyIntegrityCheck.py
-&amp;gt; /scripts/keyIntegrityCheck.py(5)&amp;lt;module&amp;gt;()
--&amp;gt; from pathlib import Path
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;While this is useful, we need to be able to explore the file. You could keep an editor open on a different monitor and move around but sometimes that’s not going to be an option. To print all the lines in the file  you’d use:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) ll                                                                                    
-1     #!/usr/bin/env python3                                        
-2     ## Author: Collin Mitchell                                 
-3     ## Purpose: To check the integrity of keys without user input.  
-4                                                                               
-5  -&amp;gt; from pathlib import Path                                                   
-6     from itertools import filterfalse                                            
-7     import subprocess as sp                                                          
-8     import json                                                                     
-9     import sys    
-# ...
-370                 integrityFunc = dd.get(str(filename).split('.')[-1])
-371                 if integrityFunc:
-372                     consistent = integrityFunc( filename )
-373                     if not consistent: print(&quot;{} is not consistent.&quot;.format(filename))
-374                 else:
-375                     print(&quot;{} is missing a checker; please report {} so it can be added.&quot;.format(filename,filename))
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;You can see the pointer on line five telling us where the current execution point is. We can move the pointer a single line using &lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) n                                                                                                                                                                   [336/1995]
-&amp;gt; /scripts/keyIntegrityCheck.py(6)&amp;lt;module&amp;gt;()
--&amp;gt; from itertools import filterfalse                   
-(Pdb) ll                                                                                    
-  1     #!/usr/bin/env python3                                        
-  2     ## Author: Collin Mitchell                                 
-  3     ## Purpose: To check the integrity of keys without user input.  
-  4                                                                               
-  5     from pathlib import Path                                                   
-  6  -&amp;gt; from itertools import filterfalse                                            
-  7     import subprocess as sp                                                          
-  8     import json                                                                     
-  9     import sys     
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;You can see the next 11 lines in the console buffer using &lt;code class=&quot;highlighter-rouge&quot;&gt;l&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) l
-  1     #!/usr/bin/env python3
-  2     ## Author: Collin Mitchell
-  3     ## Purpose: To check the integrity of keys without user input.
-  4  
-  5     from pathlib import Path
-  6  -&amp;gt; from itertools import filterfalse
-  7     import subprocess as sp
-  8     import json
-  9     import sys
- 10  
- 11     # stuff to do with phpserialize:
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Not that if you do this and run it again that you wont get the same result:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) l
- 12     import codecs
- 13     try:
- 14         codecs.lookup_error('surrogateescape')
- 15         default_errors = 'surrogateescape'
- 16     except LookupError:
- 17         default_errors = 'strict'
- 18     try:
- 19         xrange
- 20     except NameError:
- 21         xrange = range
- 22     try:
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;… but you will get the &lt;strong&gt;next&lt;/strong&gt; 11 lines instead. You can tell it which lines to list centered on a line number using &lt;code class=&quot;highlighter-rouge&quot;&gt;l 10&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) l 10
-  5     from pathlib import Path
-  6  -&amp;gt; from itertools import filterfalse
-  7     import subprocess as sp
-  8     import json
-  9     import sys
- 10  
- 11     # stuff to do with phpserialize:
- 12     import codecs
- 13     try:
- 14         codecs.lookup_error('surrogateescape')
- 15         default_errors = 'surrogateescape'
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Now that we can move around, let’s discuss how to actually stop code execution using &lt;strong&gt;breakpoints&lt;/strong&gt;. These are locations you set - sometimes with conditions - to stop the code execution and explore the current state. You can set these using ‘b’:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) b
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Since we don’t have any breakpoints set, then it makes sense we don’t see any listed. So, now lets set one:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) b 9
-Breakpoint 1 at /scripts/keyIntegrityCheck.py:9
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;… and continue execution until the breakpoint using &lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) c
-&amp;gt; /scripts/keyIntegrityCheck.py(9)&amp;lt;module&amp;gt;()
--&amp;gt; import sys
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;… and list the active breakpoints again:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) b
-Num Type         Disp Enb   Where
-1   breakpoint   keep yes   at /scripts/keyIntegrityCheck.py:9
-        breakpoint already hit 1 time
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;You can clear that breakpoint using the number of the breakpoint as well:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) b
-Num Type         Disp Enb   Where
-1   breakpoint   keep yes   at /scripts/keyIntegrityCheck.py:9
-        breakpoint already hit 1 time
-(Pdb) cl 1
-Deleted breakpoint 1 at /scripts/keyIntegrityCheck.py:9
-(Pdb) b
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Conditional breakpoints I found a bit tricky to get to work correctly because you need to place a comma after the statement:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) b 371, integrityFunc.__name__ == 'integrityPhp'
-Breakpoint 3 at /scripts/keyIntegrityCheck.py:371
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;… and then you &lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt; until it triggers:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; /scripts/keyIntegrityCheck.py(371)&amp;lt;module&amp;gt;()
--&amp;gt; if integrityFunc:
-(Pdb) integrityFunc
-&amp;lt;function integrityPhp at 0x7f99291477b8&amp;gt;
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;I couldn’t find much outside of the official documentation when I needed it so hopefully you find the highlights useful.
-There are also tools for whichever IDE you’re using so look out for those as well.&lt;/p&gt;</content><author><name></name></author><summary type="html">Inspiration While working on a script that I’m writing for work, I was having trouble really tracking down where my logic was failing. After looking over the code, everything looked correct but the results were showing me otherwise. So, I opened up python’s debugging system and started to dig in.</summary></entry><entry><title type="html">Game Review: Post Void</title><link href="https://orgulo.us/game/review/lsd/arcade%20shooter/2020/09/30/Game-Review-Post-Void.html" rel="alternate" type="text/html" title="Game Review: Post Void" /><published>2020-09-30T00:00:00-05:00</published><updated>2020-09-30T00:00:00-05:00</updated><id>https://orgulo.us/game/review/lsd/arcade%20shooter/2020/09/30/Game-Review-Post-Void</id><content type="html" xml:base="https://orgulo.us/game/review/lsd/arcade%20shooter/2020/09/30/Game-Review-Post-Void.html">&lt;blockquote&gt;
-  &lt;p&gt;Post Void is a hypnotic scramble of early first-person shooter design that values speed above all else. Keep your head full and reach the end; Kill what you can to see it mend; Get the high score or try again.”&lt;/p&gt;
-&lt;/blockquote&gt;
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
 
-&lt;p&gt;About a month ago I Steam was kind enough to recommend a rough looking LSD-inspired shooter. And, this little gem is called Post Void created by a little Developer group called YCJY Games. Looking at the videos, screenshots and description I was immediately sold:&lt;/p&gt;
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
 
-&lt;p&gt;“&lt;em&gt;Post Void is a hypnotic scramble of early first-person shooter design that values speed above all else. Keep your head full and reach the end; Kill what you can to see it mend; Get the high score or try again.&lt;/em&gt;”&lt;/p&gt;
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Orgulo.us</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
 
-&lt;p&gt;&lt;img src=&quot;/images/post-void-title.png&quot; alt=&quot;Post Void&quot; title=&quot;Splash for the Game&quot; /&gt;&lt;/p&gt;
+        <div class="trigger"><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-&lt;p&gt;The game delivers on all of that with the classic Arcade Shooter style that I miss everytime I spin up any modern First Person Shooter and with a price tag of $2.99, there wasn’t any risk.&lt;/p&gt;
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Fastbooks Incidentally Supports R</h1><p class="page-description">R and ggplot!</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-09-09T00:00:00-05:00" itemprop="datePublished">
+        Sep 9, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
 
-&lt;p&gt;There is a tutorial level to get you acquainted with the basic ideas of the game - which is really just:
-You have a slide like many modern shooters.
-Your health is that glass tiki skull which drains away.
-Then you’re dropped right in and good luck.&lt;/p&gt;
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#r">r</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#jupyter">jupyter</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#ggplot">ggplot</a>
+        
+      
+      </p>
+    
 
-&lt;p&gt;The management of your health which forces you to press on creates a fun stresser which is simple but not overwhelming to manage: kill to fill. The enemy varieties are also limited for the 11 stages you race through - which isn’t all that many. It’s not a long game and wouldn’t actually mind seeing a Post Void 2 which pulls some elements from Rouge-likes and maybe a bit of coop shuffle. Also, the aim is a bit forgiving and there were moments where I was sure I would miss but still killed an enemy.&lt;/p&gt;
+    
+      </header>
 
-&lt;p&gt;The art style is a bit rough on the eyes at first but actually is the right choice to make registering enemies and threats blend into the background just enough that you can miss or run right into them if you’re not careful. I’m also partial to colorful games so I admit this visually is my kind of game.&lt;/p&gt;
-
-&lt;p&gt;All in all, I’d recommend stuffing this game into downtime between lobbies and breaks between studying to stay alert.&lt;/p&gt;
-
-&lt;p&gt;Also, the Shotgun is best.
-Who knows why anyone wants to use the knife: weirdos.&lt;/p&gt;</content><author><name></name></author><summary type="html">Post Void is a hypnotic scramble of early first-person shooter design that values speed above all else. Keep your head full and reach the end; Kill what you can to see it mend; Get the high score or try again.”</summary></entry><entry><title type="html">Game Review: Empyrion - Galactic Survival</title><link href="https://orgulo.us/games/review/scifi/survival/2020/09/18/Game-Review-Empyrion-Galactic-Survival.html" rel="alternate" type="text/html" title="Game Review: Empyrion - Galactic Survival" /><published>2020-09-18T00:00:00-05:00</published><updated>2020-09-18T00:00:00-05:00</updated><id>https://orgulo.us/games/review/scifi/survival/2020/09/18/Game-Review-Empyrion-Galactic-Survival</id><content type="html" xml:base="https://orgulo.us/games/review/scifi/survival/2020/09/18/Game-Review-Empyrion-Galactic-Survival.html">&lt;h1 id=&quot;game-review-empyrion---galactic-survival&quot;&gt;Game Review: Empyrion - Galactic Survival&lt;/h1&gt;
-&lt;p&gt;If you’re looking for a TL:DR: game is fun but has some challenges.&lt;/p&gt;
-
-&lt;p&gt;The first time I opened the map to see all the different systems we could visit I was basically sold on the game. The first time we made our system hop, we almost got trapped in hellscape and had a blast trying to get off that planet.&lt;/p&gt;
-
-&lt;p&gt;Empyrion - Galactic Survival is - well - a Survival Game that adds the idea of different planets and systems to explore instead of simply other towns or woods or whatever that splotch over that hill is. What’s nice about it was as you explore the menus, it gives you something to plan for while trying to build up some semblance of safety where you are. As you scroll out, there are hundreds of systems to explore with their own rings of planets and moons and asteroid fields - which really is the allure of this game. I want to float around the Galaxy and do stupid things.&lt;/p&gt;
-
-&lt;p&gt;Out of the gate, there are lots of geometries to play with when building bases or anything else which is a nice change from other Survival games where you’re kind of stuck with a few pre-defined structures. Sadly, the internal structure of the actual block shape wont impact where you can actually place anything since you’re still locked into a cubic construction system. This does make a good number of the more interesting shapes rather impractical to try and use on anything you build.&lt;/p&gt;
-
-&lt;p&gt;The plethora of pieces to care about makes navigating and management challenging. Finding out just how to build your first actual base was annoying until you realize that you need a core or a starter block to build off anything. Different blocks are tied to different kinds of structures which are denoted by the initials HV,CV,SV,BA which are just not explained. You’re going to be reading the descriptions of the stuff you build; you’re going to have to just about all the time because you’re going to miss important details. My mistake was not realizing that shields will require a Pentaxid to fuel them and there is no warning about this until the shields don’t work - except the last line in the text. A better idea maybe would have been that you don’t have any shields until you’ve actually fed your Vessel Pentaxid and therefore you’ll be forced to realize this. There is a good amount of finding out the hard way.&lt;/p&gt;
-
-&lt;p&gt;Likewise, there are lots of small stats and management that goes into a base which make sense but just don’t feel intuitive at all. I know that I need power and to do that I need something which makes power but I don’t know anything about Solar Panel rates from looking at the device before construction; there is no real way to optimize buildings or make decisions about if I want something until I’ve made it and realized that I either don’t need it yet or it’s missing necessary components. The Solar Panels need a Capacitor else they’re really not much use once the sun is down - and the base doesn’t store anything. Explore the Control Panel as soon as you can.&lt;/p&gt;
-
-&lt;p&gt;Contrary to some complaints, the combat isn’t bad for a Survival game and fights in space have been pretty fun. Having my friend float around in a tuned Small Vessel hecking out resources in Zirax controlled space to avoid pulling us into a space fight with our starter Capital Vessel only to be discovered by a wandering drone led to quite the episode of us coordinating his docking while everything in the system came to murder us escaping with a queue’d up lock to a different system for just such an emergency is why this game has been fun. The complaints about being outgunned are certainly true though. The Defense Station that sits just outside the atmosphere is a space graveyard of failed attempts to kick it out of the orbit. After building a prototype to try and kill the thing, I point-blanked it with 6 pulse Lasers 49 times before it finally blew apart my small vessel and I lost. The AI for the enemies in the game is certainly questionable too. I’ve watched as three factions of different types mingle with one another as if they’re not even aware of each other until I am taking shots at them and then they’re all after me like there is some pact to murder non-NPCs in the Galaxy on sight.&lt;/p&gt;
-
-&lt;p&gt;All in all, I’m not regretting buying it and it’s probably my favorite current Survival game.
-I think that the criticisms are pretty fair though; the game is very ambitious and they haven’t delivered yet but the platform is there so long as they’re continuing to diligently add the pieces patch by patch I’ll keep playing it.
-Complicated but promising.&lt;/p&gt;</content><author><name></name></author><summary type="html">Game Review: Empyrion - Galactic Survival If you’re looking for a TL:DR: game is fun but has some challenges.</summary></entry><entry><title type="html">Fastbooks Incidentally Supports R</title><link href="https://orgulo.us/r/jupyter/ggplot/2020/09/09/Fastbooks-Incidentally-Supports-R.html" rel="alternate" type="text/html" title="Fastbooks Incidentally Supports R" /><published>2020-09-09T00:00:00-05:00</published><updated>2020-09-09T00:00:00-05:00</updated><id>https://orgulo.us/r/jupyter/ggplot/2020/09/09/Fastbooks-Incidentally-Supports-R</id><content type="html" xml:base="https://orgulo.us/r/jupyter/ggplot/2020/09/09/Fastbooks-Incidentally-Supports-R.html">&lt;!--
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
 # file to edit: _notebooks/2020-09-09-Fastbooks-Incidentally-Supports-R.ipynb
---&gt;
+-->
 
-&lt;div class=&quot;container&quot; id=&quot;notebook-container&quot;&gt;
+<div class="container" id="notebook-container">
         
     
     
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
+<div class="cell border-box-sizing code_cell rendered">
 
-&lt;/div&gt;
+</div>
     
 
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h1 id=&quot;Pleasant-Surprise&quot;&gt;Pleasant Surprise&lt;a class=&quot;anchor-link&quot; href=&quot;#Pleasant-Surprise&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;While trying to test the boundaries of what fastpages actually supports, I figured I'd try out installing and setting up an R Notebook as well.
-Luckily enough, it does indeed support compiling and building R kernels as well.&lt;/p&gt;
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Pleasant-Surprise">Pleasant Surprise<a class="anchor-link" href="#Pleasant-Surprise"> </a></h1><p>While trying to test the boundaries of what fastpages actually supports, I figured I'd try out installing and setting up an R Notebook as well.
+Luckily enough, it does indeed support compiling and building R kernels as well.</p>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;The first step will be to install an R kernel for the notebook which can be done using:&lt;/p&gt;
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first step will be to install an R kernel for the notebook which can be done using:</p>
 
-&lt;pre&gt;&lt;code&gt;conda install -c r r-essentials&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This can be ran either from inside a notebook by prepending a &lt;code&gt;!&lt;/code&gt; in a cell such as &lt;code&gt;!conda install -c r r-essentials&lt;/code&gt; or simply run it at the console if you're in linux and in the project directory.&lt;/p&gt;
+<pre><code>conda install -c r r-essentials</code></pre>
+<p>This can be ran either from inside a notebook by prepending a <code>!</code> in a cell such as <code>!conda install -c r r-essentials</code> or simply run it at the console if you're in linux and in the project directory.</p>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;This is mostly an exibition post about how this can be done so we're just going to show off some R stuff.&lt;/p&gt;
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is mostly an exibition post about how this can be done so we're just going to show off some R stuff.</p>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
+</div>
     
     
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-&lt;div class=&quot;input&quot;&gt;
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-&lt;div class=&quot;inner_cell&quot;&gt;
-    &lt;div class=&quot;input_area&quot;&gt;
-&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# I miss this selecting over Python&amp;#39;s Pandas:&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;mtcars&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mtcars&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mtcars&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mpg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># I miss this selecting over Python&#39;s Pandas:</span>
+<span class="n">mtcars</span><span class="p">[</span><span class="n">order</span><span class="p">(</span><span class="n">mtcars</span><span class="err">$</span><span class="n">gear</span><span class="p">,</span> <span class="n">mtcars</span><span class="err">$</span><span class="n">mpg</span><span class="p">),</span> <span class="p">]</span>
+</pre></div>
 
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+    </div>
+</div>
+</div>
 
-&lt;div class=&quot;output_wrapper&quot;&gt;
-&lt;div class=&quot;output&quot;&gt;
+<div class="output_wrapper">
+<div class="output">
 
-&lt;div class=&quot;output_area&quot;&gt;
+<div class="output_area">
 
 
-&lt;div class=&quot;output_html rendered_html output_subarea &quot;&gt;
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;mpg&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;cyl&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;disp&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;hp&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;drat&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;wt&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;qsec&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;vs&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;am&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;gear&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;carb&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-&lt;tbody&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Cadillac Fleetwood&lt;/th&gt;&lt;td&gt;10.4 &lt;/td&gt;&lt;td&gt;8    &lt;/td&gt;&lt;td&gt;472.0&lt;/td&gt;&lt;td&gt;205  &lt;/td&gt;&lt;td&gt;2.93 &lt;/td&gt;&lt;td&gt;5.250&lt;/td&gt;&lt;td&gt;17.98&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Lincoln Continental&lt;/th&gt;&lt;td&gt;10.4 &lt;/td&gt;&lt;td&gt;8    &lt;/td&gt;&lt;td&gt;460.0&lt;/td&gt;&lt;td&gt;215  &lt;/td&gt;&lt;td&gt;3.00 &lt;/td&gt;&lt;td&gt;5.424&lt;/td&gt;&lt;td&gt;17.82&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Camaro Z28&lt;/th&gt;&lt;td&gt;13.3 &lt;/td&gt;&lt;td&gt;8    &lt;/td&gt;&lt;td&gt;350.0&lt;/td&gt;&lt;td&gt;245  &lt;/td&gt;&lt;td&gt;3.73 &lt;/td&gt;&lt;td&gt;3.840&lt;/td&gt;&lt;td&gt;15.41&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Duster 360&lt;/th&gt;&lt;td&gt;14.3 &lt;/td&gt;&lt;td&gt;8    &lt;/td&gt;&lt;td&gt;360.0&lt;/td&gt;&lt;td&gt;245  &lt;/td&gt;&lt;td&gt;3.21 &lt;/td&gt;&lt;td&gt;3.570&lt;/td&gt;&lt;td&gt;15.84&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Chrysler Imperial&lt;/th&gt;&lt;td&gt;14.7 &lt;/td&gt;&lt;td&gt;8    &lt;/td&gt;&lt;td&gt;440.0&lt;/td&gt;&lt;td&gt;230  &lt;/td&gt;&lt;td&gt;3.23 &lt;/td&gt;&lt;td&gt;5.345&lt;/td&gt;&lt;td&gt;17.42&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Merc 450SLC&lt;/th&gt;&lt;td&gt;15.2 &lt;/td&gt;&lt;td&gt;8    &lt;/td&gt;&lt;td&gt;275.8&lt;/td&gt;&lt;td&gt;180  &lt;/td&gt;&lt;td&gt;3.07 &lt;/td&gt;&lt;td&gt;3.780&lt;/td&gt;&lt;td&gt;18.00&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;AMC Javelin&lt;/th&gt;&lt;td&gt;15.2 &lt;/td&gt;&lt;td&gt;8    &lt;/td&gt;&lt;td&gt;304.0&lt;/td&gt;&lt;td&gt;150  &lt;/td&gt;&lt;td&gt;3.15 &lt;/td&gt;&lt;td&gt;3.435&lt;/td&gt;&lt;td&gt;17.30&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;td&gt;2    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Dodge Challenger&lt;/th&gt;&lt;td&gt;15.5 &lt;/td&gt;&lt;td&gt;8    &lt;/td&gt;&lt;td&gt;318.0&lt;/td&gt;&lt;td&gt;150  &lt;/td&gt;&lt;td&gt;2.76 &lt;/td&gt;&lt;td&gt;3.520&lt;/td&gt;&lt;td&gt;16.87&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;td&gt;2    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Merc 450SE&lt;/th&gt;&lt;td&gt;16.4 &lt;/td&gt;&lt;td&gt;8    &lt;/td&gt;&lt;td&gt;275.8&lt;/td&gt;&lt;td&gt;180  &lt;/td&gt;&lt;td&gt;3.07 &lt;/td&gt;&lt;td&gt;4.070&lt;/td&gt;&lt;td&gt;17.40&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Merc 450SL&lt;/th&gt;&lt;td&gt;17.3 &lt;/td&gt;&lt;td&gt;8    &lt;/td&gt;&lt;td&gt;275.8&lt;/td&gt;&lt;td&gt;180  &lt;/td&gt;&lt;td&gt;3.07 &lt;/td&gt;&lt;td&gt;3.730&lt;/td&gt;&lt;td&gt;17.60&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Valiant&lt;/th&gt;&lt;td&gt;18.1 &lt;/td&gt;&lt;td&gt;6    &lt;/td&gt;&lt;td&gt;225.0&lt;/td&gt;&lt;td&gt;105  &lt;/td&gt;&lt;td&gt;2.76 &lt;/td&gt;&lt;td&gt;3.460&lt;/td&gt;&lt;td&gt;20.22&lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Hornet Sportabout&lt;/th&gt;&lt;td&gt;18.7 &lt;/td&gt;&lt;td&gt;8    &lt;/td&gt;&lt;td&gt;360.0&lt;/td&gt;&lt;td&gt;175  &lt;/td&gt;&lt;td&gt;3.15 &lt;/td&gt;&lt;td&gt;3.440&lt;/td&gt;&lt;td&gt;17.02&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;td&gt;2    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Pontiac Firebird&lt;/th&gt;&lt;td&gt;19.2 &lt;/td&gt;&lt;td&gt;8    &lt;/td&gt;&lt;td&gt;400.0&lt;/td&gt;&lt;td&gt;175  &lt;/td&gt;&lt;td&gt;3.08 &lt;/td&gt;&lt;td&gt;3.845&lt;/td&gt;&lt;td&gt;17.05&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;td&gt;2    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Hornet 4 Drive&lt;/th&gt;&lt;td&gt;21.4 &lt;/td&gt;&lt;td&gt;6    &lt;/td&gt;&lt;td&gt;258.0&lt;/td&gt;&lt;td&gt;110  &lt;/td&gt;&lt;td&gt;3.08 &lt;/td&gt;&lt;td&gt;3.215&lt;/td&gt;&lt;td&gt;19.44&lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Toyota Corona&lt;/th&gt;&lt;td&gt;21.5 &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;120.1&lt;/td&gt;&lt;td&gt; 97  &lt;/td&gt;&lt;td&gt;3.70 &lt;/td&gt;&lt;td&gt;2.465&lt;/td&gt;&lt;td&gt;20.01&lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;3    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Merc 280C&lt;/th&gt;&lt;td&gt;17.8 &lt;/td&gt;&lt;td&gt;6    &lt;/td&gt;&lt;td&gt;167.6&lt;/td&gt;&lt;td&gt;123  &lt;/td&gt;&lt;td&gt;3.92 &lt;/td&gt;&lt;td&gt;3.440&lt;/td&gt;&lt;td&gt;18.90&lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Merc 280&lt;/th&gt;&lt;td&gt;19.2 &lt;/td&gt;&lt;td&gt;6    &lt;/td&gt;&lt;td&gt;167.6&lt;/td&gt;&lt;td&gt;123  &lt;/td&gt;&lt;td&gt;3.92 &lt;/td&gt;&lt;td&gt;3.440&lt;/td&gt;&lt;td&gt;18.30&lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Mazda RX4&lt;/th&gt;&lt;td&gt;21.0 &lt;/td&gt;&lt;td&gt;6    &lt;/td&gt;&lt;td&gt;160.0&lt;/td&gt;&lt;td&gt;110  &lt;/td&gt;&lt;td&gt;3.90 &lt;/td&gt;&lt;td&gt;2.620&lt;/td&gt;&lt;td&gt;16.46&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Mazda RX4 Wag&lt;/th&gt;&lt;td&gt;21.0 &lt;/td&gt;&lt;td&gt;6    &lt;/td&gt;&lt;td&gt;160.0&lt;/td&gt;&lt;td&gt;110  &lt;/td&gt;&lt;td&gt;3.90 &lt;/td&gt;&lt;td&gt;2.875&lt;/td&gt;&lt;td&gt;17.02&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Volvo 142E&lt;/th&gt;&lt;td&gt;21.4 &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;121.0&lt;/td&gt;&lt;td&gt;109  &lt;/td&gt;&lt;td&gt;4.11 &lt;/td&gt;&lt;td&gt;2.780&lt;/td&gt;&lt;td&gt;18.60&lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;2    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Datsun 710&lt;/th&gt;&lt;td&gt;22.8 &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;108.0&lt;/td&gt;&lt;td&gt; 93  &lt;/td&gt;&lt;td&gt;3.85 &lt;/td&gt;&lt;td&gt;2.320&lt;/td&gt;&lt;td&gt;18.61&lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Merc 230&lt;/th&gt;&lt;td&gt;22.8 &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;140.8&lt;/td&gt;&lt;td&gt; 95  &lt;/td&gt;&lt;td&gt;3.92 &lt;/td&gt;&lt;td&gt;3.150&lt;/td&gt;&lt;td&gt;22.90&lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;2    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Merc 240D&lt;/th&gt;&lt;td&gt;24.4 &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;146.7&lt;/td&gt;&lt;td&gt; 62  &lt;/td&gt;&lt;td&gt;3.69 &lt;/td&gt;&lt;td&gt;3.190&lt;/td&gt;&lt;td&gt;20.00&lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;2    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Fiat X1-9&lt;/th&gt;&lt;td&gt;27.3 &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt; 79.0&lt;/td&gt;&lt;td&gt; 66  &lt;/td&gt;&lt;td&gt;4.08 &lt;/td&gt;&lt;td&gt;1.935&lt;/td&gt;&lt;td&gt;18.90&lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Honda Civic&lt;/th&gt;&lt;td&gt;30.4 &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt; 75.7&lt;/td&gt;&lt;td&gt; 52  &lt;/td&gt;&lt;td&gt;4.93 &lt;/td&gt;&lt;td&gt;1.615&lt;/td&gt;&lt;td&gt;18.52&lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;2    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Fiat 128&lt;/th&gt;&lt;td&gt;32.4 &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt; 78.7&lt;/td&gt;&lt;td&gt; 66  &lt;/td&gt;&lt;td&gt;4.08 &lt;/td&gt;&lt;td&gt;2.200&lt;/td&gt;&lt;td&gt;19.47&lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Toyota Corolla&lt;/th&gt;&lt;td&gt;33.9 &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt; 71.1&lt;/td&gt;&lt;td&gt; 65  &lt;/td&gt;&lt;td&gt;4.22 &lt;/td&gt;&lt;td&gt;1.835&lt;/td&gt;&lt;td&gt;19.90&lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Maserati Bora&lt;/th&gt;&lt;td&gt;15.0 &lt;/td&gt;&lt;td&gt;8    &lt;/td&gt;&lt;td&gt;301.0&lt;/td&gt;&lt;td&gt;335  &lt;/td&gt;&lt;td&gt;3.54 &lt;/td&gt;&lt;td&gt;3.570&lt;/td&gt;&lt;td&gt;14.60&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;5    &lt;/td&gt;&lt;td&gt;8    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Ford Pantera L&lt;/th&gt;&lt;td&gt;15.8 &lt;/td&gt;&lt;td&gt;8    &lt;/td&gt;&lt;td&gt;351.0&lt;/td&gt;&lt;td&gt;264  &lt;/td&gt;&lt;td&gt;4.22 &lt;/td&gt;&lt;td&gt;3.170&lt;/td&gt;&lt;td&gt;14.50&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;5    &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Ferrari Dino&lt;/th&gt;&lt;td&gt;19.7 &lt;/td&gt;&lt;td&gt;6    &lt;/td&gt;&lt;td&gt;145.0&lt;/td&gt;&lt;td&gt;175  &lt;/td&gt;&lt;td&gt;3.62 &lt;/td&gt;&lt;td&gt;2.770&lt;/td&gt;&lt;td&gt;15.50&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;5    &lt;/td&gt;&lt;td&gt;6    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Porsche 914-2&lt;/th&gt;&lt;td&gt;26.0 &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt;120.3&lt;/td&gt;&lt;td&gt; 91  &lt;/td&gt;&lt;td&gt;4.43 &lt;/td&gt;&lt;td&gt;2.140&lt;/td&gt;&lt;td&gt;16.70&lt;/td&gt;&lt;td&gt;0    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;5    &lt;/td&gt;&lt;td&gt;2    &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Lotus Europa&lt;/th&gt;&lt;td&gt;30.4 &lt;/td&gt;&lt;td&gt;4    &lt;/td&gt;&lt;td&gt; 95.1&lt;/td&gt;&lt;td&gt;113  &lt;/td&gt;&lt;td&gt;3.77 &lt;/td&gt;&lt;td&gt;1.513&lt;/td&gt;&lt;td&gt;16.90&lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;1    &lt;/td&gt;&lt;td&gt;5    &lt;/td&gt;&lt;td&gt;2    &lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr><th></th><th scope="col">mpg</th><th scope="col">cyl</th><th scope="col">disp</th><th scope="col">hp</th><th scope="col">drat</th><th scope="col">wt</th><th scope="col">qsec</th><th scope="col">vs</th><th scope="col">am</th><th scope="col">gear</th><th scope="col">carb</th></tr></thead>
+<tbody>
+	<tr><th scope="row">Cadillac Fleetwood</th><td>10.4 </td><td>8    </td><td>472.0</td><td>205  </td><td>2.93 </td><td>5.250</td><td>17.98</td><td>0    </td><td>0    </td><td>3    </td><td>4    </td></tr>
+	<tr><th scope="row">Lincoln Continental</th><td>10.4 </td><td>8    </td><td>460.0</td><td>215  </td><td>3.00 </td><td>5.424</td><td>17.82</td><td>0    </td><td>0    </td><td>3    </td><td>4    </td></tr>
+	<tr><th scope="row">Camaro Z28</th><td>13.3 </td><td>8    </td><td>350.0</td><td>245  </td><td>3.73 </td><td>3.840</td><td>15.41</td><td>0    </td><td>0    </td><td>3    </td><td>4    </td></tr>
+	<tr><th scope="row">Duster 360</th><td>14.3 </td><td>8    </td><td>360.0</td><td>245  </td><td>3.21 </td><td>3.570</td><td>15.84</td><td>0    </td><td>0    </td><td>3    </td><td>4    </td></tr>
+	<tr><th scope="row">Chrysler Imperial</th><td>14.7 </td><td>8    </td><td>440.0</td><td>230  </td><td>3.23 </td><td>5.345</td><td>17.42</td><td>0    </td><td>0    </td><td>3    </td><td>4    </td></tr>
+	<tr><th scope="row">Merc 450SLC</th><td>15.2 </td><td>8    </td><td>275.8</td><td>180  </td><td>3.07 </td><td>3.780</td><td>18.00</td><td>0    </td><td>0    </td><td>3    </td><td>3    </td></tr>
+	<tr><th scope="row">AMC Javelin</th><td>15.2 </td><td>8    </td><td>304.0</td><td>150  </td><td>3.15 </td><td>3.435</td><td>17.30</td><td>0    </td><td>0    </td><td>3    </td><td>2    </td></tr>
+	<tr><th scope="row">Dodge Challenger</th><td>15.5 </td><td>8    </td><td>318.0</td><td>150  </td><td>2.76 </td><td>3.520</td><td>16.87</td><td>0    </td><td>0    </td><td>3    </td><td>2    </td></tr>
+	<tr><th scope="row">Merc 450SE</th><td>16.4 </td><td>8    </td><td>275.8</td><td>180  </td><td>3.07 </td><td>4.070</td><td>17.40</td><td>0    </td><td>0    </td><td>3    </td><td>3    </td></tr>
+	<tr><th scope="row">Merc 450SL</th><td>17.3 </td><td>8    </td><td>275.8</td><td>180  </td><td>3.07 </td><td>3.730</td><td>17.60</td><td>0    </td><td>0    </td><td>3    </td><td>3    </td></tr>
+	<tr><th scope="row">Valiant</th><td>18.1 </td><td>6    </td><td>225.0</td><td>105  </td><td>2.76 </td><td>3.460</td><td>20.22</td><td>1    </td><td>0    </td><td>3    </td><td>1    </td></tr>
+	<tr><th scope="row">Hornet Sportabout</th><td>18.7 </td><td>8    </td><td>360.0</td><td>175  </td><td>3.15 </td><td>3.440</td><td>17.02</td><td>0    </td><td>0    </td><td>3    </td><td>2    </td></tr>
+	<tr><th scope="row">Pontiac Firebird</th><td>19.2 </td><td>8    </td><td>400.0</td><td>175  </td><td>3.08 </td><td>3.845</td><td>17.05</td><td>0    </td><td>0    </td><td>3    </td><td>2    </td></tr>
+	<tr><th scope="row">Hornet 4 Drive</th><td>21.4 </td><td>6    </td><td>258.0</td><td>110  </td><td>3.08 </td><td>3.215</td><td>19.44</td><td>1    </td><td>0    </td><td>3    </td><td>1    </td></tr>
+	<tr><th scope="row">Toyota Corona</th><td>21.5 </td><td>4    </td><td>120.1</td><td> 97  </td><td>3.70 </td><td>2.465</td><td>20.01</td><td>1    </td><td>0    </td><td>3    </td><td>1    </td></tr>
+	<tr><th scope="row">Merc 280C</th><td>17.8 </td><td>6    </td><td>167.6</td><td>123  </td><td>3.92 </td><td>3.440</td><td>18.90</td><td>1    </td><td>0    </td><td>4    </td><td>4    </td></tr>
+	<tr><th scope="row">Merc 280</th><td>19.2 </td><td>6    </td><td>167.6</td><td>123  </td><td>3.92 </td><td>3.440</td><td>18.30</td><td>1    </td><td>0    </td><td>4    </td><td>4    </td></tr>
+	<tr><th scope="row">Mazda RX4</th><td>21.0 </td><td>6    </td><td>160.0</td><td>110  </td><td>3.90 </td><td>2.620</td><td>16.46</td><td>0    </td><td>1    </td><td>4    </td><td>4    </td></tr>
+	<tr><th scope="row">Mazda RX4 Wag</th><td>21.0 </td><td>6    </td><td>160.0</td><td>110  </td><td>3.90 </td><td>2.875</td><td>17.02</td><td>0    </td><td>1    </td><td>4    </td><td>4    </td></tr>
+	<tr><th scope="row">Volvo 142E</th><td>21.4 </td><td>4    </td><td>121.0</td><td>109  </td><td>4.11 </td><td>2.780</td><td>18.60</td><td>1    </td><td>1    </td><td>4    </td><td>2    </td></tr>
+	<tr><th scope="row">Datsun 710</th><td>22.8 </td><td>4    </td><td>108.0</td><td> 93  </td><td>3.85 </td><td>2.320</td><td>18.61</td><td>1    </td><td>1    </td><td>4    </td><td>1    </td></tr>
+	<tr><th scope="row">Merc 230</th><td>22.8 </td><td>4    </td><td>140.8</td><td> 95  </td><td>3.92 </td><td>3.150</td><td>22.90</td><td>1    </td><td>0    </td><td>4    </td><td>2    </td></tr>
+	<tr><th scope="row">Merc 240D</th><td>24.4 </td><td>4    </td><td>146.7</td><td> 62  </td><td>3.69 </td><td>3.190</td><td>20.00</td><td>1    </td><td>0    </td><td>4    </td><td>2    </td></tr>
+	<tr><th scope="row">Fiat X1-9</th><td>27.3 </td><td>4    </td><td> 79.0</td><td> 66  </td><td>4.08 </td><td>1.935</td><td>18.90</td><td>1    </td><td>1    </td><td>4    </td><td>1    </td></tr>
+	<tr><th scope="row">Honda Civic</th><td>30.4 </td><td>4    </td><td> 75.7</td><td> 52  </td><td>4.93 </td><td>1.615</td><td>18.52</td><td>1    </td><td>1    </td><td>4    </td><td>2    </td></tr>
+	<tr><th scope="row">Fiat 128</th><td>32.4 </td><td>4    </td><td> 78.7</td><td> 66  </td><td>4.08 </td><td>2.200</td><td>19.47</td><td>1    </td><td>1    </td><td>4    </td><td>1    </td></tr>
+	<tr><th scope="row">Toyota Corolla</th><td>33.9 </td><td>4    </td><td> 71.1</td><td> 65  </td><td>4.22 </td><td>1.835</td><td>19.90</td><td>1    </td><td>1    </td><td>4    </td><td>1    </td></tr>
+	<tr><th scope="row">Maserati Bora</th><td>15.0 </td><td>8    </td><td>301.0</td><td>335  </td><td>3.54 </td><td>3.570</td><td>14.60</td><td>0    </td><td>1    </td><td>5    </td><td>8    </td></tr>
+	<tr><th scope="row">Ford Pantera L</th><td>15.8 </td><td>8    </td><td>351.0</td><td>264  </td><td>4.22 </td><td>3.170</td><td>14.50</td><td>0    </td><td>1    </td><td>5    </td><td>4    </td></tr>
+	<tr><th scope="row">Ferrari Dino</th><td>19.7 </td><td>6    </td><td>145.0</td><td>175  </td><td>3.62 </td><td>2.770</td><td>15.50</td><td>0    </td><td>1    </td><td>5    </td><td>6    </td></tr>
+	<tr><th scope="row">Porsche 914-2</th><td>26.0 </td><td>4    </td><td>120.3</td><td> 91  </td><td>4.43 </td><td>2.140</td><td>16.70</td><td>0    </td><td>1    </td><td>5    </td><td>2    </td></tr>
+	<tr><th scope="row">Lotus Europa</th><td>30.4 </td><td>4    </td><td> 95.1</td><td>113  </td><td>3.77 </td><td>1.513</td><td>16.90</td><td>1    </td><td>1    </td><td>5    </td><td>2    </td></tr>
+</tbody>
+</table>
 
-&lt;/div&gt;
+</div>
 
-&lt;/div&gt;
+</div>
 
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
 
-&lt;/div&gt;
+</div>
     
 
     
     
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-&lt;div class=&quot;input&quot;&gt;
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-&lt;div class=&quot;inner_cell&quot;&gt;
-    &lt;div class=&quot;input_area&quot;&gt;
-&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mtcars&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mtcars&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mtcars&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mpg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ggplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;disp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;colour&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cyl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; 
-    &lt;span class=&quot;n&quot;&gt;geom_point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mtcars</span><span class="p">[</span><span class="n">order</span><span class="p">(</span><span class="n">mtcars</span><span class="err">$</span><span class="n">gear</span><span class="p">,</span> <span class="n">mtcars</span><span class="err">$</span><span class="n">mpg</span><span class="p">),</span> <span class="p">]</span> <span class="o">%&gt;%</span>
+    <span class="n">ggplot</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">disp</span><span class="p">,</span> <span class="n">hp</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="n">cyl</span><span class="p">))</span> <span class="o">+</span> 
+    <span class="n">geom_point</span><span class="p">()</span>
+</pre></div>
 
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+    </div>
+</div>
+</div>
 
-&lt;div class=&quot;output_wrapper&quot;&gt;
-&lt;div class=&quot;output&quot;&gt;
+<div class="output_wrapper">
+<div class="output">
 
-&lt;div class=&quot;output_area&quot;&gt;
-
-
-
-
-&lt;/div&gt;
-
-&lt;div class=&quot;output_area&quot;&gt;
+<div class="output_area">
 
 
 
-&lt;div class=&quot;output_png output_subarea &quot;&gt;
-&lt;img src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0gAAANICAIAAAByhViMAAAACXBIWXMAABJ0AAASdAHeZh94
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0gAAANICAIAAAByhViMAAAACXBIWXMAABJ0AAASdAHeZh94
 AAAgAElEQVR4nOzdeXzcdZ3A/89cOdqkadLQixboQYWCnAJiBQUVORbwRAUFRVRQFlF3cRV+
 K4L3ASjy8we4cnigwLIKHii6grCLggjtKlcLFkppgaZt0jRNMpmZ3x+DoabpnZlv85nn89EH
 j+bTdOb9oWn76vf7ne+kSqVSAABg9EsnPQAAACND2AEARELYAQBEQtgBAERC2AEARELYAQBE
@@ -662,59 +609,59 @@ s4pgB8CBZGVlmUymGzduPHnyJCQkpLi4uKampqGhYcqwRYsW1dbW5uTknD59+suXLz4+PpGR
 kbW1tSEhIdYBMpns1q1bJ06cqK+vd3NzS01N1Wq1s341ADDbJNM+rQwAzmvDhg1DQ0O2F1EA
 wH8Hz9gBAACIBMEOAABAJAh2AAAAIsEzdgAAACLBih0AAIBIEOwAAABEgmAHAAAgEgQ7AAAA
 kSDYAQAAiATBDgAAQCQIdgAAACJBsAMAABAJgh0AAIBI/A1jOCJjxmLRZwAAAABJRU5ErkJg
-gg==&quot; /&gt;
-&lt;/div&gt;
+gg==" />
+</div>
 
-&lt;/div&gt;
+</div>
 
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
 
-&lt;/div&gt;
+</div>
     
 
     
     
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-&lt;div class=&quot;input&quot;&gt;
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-&lt;div class=&quot;inner_cell&quot;&gt;
-    &lt;div class=&quot;input_area&quot;&gt;
-&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;crimes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tolower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rownames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;USArrests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;USArrests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">crimes</span> <span class="o">&lt;-</span> <span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">state</span> <span class="o">=</span> <span class="n">tolower</span><span class="p">(</span><span class="n">rownames</span><span class="p">(</span><span class="n">USArrests</span><span class="p">)),</span> <span class="n">USArrests</span><span class="p">)</span>
 
-&lt;span class=&quot;c1&quot;&gt;# Equivalent to crimes %&amp;gt;% tidyr::pivot_longer(Murder:Rape)&lt;/span&gt;
- &lt;span class=&quot;nb&quot;&gt;vars&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lapply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;crimes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;crimes&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;variable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;crimes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]])&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;crimes_long&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;rbind&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;vars&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+<span class="c1"># Equivalent to crimes %&gt;% tidyr::pivot_longer(Murder:Rape)</span>
+ <span class="nb">vars</span> <span class="o">&lt;-</span> <span class="n">lapply</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">crimes</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">function</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+<span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">state</span> <span class="o">=</span> <span class="n">crimes</span><span class="err">$</span><span class="n">state</span><span class="p">,</span> <span class="n">variable</span> <span class="o">=</span> <span class="n">j</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">crimes</span><span class="p">[[</span><span class="n">j</span><span class="p">]])</span>
+<span class="p">})</span>
+<span class="n">crimes_long</span> <span class="o">&lt;-</span> <span class="n">do</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;rbind&quot;</span><span class="p">,</span> <span class="nb">vars</span><span class="p">)</span>
 
-&lt;span class=&quot;n&quot;&gt;states_map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;state&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;ggplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;crimes_long&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;geom_map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fill&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;states_map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;expand_limits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;states_map&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;long&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;states_map&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;facet_wrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+<span class="n">states_map</span> <span class="o">&lt;-</span> <span class="n">map_data</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">)</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">crimes_long</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">map_id</span> <span class="o">=</span> <span class="n">state</span><span class="p">))</span> <span class="o">+</span>
+    <span class="n">geom_map</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">value</span><span class="p">),</span> <span class="nb">map</span> <span class="o">=</span> <span class="n">states_map</span><span class="p">)</span> <span class="o">+</span>
+    <span class="n">expand_limits</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">states_map</span><span class="err">$</span><span class="n">long</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">states_map</span><span class="err">$</span><span class="n">lat</span><span class="p">)</span> <span class="o">+</span>
+    <span class="n">facet_wrap</span><span class="p">(</span> <span class="o">~</span> <span class="n">variable</span><span class="p">)</span>
+</pre></div>
 
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+    </div>
+</div>
+</div>
 
-&lt;div class=&quot;output_wrapper&quot;&gt;
-&lt;div class=&quot;output&quot;&gt;
+<div class="output_wrapper">
+<div class="output">
 
-&lt;div class=&quot;output_area&quot;&gt;
-
-
-
-
-&lt;/div&gt;
-
-&lt;div class=&quot;output_area&quot;&gt;
+<div class="output_area">
 
 
 
-&lt;div class=&quot;output_png output_subarea &quot;&gt;
-&lt;img src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0gAAANICAIAAAByhViMAAAACXBIWXMAABJ0AAASdAHeZh94
+
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0gAAANICAIAAAByhViMAAAACXBIWXMAABJ0AAASdAHeZh94
 AAAgAElEQVR4nOzdd3xT9f4/8M/JbJLuguzlgAIKFBEQZFdAtpei4Kjjgori4ityxXtFUe4V
 /Sl6r7gHluUCZLQIhQLSYlEUChRoZZQ9LKSlM02T8/vjo8eYpOlJcnZezwcPHuHk5JxP0xP6
 6vszDsOyLAEAAAAA9dPJ3QAAAAAAEAaCHQAAAIBGINgBAAAAaASCHQAAAIBGINgBAAAAaASC
@@ -1717,355 +1664,57 @@ INgBUNfcuXMrKyuFEC+99NKAAQMCnl2+fHmPHj2EEOvWrduxY4cG5QMAA6ErFoCKduzYMX78
 eCHEwIEDjxw5EvSesO+///6ECROEEN26dTtx4kTHjh0TXUoAMAqCHQAAgEHQFQsAAGAQBDsA
 AACDINgBAAAYBMEOAADAIAh2AAAABkGwAwAAMAiCHQAAgEEQ7AAAAAyCYAcAAGAQBDsAAACD
 INgBAAAYBMEOAADAIAh2AAAABkGwAwAAMAiCHQAAgEEQ7AAAAAyCYAcAAGAQBDsAAACDINgB
-AAAYBMEOAADAIAh2AAAABvH/ASDdrsbSICrNAAAAAElFTkSuQmCC&quot; /&gt;
-&lt;/div&gt;
+AAAYBMEOAADAIAh2AAAABvH/ASDdrsbSICrNAAAAAElFTkSuQmCC" />
+</div>
 
-&lt;/div&gt;
+</div>
 
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
 
-&lt;/div&gt;
+</div>
     
 
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;I did also try to use &lt;strong&gt;ggvis&lt;/strong&gt; as well but it just wont display properly so that's unfortunately out.&lt;/p&gt;
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I did also try to use <strong>ggvis</strong> as well but it just wont display properly so that's unfortunately out.</p>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">A Post Exploring Altair</title><link href="https://orgulo.us/altair/jupyter/python/2020/09/06/exploring-altair-visualization.html" rel="alternate" type="text/html" title="A Post Exploring Altair" /><published>2020-09-06T00:00:00-05:00</published><updated>2020-09-06T00:00:00-05:00</updated><id>https://orgulo.us/altair/jupyter/python/2020/09/06/exploring-altair-visualization</id><content type="html" xml:base="https://orgulo.us/altair/jupyter/python/2020/09/06/exploring-altair-visualization.html">&lt;!--
-#################################################
-### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
-#################################################
-# file to edit: _notebooks/2020-09-06-exploring-altair-visualization.ipynb
---&gt;
-
-&lt;div class=&quot;container&quot; id=&quot;notebook-container&quot;&gt;
-        
-    
-    
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-
-&lt;/div&gt;
-    
-
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h1 id=&quot;This-Is-The-Tool-We-Have&quot;&gt;This Is The Tool We Have&lt;a class=&quot;anchor-link&quot; href=&quot;#This-Is-The-Tool-We-Have&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;I'm trying out the fastpages in hopes that I wont have to spend the time building out my own website toolset. I've been slowly building something out of &lt;a href=&quot;https://wagtail.io/&quot;&gt;Wagtail&lt;/a&gt; which is a really just Djnago with some bells.
-The real allure though is going to be the Notebook conversions - specifically the Data Visualizations. The library for interactive version is &lt;a href=&quot;https://altair-viz.github.io/getting_started/overview.html&quot;&gt;Altair&lt;/a&gt; and we're going to explore some data!&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h1 id=&quot;Lets-Explore!&quot;&gt;Lets Explore!&lt;a class=&quot;anchor-link&quot; href=&quot;#Lets-Explore!&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;So, the tutorial for &lt;strong&gt;Scatter Plot&lt;/strong&gt; uses the car data but I figured we mind as well do the classic Iris dataset.
-We'll start by importing the dataset from &lt;code&gt;vega_datasets&lt;/code&gt; - which is the Javascript library that &lt;strong&gt;Altair&lt;/strong&gt; is built on top of - using &lt;code&gt;iris = data.iris()&lt;/code&gt;.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-    
-    
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-&lt;div class=&quot;input&quot;&gt;
-
-&lt;div class=&quot;inner_cell&quot;&gt;
-    &lt;div class=&quot;input_area&quot;&gt;
-&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iris&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iris&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;iris&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;output_wrapper&quot;&gt;
-&lt;div class=&quot;output&quot;&gt;
-
-&lt;div class=&quot;output_area&quot;&gt;
+</div>
+</div>
+</div>
+</div>
 
 
-&lt;div class=&quot;output_html rendered_html output_subarea output_execute_result&quot;&gt;
-&lt;div&gt;
-&lt;style scoped=&quot;&quot;&gt;
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+  </div><a class="u-url" href="/r/jupyter/ggplot/2020/09/09/Fastbooks-Incidentally-Supports-R.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-&lt;/style&gt;
-&lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;
-  &lt;thead&gt;
-    &lt;tr style=&quot;text-align: right;&quot;&gt;
-      &lt;th&gt;&lt;/th&gt;
-      &lt;th&gt;sepalLength&lt;/th&gt;
-      &lt;th&gt;sepalWidth&lt;/th&gt;
-      &lt;th&gt;petalLength&lt;/th&gt;
-      &lt;th&gt;petalWidth&lt;/th&gt;
-      &lt;th&gt;species&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;th&gt;0&lt;/th&gt;
-      &lt;td&gt;5.1&lt;/td&gt;
-      &lt;td&gt;3.5&lt;/td&gt;
-      &lt;td&gt;1.4&lt;/td&gt;
-      &lt;td&gt;0.2&lt;/td&gt;
-      &lt;td&gt;setosa&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;1&lt;/th&gt;
-      &lt;td&gt;4.9&lt;/td&gt;
-      &lt;td&gt;3.0&lt;/td&gt;
-      &lt;td&gt;1.4&lt;/td&gt;
-      &lt;td&gt;0.2&lt;/td&gt;
-      &lt;td&gt;setosa&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;2&lt;/th&gt;
-      &lt;td&gt;4.7&lt;/td&gt;
-      &lt;td&gt;3.2&lt;/td&gt;
-      &lt;td&gt;1.3&lt;/td&gt;
-      &lt;td&gt;0.2&lt;/td&gt;
-      &lt;td&gt;setosa&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;3&lt;/th&gt;
-      &lt;td&gt;4.6&lt;/td&gt;
-      &lt;td&gt;3.1&lt;/td&gt;
-      &lt;td&gt;1.5&lt;/td&gt;
-      &lt;td&gt;0.2&lt;/td&gt;
-      &lt;td&gt;setosa&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;4&lt;/th&gt;
-      &lt;td&gt;5.0&lt;/td&gt;
-      &lt;td&gt;3.6&lt;/td&gt;
-      &lt;td&gt;1.4&lt;/td&gt;
-      &lt;td&gt;0.2&lt;/td&gt;
-      &lt;td&gt;setosa&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;...&lt;/th&gt;
-      &lt;td&gt;...&lt;/td&gt;
-      &lt;td&gt;...&lt;/td&gt;
-      &lt;td&gt;...&lt;/td&gt;
-      &lt;td&gt;...&lt;/td&gt;
-      &lt;td&gt;...&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;145&lt;/th&gt;
-      &lt;td&gt;6.7&lt;/td&gt;
-      &lt;td&gt;3.0&lt;/td&gt;
-      &lt;td&gt;5.2&lt;/td&gt;
-      &lt;td&gt;2.3&lt;/td&gt;
-      &lt;td&gt;virginica&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;146&lt;/th&gt;
-      &lt;td&gt;6.3&lt;/td&gt;
-      &lt;td&gt;2.5&lt;/td&gt;
-      &lt;td&gt;5.0&lt;/td&gt;
-      &lt;td&gt;1.9&lt;/td&gt;
-      &lt;td&gt;virginica&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;147&lt;/th&gt;
-      &lt;td&gt;6.5&lt;/td&gt;
-      &lt;td&gt;3.0&lt;/td&gt;
-      &lt;td&gt;5.2&lt;/td&gt;
-      &lt;td&gt;2.0&lt;/td&gt;
-      &lt;td&gt;virginica&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;148&lt;/th&gt;
-      &lt;td&gt;6.2&lt;/td&gt;
-      &lt;td&gt;3.4&lt;/td&gt;
-      &lt;td&gt;5.4&lt;/td&gt;
-      &lt;td&gt;2.3&lt;/td&gt;
-      &lt;td&gt;virginica&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;th&gt;149&lt;/th&gt;
-      &lt;td&gt;5.9&lt;/td&gt;
-      &lt;td&gt;3.0&lt;/td&gt;
-      &lt;td&gt;5.1&lt;/td&gt;
-      &lt;td&gt;1.8&lt;/td&gt;
-      &lt;td&gt;virginica&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;150 rows × 5 columns&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+  <div class="wrapper">
 
-&lt;/div&gt;
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p></p>
+      </div>
+    </div>
 
-&lt;/div&gt;
-&lt;/div&gt;
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/shoklan" title="shoklan"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/shoklan" title="shoklan"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
 
-&lt;/div&gt;
-    
+  </div>
 
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;First lets see the graph - and then we'll discuss the functions&lt;/p&gt;
+</footer>
+</body>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-    
-    
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-&lt;div class=&quot;input&quot;&gt;
-
-&lt;div class=&quot;inner_cell&quot;&gt;
-    &lt;div class=&quot;input_area&quot;&gt;
-&lt;div class=&quot; highlight hl-ipython3&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alt&lt;/span&gt;\
-    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Chart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iris&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\
-    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mark_point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;\
-    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;sepalLength&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;sepalWidth&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;species&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;tooltip&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;species&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;petalLength&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;petalWidth&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\
-    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interactive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;output_wrapper&quot;&gt;
-&lt;div class=&quot;output&quot;&gt;
-
-&lt;div class=&quot;output_area&quot;&gt;
-
-
-&lt;div class=&quot;output_html rendered_html output_subarea output_execute_result&quot;&gt;
-
-&lt;div id=&quot;altair-viz-de37bf7bb6334eaf86a56661434ec39d&quot;&gt;&lt;/div&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-  (function(spec, embedOpt){
-    let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== &quot;altair-viz-de37bf7bb6334eaf86a56661434ec39d&quot;) {
-      outputDiv = document.getElementById(&quot;altair-viz-de37bf7bb6334eaf86a56661434ec39d&quot;);
-    }
-    const paths = {
-      &quot;vega&quot;: &quot;https://cdn.jsdelivr.net/npm//vega@5?noext&quot;,
-      &quot;vega-lib&quot;: &quot;https://cdn.jsdelivr.net/npm//vega-lib?noext&quot;,
-      &quot;vega-lite&quot;: &quot;https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext&quot;,
-      &quot;vega-embed&quot;: &quot;https://cdn.jsdelivr.net/npm//vega-embed@6?noext&quot;,
-    };
-
-    function loadScript(lib) {
-      return new Promise(function(resolve, reject) {
-        var s = document.createElement('script');
-        s.src = paths[lib];
-        s.async = true;
-        s.onload = () =&gt; resolve(paths[lib]);
-        s.onerror = () =&gt; reject(`Error loading script: ${paths[lib]}`);
-        document.getElementsByTagName(&quot;head&quot;)[0].appendChild(s);
-      });
-    }
-
-    function showError(err) {
-      outputDiv.innerHTML = `&lt;div class=&quot;error&quot; style=&quot;color:red;&quot;&gt;${err}&lt;/div&gt;`;
-      throw err;
-    }
-
-    function displayChart(vegaEmbed) {
-      vegaEmbed(outputDiv, spec, embedOpt)
-        .catch(err =&gt; showError(`Javascript Error: ${err.message}&lt;br&gt;This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
-    }
-
-    if(typeof define === &quot;function&quot; &amp;&amp; define.amd) {
-      requirejs.config({paths});
-      require([&quot;vega-embed&quot;], displayChart, err =&gt; showError(`Error loading script: ${err.message}`));
-    } else if (typeof vegaEmbed === &quot;function&quot;) {
-      displayChart(vegaEmbed);
-    } else {
-      loadScript(&quot;vega&quot;)
-        .then(() =&gt; loadScript(&quot;vega-lite&quot;))
-        .then(() =&gt; loadScript(&quot;vega-embed&quot;))
-        .catch(showError)
-        .then(() =&gt; displayChart(vegaEmbed));
-    }
-  })({&quot;config&quot;: {&quot;view&quot;: {&quot;continuousWidth&quot;: 400, &quot;continuousHeight&quot;: 300}}, &quot;data&quot;: {&quot;name&quot;: &quot;data-a264acbd6e539a8b3afc0cb5f240fb57&quot;}, &quot;mark&quot;: &quot;point&quot;, &quot;encoding&quot;: {&quot;color&quot;: {&quot;type&quot;: &quot;nominal&quot;, &quot;field&quot;: &quot;species&quot;}, &quot;tooltip&quot;: [{&quot;type&quot;: &quot;nominal&quot;, &quot;field&quot;: &quot;species&quot;}, {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;petalLength&quot;}, {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;petalWidth&quot;}], &quot;x&quot;: {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;sepalLength&quot;}, &quot;y&quot;: {&quot;type&quot;: &quot;quantitative&quot;, &quot;field&quot;: &quot;sepalWidth&quot;}}, &quot;selection&quot;: {&quot;selector003&quot;: {&quot;type&quot;: &quot;interval&quot;, &quot;bind&quot;: &quot;scales&quot;, &quot;encodings&quot;: [&quot;x&quot;, &quot;y&quot;]}}, &quot;$schema&quot;: &quot;https://vega.github.io/schema/vega-lite/v4.8.1.json&quot;, &quot;datasets&quot;: {&quot;data-a264acbd6e539a8b3afc0cb5f240fb57&quot;: [{&quot;sepalLength&quot;: 5.1, &quot;sepalWidth&quot;: 3.5, &quot;petalLength&quot;: 1.4, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.9, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 1.4, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.7, &quot;sepalWidth&quot;: 3.2, &quot;petalLength&quot;: 1.3, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.6, &quot;sepalWidth&quot;: 3.1, &quot;petalLength&quot;: 1.5, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.0, &quot;sepalWidth&quot;: 3.6, &quot;petalLength&quot;: 1.4, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.4, &quot;sepalWidth&quot;: 3.9, &quot;petalLength&quot;: 1.7000000000000002, &quot;petalWidth&quot;: 0.4, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.6, &quot;sepalWidth&quot;: 3.4, &quot;petalLength&quot;: 1.4, &quot;petalWidth&quot;: 0.30000000000000004, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.0, &quot;sepalWidth&quot;: 3.4, &quot;petalLength&quot;: 1.5, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.4, &quot;sepalWidth&quot;: 2.9, &quot;petalLength&quot;: 1.4, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.9, &quot;sepalWidth&quot;: 3.1, &quot;petalLength&quot;: 1.5, &quot;petalWidth&quot;: 0.1, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.4, &quot;sepalWidth&quot;: 3.7, &quot;petalLength&quot;: 1.5, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.8, &quot;sepalWidth&quot;: 3.4, &quot;petalLength&quot;: 1.6, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.8, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 1.4, &quot;petalWidth&quot;: 0.1, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.3, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 1.1, &quot;petalWidth&quot;: 0.1, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.8, &quot;sepalWidth&quot;: 4.0, &quot;petalLength&quot;: 1.2, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.7, &quot;sepalWidth&quot;: 4.4, &quot;petalLength&quot;: 1.5, &quot;petalWidth&quot;: 0.4, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.4, &quot;sepalWidth&quot;: 3.9, &quot;petalLength&quot;: 1.3, &quot;petalWidth&quot;: 0.4, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.1, &quot;sepalWidth&quot;: 3.5, &quot;petalLength&quot;: 1.4, &quot;petalWidth&quot;: 0.30000000000000004, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.7, &quot;sepalWidth&quot;: 3.8, &quot;petalLength&quot;: 1.7000000000000002, &quot;petalWidth&quot;: 0.30000000000000004, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.1, &quot;sepalWidth&quot;: 3.8, &quot;petalLength&quot;: 1.5, &quot;petalWidth&quot;: 0.30000000000000004, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.4, &quot;sepalWidth&quot;: 3.4, &quot;petalLength&quot;: 1.7000000000000002, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.1, &quot;sepalWidth&quot;: 3.7, &quot;petalLength&quot;: 1.5, &quot;petalWidth&quot;: 0.4, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.6, &quot;sepalWidth&quot;: 3.6, &quot;petalLength&quot;: 1.0, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.1, &quot;sepalWidth&quot;: 3.3, &quot;petalLength&quot;: 1.7000000000000002, &quot;petalWidth&quot;: 0.5, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.8, &quot;sepalWidth&quot;: 3.4, &quot;petalLength&quot;: 1.9, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.0, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 1.6, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.0, &quot;sepalWidth&quot;: 3.4, &quot;petalLength&quot;: 1.6, &quot;petalWidth&quot;: 0.4, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.2, &quot;sepalWidth&quot;: 3.5, &quot;petalLength&quot;: 1.5, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.2, &quot;sepalWidth&quot;: 3.4, &quot;petalLength&quot;: 1.4, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.7, &quot;sepalWidth&quot;: 3.2, &quot;petalLength&quot;: 1.6, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.8, &quot;sepalWidth&quot;: 3.1, &quot;petalLength&quot;: 1.6, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.4, &quot;sepalWidth&quot;: 3.4, &quot;petalLength&quot;: 1.5, &quot;petalWidth&quot;: 0.4, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.2, &quot;sepalWidth&quot;: 4.1, &quot;petalLength&quot;: 1.5, &quot;petalWidth&quot;: 0.1, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.5, &quot;sepalWidth&quot;: 4.2, &quot;petalLength&quot;: 1.4, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.9, &quot;sepalWidth&quot;: 3.1, &quot;petalLength&quot;: 1.5, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.0, &quot;sepalWidth&quot;: 3.2, &quot;petalLength&quot;: 1.2, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.5, &quot;sepalWidth&quot;: 3.5, &quot;petalLength&quot;: 1.3, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.9, &quot;sepalWidth&quot;: 3.6, &quot;petalLength&quot;: 1.4, &quot;petalWidth&quot;: 0.1, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.4, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 1.3, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.1, &quot;sepalWidth&quot;: 3.4, &quot;petalLength&quot;: 1.5, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.0, &quot;sepalWidth&quot;: 3.5, &quot;petalLength&quot;: 1.3, &quot;petalWidth&quot;: 0.30000000000000004, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.5, &quot;sepalWidth&quot;: 2.3, &quot;petalLength&quot;: 1.3, &quot;petalWidth&quot;: 0.30000000000000004, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.4, &quot;sepalWidth&quot;: 3.2, &quot;petalLength&quot;: 1.3, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.0, &quot;sepalWidth&quot;: 3.5, &quot;petalLength&quot;: 1.6, &quot;petalWidth&quot;: 0.6000000000000001, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.1, &quot;sepalWidth&quot;: 3.8, &quot;petalLength&quot;: 1.9, &quot;petalWidth&quot;: 0.4, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.8, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 1.4, &quot;petalWidth&quot;: 0.30000000000000004, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.1, &quot;sepalWidth&quot;: 3.8, &quot;petalLength&quot;: 1.6, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 4.6, &quot;sepalWidth&quot;: 3.2, &quot;petalLength&quot;: 1.4, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.3, &quot;sepalWidth&quot;: 3.7, &quot;petalLength&quot;: 1.5, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 5.0, &quot;sepalWidth&quot;: 3.3, &quot;petalLength&quot;: 1.4, &quot;petalWidth&quot;: 0.2, &quot;species&quot;: &quot;setosa&quot;}, {&quot;sepalLength&quot;: 7.0, &quot;sepalWidth&quot;: 3.2, &quot;petalLength&quot;: 4.7, &quot;petalWidth&quot;: 1.4, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.4, &quot;sepalWidth&quot;: 3.2, &quot;petalLength&quot;: 4.5, &quot;petalWidth&quot;: 1.5, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.9, &quot;sepalWidth&quot;: 3.1, &quot;petalLength&quot;: 4.9, &quot;petalWidth&quot;: 1.5, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.5, &quot;sepalWidth&quot;: 2.3, &quot;petalLength&quot;: 4.0, &quot;petalWidth&quot;: 1.3, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.5, &quot;sepalWidth&quot;: 2.8, &quot;petalLength&quot;: 4.6, &quot;petalWidth&quot;: 1.5, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.7, &quot;sepalWidth&quot;: 2.8, &quot;petalLength&quot;: 4.5, &quot;petalWidth&quot;: 1.3, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.3, &quot;sepalWidth&quot;: 3.3, &quot;petalLength&quot;: 4.7, &quot;petalWidth&quot;: 1.6, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 4.9, &quot;sepalWidth&quot;: 2.4, &quot;petalLength&quot;: 3.3, &quot;petalWidth&quot;: 1.0, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.6, &quot;sepalWidth&quot;: 2.9, &quot;petalLength&quot;: 4.6, &quot;petalWidth&quot;: 1.3, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.2, &quot;sepalWidth&quot;: 2.7, &quot;petalLength&quot;: 3.9, &quot;petalWidth&quot;: 1.4, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.0, &quot;sepalWidth&quot;: 2.0, &quot;petalLength&quot;: 3.5, &quot;petalWidth&quot;: 1.0, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.9, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 4.2, &quot;petalWidth&quot;: 1.5, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.0, &quot;sepalWidth&quot;: 2.2, &quot;petalLength&quot;: 4.0, &quot;petalWidth&quot;: 1.0, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.1, &quot;sepalWidth&quot;: 2.9, &quot;petalLength&quot;: 4.7, &quot;petalWidth&quot;: 1.4, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.6, &quot;sepalWidth&quot;: 2.9, &quot;petalLength&quot;: 3.6, &quot;petalWidth&quot;: 1.3, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.7, &quot;sepalWidth&quot;: 3.1, &quot;petalLength&quot;: 4.4, &quot;petalWidth&quot;: 1.4, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.6, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 4.5, &quot;petalWidth&quot;: 1.5, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.8, &quot;sepalWidth&quot;: 2.7, &quot;petalLength&quot;: 4.1, &quot;petalWidth&quot;: 1.0, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.2, &quot;sepalWidth&quot;: 2.2, &quot;petalLength&quot;: 4.5, &quot;petalWidth&quot;: 1.5, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.6, &quot;sepalWidth&quot;: 2.5, &quot;petalLength&quot;: 3.9, &quot;petalWidth&quot;: 1.1, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.9, &quot;sepalWidth&quot;: 3.2, &quot;petalLength&quot;: 4.8, &quot;petalWidth&quot;: 1.8, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.1, &quot;sepalWidth&quot;: 2.8, &quot;petalLength&quot;: 4.0, &quot;petalWidth&quot;: 1.3, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.3, &quot;sepalWidth&quot;: 2.5, &quot;petalLength&quot;: 4.9, &quot;petalWidth&quot;: 1.5, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.1, &quot;sepalWidth&quot;: 2.8, &quot;petalLength&quot;: 4.7, &quot;petalWidth&quot;: 1.2, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.4, &quot;sepalWidth&quot;: 2.9, &quot;petalLength&quot;: 4.3, &quot;petalWidth&quot;: 1.3, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.6, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 4.4, &quot;petalWidth&quot;: 1.4, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.8, &quot;sepalWidth&quot;: 2.8, &quot;petalLength&quot;: 4.8, &quot;petalWidth&quot;: 1.4, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.7, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 5.0, &quot;petalWidth&quot;: 1.7000000000000002, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.0, &quot;sepalWidth&quot;: 2.9, &quot;petalLength&quot;: 4.5, &quot;petalWidth&quot;: 1.5, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.7, &quot;sepalWidth&quot;: 2.6, &quot;petalLength&quot;: 3.5, &quot;petalWidth&quot;: 1.0, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.5, &quot;sepalWidth&quot;: 2.4, &quot;petalLength&quot;: 3.8, &quot;petalWidth&quot;: 1.1, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.5, &quot;sepalWidth&quot;: 2.4, &quot;petalLength&quot;: 3.7, &quot;petalWidth&quot;: 1.0, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.8, &quot;sepalWidth&quot;: 2.7, &quot;petalLength&quot;: 3.9, &quot;petalWidth&quot;: 1.2, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.0, &quot;sepalWidth&quot;: 2.7, &quot;petalLength&quot;: 5.1, &quot;petalWidth&quot;: 1.6, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.4, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 4.5, &quot;petalWidth&quot;: 1.5, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.0, &quot;sepalWidth&quot;: 3.4, &quot;petalLength&quot;: 4.5, &quot;petalWidth&quot;: 1.6, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.7, &quot;sepalWidth&quot;: 3.1, &quot;petalLength&quot;: 4.7, &quot;petalWidth&quot;: 1.5, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.3, &quot;sepalWidth&quot;: 2.3, &quot;petalLength&quot;: 4.4, &quot;petalWidth&quot;: 1.3, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.6, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 4.1, &quot;petalWidth&quot;: 1.3, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.5, &quot;sepalWidth&quot;: 2.5, &quot;petalLength&quot;: 4.0, &quot;petalWidth&quot;: 1.3, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.5, &quot;sepalWidth&quot;: 2.6, &quot;petalLength&quot;: 4.4, &quot;petalWidth&quot;: 1.2, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.1, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 4.6, &quot;petalWidth&quot;: 1.4, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.8, &quot;sepalWidth&quot;: 2.6, &quot;petalLength&quot;: 4.0, &quot;petalWidth&quot;: 1.2, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.0, &quot;sepalWidth&quot;: 2.3, &quot;petalLength&quot;: 3.3, &quot;petalWidth&quot;: 1.0, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.6, &quot;sepalWidth&quot;: 2.7, &quot;petalLength&quot;: 4.2, &quot;petalWidth&quot;: 1.3, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.7, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 4.2, &quot;petalWidth&quot;: 1.2, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.7, &quot;sepalWidth&quot;: 2.9, &quot;petalLength&quot;: 4.2, &quot;petalWidth&quot;: 1.3, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.2, &quot;sepalWidth&quot;: 2.9, &quot;petalLength&quot;: 4.3, &quot;petalWidth&quot;: 1.3, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.1, &quot;sepalWidth&quot;: 2.5, &quot;petalLength&quot;: 3.0, &quot;petalWidth&quot;: 1.1, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 5.7, &quot;sepalWidth&quot;: 2.8, &quot;petalLength&quot;: 4.1, &quot;petalWidth&quot;: 1.3, &quot;species&quot;: &quot;versicolor&quot;}, {&quot;sepalLength&quot;: 6.3, &quot;sepalWidth&quot;: 3.3, &quot;petalLength&quot;: 6.0, &quot;petalWidth&quot;: 2.5, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 5.8, &quot;sepalWidth&quot;: 2.7, &quot;petalLength&quot;: 5.1, &quot;petalWidth&quot;: 1.9, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 7.1, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 5.9, &quot;petalWidth&quot;: 2.1, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.3, &quot;sepalWidth&quot;: 2.9, &quot;petalLength&quot;: 5.6, &quot;petalWidth&quot;: 1.8, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.5, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 5.8, &quot;petalWidth&quot;: 2.2, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 7.6, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 6.6, &quot;petalWidth&quot;: 2.1, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 4.9, &quot;sepalWidth&quot;: 2.5, &quot;petalLength&quot;: 4.5, &quot;petalWidth&quot;: 1.7000000000000002, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 7.3, &quot;sepalWidth&quot;: 2.9, &quot;petalLength&quot;: 6.3, &quot;petalWidth&quot;: 1.8, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.7, &quot;sepalWidth&quot;: 2.5, &quot;petalLength&quot;: 5.8, &quot;petalWidth&quot;: 1.8, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 7.2, &quot;sepalWidth&quot;: 3.6, &quot;petalLength&quot;: 6.1, &quot;petalWidth&quot;: 2.5, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.5, &quot;sepalWidth&quot;: 3.2, &quot;petalLength&quot;: 5.1, &quot;petalWidth&quot;: 2.0, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.4, &quot;sepalWidth&quot;: 2.7, &quot;petalLength&quot;: 5.3, &quot;petalWidth&quot;: 1.9, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.8, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 5.5, &quot;petalWidth&quot;: 2.1, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 5.7, &quot;sepalWidth&quot;: 2.5, &quot;petalLength&quot;: 5.0, &quot;petalWidth&quot;: 2.0, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 5.8, &quot;sepalWidth&quot;: 2.8, &quot;petalLength&quot;: 5.1, &quot;petalWidth&quot;: 2.4, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.4, &quot;sepalWidth&quot;: 3.2, &quot;petalLength&quot;: 5.3, &quot;petalWidth&quot;: 2.3, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.5, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 5.5, &quot;petalWidth&quot;: 1.8, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 7.7, &quot;sepalWidth&quot;: 3.8, &quot;petalLength&quot;: 6.7, &quot;petalWidth&quot;: 2.2, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 7.7, &quot;sepalWidth&quot;: 2.6, &quot;petalLength&quot;: 6.9, &quot;petalWidth&quot;: 2.3, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.0, &quot;sepalWidth&quot;: 2.2, &quot;petalLength&quot;: 5.0, &quot;petalWidth&quot;: 1.5, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.9, &quot;sepalWidth&quot;: 3.2, &quot;petalLength&quot;: 5.7, &quot;petalWidth&quot;: 2.3, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 5.6, &quot;sepalWidth&quot;: 2.8, &quot;petalLength&quot;: 4.9, &quot;petalWidth&quot;: 2.0, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 7.7, &quot;sepalWidth&quot;: 2.8, &quot;petalLength&quot;: 6.7, &quot;petalWidth&quot;: 2.0, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.3, &quot;sepalWidth&quot;: 2.7, &quot;petalLength&quot;: 4.9, &quot;petalWidth&quot;: 1.8, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.7, &quot;sepalWidth&quot;: 3.3, &quot;petalLength&quot;: 5.7, &quot;petalWidth&quot;: 2.1, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 7.2, &quot;sepalWidth&quot;: 3.2, &quot;petalLength&quot;: 6.0, &quot;petalWidth&quot;: 1.8, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.2, &quot;sepalWidth&quot;: 2.8, &quot;petalLength&quot;: 4.8, &quot;petalWidth&quot;: 1.8, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.1, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 4.9, &quot;petalWidth&quot;: 1.8, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.4, &quot;sepalWidth&quot;: 2.8, &quot;petalLength&quot;: 5.6, &quot;petalWidth&quot;: 2.1, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 7.2, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 5.8, &quot;petalWidth&quot;: 1.6, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 7.4, &quot;sepalWidth&quot;: 2.8, &quot;petalLength&quot;: 6.1, &quot;petalWidth&quot;: 1.9, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 7.9, &quot;sepalWidth&quot;: 3.8, &quot;petalLength&quot;: 6.4, &quot;petalWidth&quot;: 2.0, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.4, &quot;sepalWidth&quot;: 2.8, &quot;petalLength&quot;: 5.6, &quot;petalWidth&quot;: 2.2, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.3, &quot;sepalWidth&quot;: 2.8, &quot;petalLength&quot;: 5.1, &quot;petalWidth&quot;: 1.5, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.1, &quot;sepalWidth&quot;: 2.6, &quot;petalLength&quot;: 5.6, &quot;petalWidth&quot;: 1.4, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 7.7, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 6.1, &quot;petalWidth&quot;: 2.3, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.3, &quot;sepalWidth&quot;: 3.4, &quot;petalLength&quot;: 5.6, &quot;petalWidth&quot;: 2.4, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.4, &quot;sepalWidth&quot;: 3.1, &quot;petalLength&quot;: 5.5, &quot;petalWidth&quot;: 1.8, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.0, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 4.8, &quot;petalWidth&quot;: 1.8, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.9, &quot;sepalWidth&quot;: 3.1, &quot;petalLength&quot;: 5.4, &quot;petalWidth&quot;: 2.1, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.7, &quot;sepalWidth&quot;: 3.1, &quot;petalLength&quot;: 5.6, &quot;petalWidth&quot;: 2.4, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.9, &quot;sepalWidth&quot;: 3.1, &quot;petalLength&quot;: 5.1, &quot;petalWidth&quot;: 2.3, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 5.8, &quot;sepalWidth&quot;: 2.7, &quot;petalLength&quot;: 5.1, &quot;petalWidth&quot;: 1.9, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.8, &quot;sepalWidth&quot;: 3.2, &quot;petalLength&quot;: 5.9, &quot;petalWidth&quot;: 2.3, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.7, &quot;sepalWidth&quot;: 3.3, &quot;petalLength&quot;: 5.7, &quot;petalWidth&quot;: 2.5, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.7, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 5.2, &quot;petalWidth&quot;: 2.3, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.3, &quot;sepalWidth&quot;: 2.5, &quot;petalLength&quot;: 5.0, &quot;petalWidth&quot;: 1.9, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.5, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 5.2, &quot;petalWidth&quot;: 2.0, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 6.2, &quot;sepalWidth&quot;: 3.4, &quot;petalLength&quot;: 5.4, &quot;petalWidth&quot;: 2.3, &quot;species&quot;: &quot;virginica&quot;}, {&quot;sepalLength&quot;: 5.9, &quot;sepalWidth&quot;: 3.0, &quot;petalLength&quot;: 5.1, &quot;petalWidth&quot;: 1.8, &quot;species&quot;: &quot;virginica&quot;}]}}, {&quot;mode&quot;: &quot;vega-lite&quot;});
-&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
-    
-
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;It is interesting to note that - per the Docs - :&lt;/p&gt;
-&lt;blockquote&gt;&lt;p&gt;Create a basic Altair/Vega-Lite chart.&lt;/p&gt;
-&lt;p&gt;Although it is possible to set all Chart properties as constructor attributes,
-it is more idiomatic to use methods such as &lt;code&gt;mark_point()&lt;/code&gt;, &lt;code&gt;encode()&lt;/code&gt;,
-&lt;code&gt;transform_filter()&lt;/code&gt;, &lt;code&gt;properties()&lt;/code&gt;, etc.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;.. which means that it's found a way to do something similar to the R Programming Languages pipe operator. For reference, it would looks something like this:&lt;code&gt;mtcars %&amp;gt;% 
-    ggplot(aes(wt, mpg)) +
-    geom_point(aes(colour = factor(cyl)))&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://ggplot2.tidyverse.org/reference/geom_point-2.png&quot; alt=&quot;Example R Graph&quot; /&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;First we tell altair to make a chart using the dataset we're using:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;.Chart(iris)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;... which is then followed by the kind of graph that we're after - in this case we're after a scatter plot:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;.mark_point()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;... and then we tell it where everything belongs.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;.encode(
-    x='sepalLength',
-    y='sepalWidth',
-    color='species',
-    tooltip = ['species', 'petalLength', 'petalWidth']
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Of interest is that you can add data from the other columns easily using the &lt;code&gt;tooltip&lt;/code&gt; without having to add anything extra.
-Layering information which is relevant but lacks a meaningful graphic representation was a nice touch.&lt;/p&gt;
-&lt;p&gt;Then of course, you allow users to interact with it via:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;.interactive()&lt;/code&gt;&lt;/pre&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;Lets see what this post looks like on the blog!&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Book Review: Voices of the Void</title><link href="https://orgulo.us/books/review/scifi/2020/07/09/Voices-of-the-Void.html" rel="alternate" type="text/html" title="Book Review: Voices of the Void" /><published>2020-07-09T00:00:00-05:00</published><updated>2020-07-09T00:00:00-05:00</updated><id>https://orgulo.us/books/review/scifi/2020/07/09/Voices-of-the-Void</id><content type="html" xml:base="https://orgulo.us/books/review/scifi/2020/07/09/Voices-of-the-Void.html">&lt;h1 id=&quot;book-review-voices-of-the-void&quot;&gt;Book Review: Voices of the Void&lt;/h1&gt;
-
-&lt;p&gt;The Voices of the Void by David Stewart is a pleasant short story that mixes a Science Fiction backdrop with some supernatural horror. We join the introduced protagonist - Andrew Dalatent  - entering a mining colony called New Gibralter where he appears tasked with figuring out what happened to the people there. And, I say it appears because as he starts his descent you find out he’s more aware of the whys and whats of the situation than is initially let on.&lt;/p&gt;
-
-&lt;p&gt;Coupled with his own supernatural ability to observe future and past versions of events around him, we get to join him as he tries to survive against humanity removed of its own free will. These sections that Stewart uses were my own personal favorite because they’re surprisingly easy to follow but also because they grow slowly out of being just a novel tactic Andrew uses to protect himself into an important aspect of the later story.&lt;/p&gt;
-
-&lt;p&gt;Short read but enjoyable.&lt;/p&gt;</content><author><name></name></author><summary type="html">Book Review: Voices of the Void</summary></entry></feed>
+</html>

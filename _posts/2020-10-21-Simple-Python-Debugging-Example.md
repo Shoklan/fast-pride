@@ -1,7 +1,7 @@
 ---
 toc: False
 layout: post
-categories: [python,programming,]
+categories: [python,programming,debugging]
 title: "Simple Introduction to Python Debugging"
 description: Some Examples I learned From Debugging My Own Stuff
 ---

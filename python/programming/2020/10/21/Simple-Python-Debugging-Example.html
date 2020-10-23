@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Simple Introduction to Python Debugging | Orgulo.us</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Simple Introduction to Python Debugging" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Some Examples I learned From Debugging My Own Stuff" />
+<meta property="og:description" content="Some Examples I learned From Debugging My Own Stuff" />
+<link rel="canonical" href="https://orgulo.us/python/programming/2020/10/21/Simple-Python-Debugging-Example.html" />
+<meta property="og:url" content="https://orgulo.us/python/programming/2020/10/21/Simple-Python-Debugging-Example.html" />
+<meta property="og:site_name" content="Orgulo.us" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-21T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Some Examples I learned From Debugging My Own Stuff","@type":"BlogPosting","headline":"Simple Introduction to Python Debugging","dateModified":"2020-10-21T00:00:00-05:00","datePublished":"2020-10-21T00:00:00-05:00","url":"https://orgulo.us/python/programming/2020/10/21/Simple-Python-Debugging-Example.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/python/programming/2020/10/21/Simple-Python-Debugging-Example.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://orgulo.us/feed.xml" title="Orgulo.us" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Simple Introduction to Python Debugging | Orgulo.us</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Simple Introduction to Python Debugging" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Some Examples I learned From Debugging My Own Stuff" />
+<meta property="og:description" content="Some Examples I learned From Debugging My Own Stuff" />
+<link rel="canonical" href="https://orgulo.us/python/programming/2020/10/21/Simple-Python-Debugging-Example.html" />
+<meta property="og:url" content="https://orgulo.us/python/programming/2020/10/21/Simple-Python-Debugging-Example.html" />
+<meta property="og:site_name" content="Orgulo.us" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-21T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Some Examples I learned From Debugging My Own Stuff","@type":"BlogPosting","headline":"Simple Introduction to Python Debugging","dateModified":"2020-10-21T00:00:00-05:00","datePublished":"2020-10-21T00:00:00-05:00","url":"https://orgulo.us/python/programming/2020/10/21/Simple-Python-Debugging-Example.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/python/programming/2020/10/21/Simple-Python-Debugging-Example.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://orgulo.us/feed.xml" title="Orgulo.us" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Orgulo.us</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Simple Introduction to Python Debugging</h1><p class="page-description">Some Examples I learned From Debugging My Own Stuff</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-10-21T00:00:00-05:00" itemprop="datePublished">
+        Oct 21, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#programming">programming</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="inspiration">Inspiration</h2>
+<p>While working on a script that I’m writing for work, I was having trouble really tracking down where my logic was failing. After looking over the code, everything looked correct but the results were showing me otherwise. So, I opened up python’s debugging system and started to dig in.</p>
+
+<h2 id="what-is-debugging">What is Debugging?</h2>
+<blockquote>
+  <p>In computer programming and software development, debugging is the process of finding and resolving bugs (defects or problems that prevent correct operation) within computer programs, software, or systems.
+cf: https://en.wikipedia.org/wiki/Debugging</p>
+</blockquote>
+
+<p>There are plenty of tools to do stuff like this but Python comes with its own: pdb — <a href="https://docs.python.org/3/library/pdb.html">The Python Debugger</a>.
+To activate it, you’d simply go into your terminal and type:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user@station# python3 -m pdb &lt;script-name&gt;
+</code></pre></div></div>
+<p>This with start the script from the top and immediately stop before running anything:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user@station:/scripts# python3 -m pdb keyIntegrityCheck.py
+&gt; /scripts/keyIntegrityCheck.py(5)&lt;module&gt;()
+-&gt; from pathlib import Path
+(Pdb)
+</code></pre></div></div>
+<p>While this is useful, we need to be able to explore the file. You could keep an editor open on a different monitor and move around but sometimes that’s not going to be an option. To print all the lines in the file  you’d use:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Pdb) ll                                                                                    
+1     #!/usr/bin/env python3                                        
+2     ## Author: Collin Mitchell                                 
+3     ## Purpose: To check the integrity of keys without user input.  
+4                                                                               
+5  -&gt; from pathlib import Path                                                   
+6     from itertools import filterfalse                                            
+7     import subprocess as sp                                                          
+8     import json                                                                     
+9     import sys    
+# ...
+370                 integrityFunc = dd.get(str(filename).split('.')[-1])
+371                 if integrityFunc:
+372                     consistent = integrityFunc( filename )
+373                     if not consistent: print("{} is not consistent.".format(filename))
+374                 else:
+375                     print("{} is missing a checker; please report {} so it can be added.".format(filename,filename))
+(Pdb)
+</code></pre></div></div>
+<p>You can see the pointer on line five telling us where the current execution point is. We can move the pointer a single line using <code class="highlighter-rouge">n</code>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Pdb) n                                                                                                                                                                   [336/1995]
+&gt; /scripts/keyIntegrityCheck.py(6)&lt;module&gt;()
+-&gt; from itertools import filterfalse                   
+(Pdb) ll                                                                                    
+  1     #!/usr/bin/env python3                                        
+  2     ## Author: Collin Mitchell                                 
+  3     ## Purpose: To check the integrity of keys without user input.  
+  4                                                                               
+  5     from pathlib import Path                                                   
+  6  -&gt; from itertools import filterfalse                                            
+  7     import subprocess as sp                                                          
+  8     import json                                                                     
+  9     import sys     
+</code></pre></div></div>
+<p>You can see the next 11 lines in the console buffer using <code class="highlighter-rouge">l</code>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Pdb) l
+  1     #!/usr/bin/env python3
+  2     ## Author: Collin Mitchell
+  3     ## Purpose: To check the integrity of keys without user input.
+  4  
+  5     from pathlib import Path
+  6  -&gt; from itertools import filterfalse
+  7     import subprocess as sp
+  8     import json
+  9     import sys
+ 10  
+ 11     # stuff to do with phpserialize:
+(Pdb)
+</code></pre></div></div>
+<p>Not that if you do this and run it again that you wont get the same result:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Pdb) l
+ 12     import codecs
+ 13     try:
+ 14         codecs.lookup_error('surrogateescape')
+ 15         default_errors = 'surrogateescape'
+ 16     except LookupError:
+ 17         default_errors = 'strict'
+ 18     try:
+ 19         xrange
+ 20     except NameError:
+ 21         xrange = range
+ 22     try:
+(Pdb)
+</code></pre></div></div>
+<p>… but you will get the <strong>next</strong> 11 lines instead. You can tell it which lines to list centered on a line number using <code class="highlighter-rouge">l 10</code>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Pdb) l 10
+  5     from pathlib import Path
+  6  -&gt; from itertools import filterfalse
+  7     import subprocess as sp
+  8     import json
+  9     import sys
+ 10  
+ 11     # stuff to do with phpserialize:
+ 12     import codecs
+ 13     try:
+ 14         codecs.lookup_error('surrogateescape')
+ 15         default_errors = 'surrogateescape'
+(Pdb)
+</code></pre></div></div>
+<p>Now that we can move around, let’s discuss how to actually stop code execution using <strong>breakpoints</strong>. These are locations you set - sometimes with conditions - to stop the code execution and explore the current state. You can set these using ‘b’:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Pdb) b
+(Pdb)
+</code></pre></div></div>
+<p>Since we don’t have any breakpoints set, then it makes sense we don’t see any listed. So, now lets set one:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Pdb) b 9
+Breakpoint 1 at /scripts/keyIntegrityCheck.py:9
+(Pdb)
+</code></pre></div></div>
+<p>… and continue execution until the breakpoint using <code class="highlighter-rouge">c</code>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Pdb) c
+&gt; /scripts/keyIntegrityCheck.py(9)&lt;module&gt;()
+-&gt; import sys
+(Pdb)
+</code></pre></div></div>
+<p>… and list the active breakpoints again:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Pdb) b
+Num Type         Disp Enb   Where
+1   breakpoint   keep yes   at /scripts/keyIntegrityCheck.py:9
+        breakpoint already hit 1 time
+(Pdb)
+</code></pre></div></div>
+<p>You can clear that breakpoint using the number of the breakpoint as well:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Pdb) b
+Num Type         Disp Enb   Where
+1   breakpoint   keep yes   at /scripts/keyIntegrityCheck.py:9
+        breakpoint already hit 1 time
+(Pdb) cl 1
+Deleted breakpoint 1 at /scripts/keyIntegrityCheck.py:9
+(Pdb) b
+(Pdb)
+</code></pre></div></div>
+<p>Conditional breakpoints I found a bit tricky to get to work correctly because you need to place a comma after the statement:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(Pdb) b 371, integrityFunc.__name__ == 'integrityPhp'
+Breakpoint 3 at /scripts/keyIntegrityCheck.py:371
+(Pdb)
+</code></pre></div></div>
+<p>… and then you <code class="highlighter-rouge">c</code> until it triggers:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; /scripts/keyIntegrityCheck.py(371)&lt;module&gt;()
+-&gt; if integrityFunc:
+(Pdb) integrityFunc
+&lt;function integrityPhp at 0x7f99291477b8&gt;
+(Pdb)
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>I couldn’t find much outside of the official documentation when I needed it so hopefully you find the highlights useful.
+There are also tools for whichever IDE you’re using so look out for those as well.</p>
+
+  </div><a class="u-url" href="/python/programming/2020/10/21/Simple-Python-Debugging-Example.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p></p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/shoklan" title="shoklan"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/shoklan" title="shoklan"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

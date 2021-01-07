@@ -433,7 +433,9 @@ body { background-color: rgba(200, 200, 200, 0.3); }
 
 body > header { background-color: #000000; min-height: 23px; max-height: 23px; }
 
-.wrapper > .site-title { color: white; font-family: 'Space Mono', monospace; text-transform: lowercase; }
+.wrapper > .site-title, .wrapper > .page-link { color: white; font-family: 'Space Mono', monospace; text-transform: lowercase; }
+
+.post-content { box-sizing: content-box; }
 
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/

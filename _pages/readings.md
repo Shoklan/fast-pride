@@ -19,16 +19,16 @@ permalink: /Readings/
 > Especially in the wake of the financial meltdown, readers will hunger for Burton G. Malkiel’s reassuring, authoritative, gimmick-free, and perennially best-selling guide to investing. With 1.5 million copies sold, A Random Walk Down Wall Street has long been established as the first book to purchase when starting a portfolio.
 
 # 2021 Reading Challenges:
-- [A book you’ve been meaning to read.]:	**The Bell Curve** by *Charles Murray* and *Richard J. Herrnstein*
-- [A book about a topic that fascinates you.]:	**The History of Western Philosophy** by *Bertrand Russell*
-- [A book in the backlist of a favorite author.]:	**The End of the World as We Knew It** by *Nick Cole*
-- [A book recommended by someone with great taste.]:	**Three Kingdoms** by *Guanzhong Luo*
-- [Three books by the same author.]:
+- \[A book you’ve been meaning to read.\]:	**The Bell Curve** by *Charles Murray* and *Richard J. Herrnstein*
+- \[A book about a topic that fascinates you.\]:	**The History of Western Philosophy** by *Bertrand Russell*
+- \[A book in the backlist of a favorite author.\]:	**The End of the World as We Knew It** by *Nick Cole*
+- \[A book recommended by someone with great taste.\]:	**Three Kingdoms** by *Guanzhong Luo*
+- \[Three books by the same author.\]:
     - ~~**The Old Man and the Sea** by *Earnest Hemmingway*~~
     - **For Whom the Bell Tolls** by *Earnest Hemmingway*
     - **A Farewell to Arms** by *Earnest Hemmingway*
-- [A book you chose for the cover.]:	**Corpus** by *Rory Clements*
-- [A book by an author who is new to you.]:	The Forge of Christendom: **The End of Days and the Epic Rise of the West** by *Tom Holland*
-- [A book in translation.]:	**The Nine Chapters on the Mathematical Art: Companion and Commentary** by *Shen Kangshen*
-- [A book outside your comfort zone.]:	**The Gendered Brain: The New Neuroscience That Shatters the Myth of the Female Brain** by *Gina Rippon*
-- [A book published before you were born]:	**The Constitution of the United States of America** by *The Found Fathers*
+- \[A book you chose for the cover.\]:	**Corpus** by *Rory Clements*
+- \[A book by an author who is new to you.\]:	The Forge of Christendom: **The End of Days and the Epic Rise of the West** by *Tom Holland*
+- \[A book in translation.\]:	**The Nine Chapters on the Mathematical Art: Companion and Commentary** by *Shen Kangshen*
+- \[A book outside your comfort zone.\]:	**The Gendered Brain: The New Neuroscience That Shatters the Myth of the Female Brain** by *Gina Rippon*
+- \[A book published before you were born\]:	**The Constitution of the United States of America** by *The Found Fathers*

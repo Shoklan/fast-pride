@@ -13,16 +13,21 @@ body > header {
 
 }
 
-.wrapper > .site-title, .wrapper > .page-link {
+.wrapper > .site-title {
   color: white;
   font-family: 'Space Mono', monospace;
   text-transform: lowercase;
 }
 
+.site-nav .page-link{
+	color: white;
+	font-family: 'Space Mono', monospace;
+	text-transform: lowercase;
+}
+
 .post-content {
 	box-sizing: content-box;
 }
-
 
 
 /*-----------------------------------*/

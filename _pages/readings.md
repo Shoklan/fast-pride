@@ -21,7 +21,7 @@ permalink: /Readings/
 # 2021 Reading Challenges:
 - \[A book you’ve been meaning to read.\]:	**The Bell Curve** by *Charles Murray* and *Richard J. Herrnstein*
 - \[A book about a topic that fascinates you.\]:	**The History of Western Philosophy** by *Bertrand Russell*
-- \[A book in the backlist of a favorite author.\]:	**The End of the World as We Knew It** by *Nick Cole*
+- \[A book in the backlist of a favorite author.\]:	~~**The End of the World as We Knew It** by *Nick Cole*~~
 - \[A book recommended by someone with great taste.\]:	**Three Kingdoms** by *Guanzhong Luo*
 - \[Three books by the same author.\]:
     - ~~**The Old Man and the Sea** by *Earnest Hemmingway*~~

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Minimal Spark Cluster | Orgulo.us</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Minimal Spark Cluster" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Setting Up Without Hadoop Cluster" />
+<meta property="og:description" content="Setting Up Without Hadoop Cluster" />
+<link rel="canonical" href="https://orgulo.us/python/data%20science/apache/spark/2021/01/18/Minimal-Spark-Cluster-Without-Hadoop.html" />
+<meta property="og:url" content="https://orgulo.us/python/data%20science/apache/spark/2021/01/18/Minimal-Spark-Cluster-Without-Hadoop.html" />
+<meta property="og:site_name" content="Orgulo.us" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-18T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"Setting Up Without Hadoop Cluster","headline":"Minimal Spark Cluster","@type":"BlogPosting","dateModified":"2021-01-18T00:00:00-06:00","datePublished":"2021-01-18T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/python/data%20science/apache/spark/2021/01/18/Minimal-Spark-Cluster-Without-Hadoop.html"},"url":"https://orgulo.us/python/data%20science/apache/spark/2021/01/18/Minimal-Spark-Cluster-Without-Hadoop.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://orgulo.us/feed.xml" title="Orgulo.us" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Minimal Spark Cluster | Orgulo.us</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Minimal Spark Cluster" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Setting Up Without Hadoop Cluster" />
+<meta property="og:description" content="Setting Up Without Hadoop Cluster" />
+<link rel="canonical" href="https://orgulo.us/python/data%20science/apache/spark/2021/01/18/Minimal-Spark-Cluster-Without-Hadoop.html" />
+<meta property="og:url" content="https://orgulo.us/python/data%20science/apache/spark/2021/01/18/Minimal-Spark-Cluster-Without-Hadoop.html" />
+<meta property="og:site_name" content="Orgulo.us" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-18T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"Setting Up Without Hadoop Cluster","headline":"Minimal Spark Cluster","@type":"BlogPosting","dateModified":"2021-01-18T00:00:00-06:00","datePublished":"2021-01-18T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/python/data%20science/apache/spark/2021/01/18/Minimal-Spark-Cluster-Without-Hadoop.html"},"url":"https://orgulo.us/python/data%20science/apache/spark/2021/01/18/Minimal-Spark-Cluster-Without-Hadoop.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://orgulo.us/feed.xml" title="Orgulo.us" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Orgulo.us</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Readings/">Reading Challenge</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Minimal Spark Cluster</h1><p class="page-description">Setting Up Without Hadoop Cluster</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-01-18T00:00:00-06:00" itemprop="datePublished">
+        Jan 18, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#data science">data science</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#apache">apache</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#spark">spark</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Introduction">Introduction </a></li>
+<li class="toc-entry toc-h1"><a href="#Installation">Installation </a></li>
+<li class="toc-entry toc-h1"><a href="#Configuration-Files">Configuration Files </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Datastore">Datastore </a></li>
+<li class="toc-entry toc-h2"><a href="#Connect-the-Dots,-Start-the-Services">Connect the Dots, Start the Services </a></li>
+<li class="toc-entry toc-h2"><a href="#Success!">Success! </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-01-18-Minimal-Spark-Cluster-Without-Hadoop.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Introduction">
+<a class="anchor" href="#Introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction<a class="anchor-link" href="#Introduction"> </a>
+</h1>
+<p>If you'd like to setup Apache Spark to experiment with but you don't want to use a premade ISO or setup your own then I'm going to show you how. This configuration will be a minimal one using Linux Operating Sytems; I'm going to use Ubuntu so change the install based on your package mananger.
+I'm going to assume that you've setup the hosts, their networking and have some way to configure and deploy them. There are options like Puppet or Salt but I'll be avoiding those and leave them up to you.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Installation">
+<a class="anchor" href="#Installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation<a class="anchor-link" href="#Installation"> </a>
+</h1>
+<p>I have script that does all of this but we're going to go over it so you understand each part and then I'll attach the bash script at the end.
+To start with, we're going to need Java since Spark is dependent on it. Login to each host - Master and Slaves - and you'll want to run:</p>
+<div class="highlight"><pre><span></span>apt update <span class="o">&amp;&amp;</span> apt install openjdk-8-jre openjdk-8-jdk -y
+</pre></div>
+<p>Remember to adjust this for own Linux Distribution.</p>
+<p>Figure out which directory you want to install Apache Spark into; Normally, you'd use <code>/opt</code> so that's what we're going to be using. Download the archive of the files from the website:</p>
+<div class="highlight"><pre><span></span>wget -O /opt/spark-2.4.6-bin-hadoop2.7.tgz https://downloads.apache.org/spark/spark-2.4.6/spark-2.4.6-bin-hadoop2.7.tgz
+</pre></div>
+<p>If they obsolete the download link then you can find the versions online <a href="https://spark.apache.org/downloads.html">here</a>. I'm using the 3.0.1 version Pre-built for Apache Hadoop 2.7 for this but feel free to experiment.
+Once the file is downloaded, you'll want to unpack the archive:</p>
+<div class="highlight"><pre><span></span>tar -xzvf /opt/spark-2.4.6-bin-hadoop2.7.tgz  -C /opt
+rm /opt/spark-2.4.6-bin-hadoop2.7.tgz
+</pre></div>
+<p>Now you'll have files ready for usage.
+Next you'll want to add the environmental variables so that linux will know where to look for the binary when you call it:</p>
+<div class="highlight"><pre><span></span><span class="nb">echo</span> -e <span class="s2">"\nexport SPARK_HOME=/opt/spark-2.4.6-bin-hadoop2.7\nexport PATH=/opt/spark-2.4.6-bin-hadoop2.7/bin:</span><span class="nv">$PATH</span><span class="s2">"</span> <span class="p">|</span> tee -a ~/.bashrc
+<span class="nb">export</span> <span class="nv">SPARK_HOME</span><span class="o">=</span>/opt/spark-2.4.6-bin-hadoop2.7
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/opt/spark-2.4.6-bin-hadoop2.7/bin
+</pre></div>
+<p>Do this for all the hosts that you'll need to run Spark on.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Configuration-Files">
+<a class="anchor" href="#Configuration-Files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration Files<a class="anchor-link" href="#Configuration-Files"> </a>
+</h1>
+<p>It is best to create a master copy of these next few configuratoin files to copy to each host in turn.
+This way you only need to edit each file ones and then copy them all the the appropriate hosts</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For your master server, you'll need to update two files: <code>spark-defaults.conf</code> and <code>spark-env.sh</code>. Both of these should be found inside the <strong>conf</strong> directory of your spark home.
+Make sure you make a backup of them before you do anything else:</p>
+<div class="highlight"><pre><span></span>cp spark-defaults.conf spark-defaults.conf.bkp
+cp spark-env.sh spark-env.sh.bkp
+</pre></div>
+<p>Next you'll want to open them and add the master info information. For the defaults file simple uncomment and modify the line to look like:</p>
+
+<pre><code>spark.master                       spark://&lt;host or IP Addr&gt;:7077</code></pre>
+<p>... and the env file you'll want to look for the line:</p>
+
+<pre><code>SPARK_MASTER_HOST='&lt;host of IP Addr&gt;'</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You shouldn't need to change anything else in this file so long as you have full control of the systems you're using. In my case, I happen to not and changed where shuffle and worker logs are ran to avoid the operating system from filling up and crashing the host. If you need to worrry about those then update the lines <code>SPARK_LOCAL_DIRS</code>, <code>SPARK_WORKER_DIR</code> and <code>SPARK_PID_DIR</code> to point to somewhere else on the system which wont fill up the partition.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Next you'll want to collect the names or IP addresses of all the hosts in your cluster and add them to the <code>slaves</code> file in <code>config</code> directory just like were the others are.
+Make sure to test the connectivity of your hosts using <code>ping</code> or something else to confirm they can actually talk to one another!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Datastore">
+<a class="anchor" href="#Datastore" aria-hidden="true"><span class="octicon octicon-link"></span></a>Datastore<a class="anchor-link" href="#Datastore"> </a>
+</h2>
+<p>Now we're going to work around not having a Hadoop cluster. How this works, is that we're going to create a shared folder on all of the hosts which references the Master as the <strong>Source of Truth</strong>.
+First, create a folder in your spark home to hold the data:</p>
+<div class="highlight"><pre><span></span>mdkir <span class="nv">$SPARK_HOME</span>/Data
+</pre></div>
+<p>Go ahead and create a file in here for future usage: <code>touch turtles</code></p>
+<p>Next you'll go ahead and install a package called <code>sshfs</code> which is used to remotely mount a folder from one host and another:</p>
+<div class="highlight"><pre><span></span>sudo apt install sshfs
+</pre></div>
+<p>Repeat this for all the hosts in your cluster. Once that is done, you'll connect the slaves to the master using:</p>
+<div class="highlight"><pre><span></span>sshfs &lt;username&gt;@&lt;master-address&gt;:/opt/spark-2.4.6-bin-hadoop2.7/Data /opt/spark-2.4.6-bin-hadoop2.7/Data
+</pre></div>
+<p>Now you should be able to see the <code>turtles</code> file we created earlier if you list the files in the Data directory</p>
+<div class="highlight"><pre><span></span>ls Data
+</pre></div>
+<p>If you see the file then feel free to move on! If not, then double back and troubleshoot the connection between those two computers.
+Could also be permissions or something like that as well!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Connect-the-Dots,-Start-the-Services">
+<a class="anchor" href="#Connect-the-Dots,-Start-the-Services" aria-hidden="true"><span class="octicon octicon-link"></span></a>Connect the Dots, Start the Services<a class="anchor-link" href="#Connect-the-Dots,-Start-the-Services"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now that we've got it all connected together, go ahead and run the appropriate commands on the masters and servers to start them all up:</p>
+<div class="highlight"><pre><span></span><span class="c1"># master:</span>
+<span class="nv">$SPARK_HOME</span>/sbin/start-master.sh
+
+<span class="c1"># slaves:</span>
+<span class="nv">$SPARK_HOME</span>/sbin/start-slave.sh spark://&lt;master-Addr&gt;:7077
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Success!">
+<a class="anchor" href="#Success!" aria-hidden="true"><span class="octicon octicon-link"></span></a>Success!<a class="anchor-link" href="#Success!"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now try and run it on the master:</p>
+<div class="highlight"><pre><span></span>username@HOST:~# <span class="nv">$SPARK_HOME</span>/bin/pyspark 
+Python <span class="m">2</span>.7.12 <span class="o">(</span>default, Apr <span class="m">15</span> <span class="m">2020</span>, <span class="m">17</span>:07:12<span class="o">)</span> 
+<span class="o">[</span>GCC <span class="m">5</span>.4.0 <span class="m">20160609</span><span class="o">]</span> on linux2
+Type <span class="s2">"help"</span>, <span class="s2">"copyright"</span>, <span class="s2">"credits"</span> or <span class="s2">"license"</span> <span class="k">for</span> more information.
+<span class="m">20</span>/10/13 <span class="m">05</span>:19:50 WARN Utils: Your hostname, HOST.localdomain resolves to a loopback address: <span class="m">127</span>.0.0.1<span class="p">;</span> using &lt;address&gt; instead <span class="o">(</span>on interface eth0<span class="o">)</span>
+<span class="m">20</span>/10/13 <span class="m">05</span>:19:50 WARN Utils: Set SPARK_LOCAL_IP <span class="k">if</span> you need to <span class="nb">bind</span> to another address
+<span class="m">20</span>/10/13 <span class="m">05</span>:19:50 WARN NativeCodeLoader: Unable to load native-hadoop library <span class="k">for</span> your platform... using builtin-java classes where applicable
+Using Spark<span class="s1">'s default log4j profile: org/apache/spark/log4j-defaults.properties</span>
+<span class="s1">Setting default log level to "WARN".</span>
+<span class="s1">To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).</span>
+<span class="s1">Welcome to</span>
+<span class="s1">      ____              __</span>
+<span class="s1">     / __/__  ___ _____/ /__</span>
+<span class="s1">    _\ \/ _ \/ _ `/ __/  '</span>_/
+   /__ / .__/<span class="se">\_</span>,_/_/ /_/<span class="se">\_\ </span>  version <span class="m">2</span>.4.6
+      /_/
+
+Using Python version <span class="m">2</span>.7.12 <span class="o">(</span>default, Apr <span class="m">15</span> <span class="m">2020</span> <span class="m">17</span>:07:12<span class="o">)</span>
+SparkSession available as <span class="s1">'spark'</span>.
+&gt;&gt;&gt;
+</pre></div>
+<p>That should give you the above.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now you can transfer data into that directory and read from it using the <code>spark.read.*</code> function that you need.
+Note that copying Big Data into that directory is not a good idea. If you're looking at TeraBytes or Petabytes worth of data then you'll definitely need a real Cluster. But, I've already made some interesting observations in this limited environment.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/python/data%20science/apache/spark/2021/01/18/Minimal-Spark-Cluster-Without-Hadoop.html" hidden></a>
+</article>
+      </div>
+    </main></body>
+
+</html>

@@ -160,14 +160,14 @@ window.onload = wrap_img;
 <span class="n">st</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">)</span>
 </code></pre></div></div>
 <p>… and save that to a file called <code class="highlighter-rouge">irisExplore.py</code>. Once that’s done, you’ll run it from the console using <code class="highlighter-rouge">streamlit run irisExplore.py</code>:
-<a href="images/intro-to-streamlit/hello-world-streamlit.png">Hello World Streamlit!</a></p>
+<img src="images/intro-to-streamlit/hello-world-streamlit.png" alt="Hello World Streamlit!"></p>
 
 <p>And there we have our first Web Application. Calling the HTML elements that you want and expect is just that simple. If you want a paragraph then you’ll use <code class="highlighter-rouge">st.title()</code>:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Turtles Turtles Turtles"</span><span class="p">)</span>
 <span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s">"But, which movie reference is it?"</span><span class="p">)</span>
 <span class="n">st</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">)</span>
 </code></pre></div></div>
-<p><a href="images/intro-to-streamlit/hello-world-with-titles.png">Hello World, Now With Titles!</a>
+<p><img src="images/intro-to-streamlit/hello-world-with-titles.png" alt="Hello World, Now With Titles!">
 And, there is even support for Latex too!:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Turtles Turtles Turtles"</span><span class="p">)</span>
 <span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s">"But, which movie reference is it?"</span><span class="p">)</span>
@@ -178,7 +178,7 @@ And, there is even support for Latex too!:</p>
     a \left(\frac{1-r^{n}}{1-r}\right)
     '''</span><span class="p">)</span>
 </code></pre></div></div>
-<p><a href="images/intro-to-streamlit/hello-world-with-latex.png">Hello World, Now With Latex!</a></p>
+<p><img src="images/intro-to-streamlit/hello-world-with-latex.png" alt="Hello World, Now With Latex!"></p>
 
 <h2 id="now-with-data">
 <a class="anchor" href="#now-with-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Now with Data!</h2>
@@ -189,7 +189,7 @@ And, there is even support for Latex too!:</p>
 <p>Adding the chart is just as easy and you would expect:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">st</span><span class="o">.</span><span class="n">line_chart</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
 </code></pre></div></div>
-<p><a href="images/intro-to-streamlit/iris-squiggles.png">Iris Squiggles</a>
+<p><img src="images/intro-to-streamlit/iris-squiggles.png" alt="Iris Squiggles">
 Not exactly what we’re looking but it’s kind of neat.
 This should serve as a reminder that when it comes to tools, it’s <strong>Garbage In, Garbage Out</strong> for what you feed it.
 Be careful what you’re doing because our tools wont know any better.</p>

@@ -2,7 +2,7 @@
 toc: True
 layout: post
 categories: [Python,Data Vis,Data Visualization,sreamlit]
-title: Quick Itroduction to Streamlit
+title: Quick Introduction to Streamlit
 description: You should use this framework too.
 ---
 

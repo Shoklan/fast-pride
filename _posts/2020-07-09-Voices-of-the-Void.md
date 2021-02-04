@@ -5,7 +5,6 @@ categories: [books,review, scifi]
 title: "Book Review: Voices of the Void"
 description: Is Andrew Dalatent Insane? 
 ---
-# Book Review: Voices of the Void
 
 The Voices of the Void by David Stewart is a pleasant short story that mixes a Science Fiction backdrop with some supernatural horror. We join the introduced protagonist - Andrew Dalatent  - entering a mining colony called New Gibralter where he appears tasked with figuring out what happened to the people there. And, I say it appears because as he starts his descent you find out he’s more aware of the whys and whats of the situation than is initially let on.
 

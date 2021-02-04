@@ -5,7 +5,6 @@ categories: [projects,challenges]
 title: Challenges for 2021
 description: Public Record For Accountability
 ---
-# Personal Challenges for 2021
 
 ### Read 100 Books.
 This is a challenge because I haven't done it yet and fitting that many books into my life forces me to think about my spent time.

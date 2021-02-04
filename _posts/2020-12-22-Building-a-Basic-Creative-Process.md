@@ -5,7 +5,6 @@ categories: [books,review,writing]
 title: "Book Review: The Keys to Proflific Creativity"
 description: How to Build a Process
 ---
-# Book Review: The Keys to Proflific Creativity
 
 If you're looking for a crash course in getting the creative process right then this is the correct book to read.
 You'll want to keep coming back an skimming over the table of contents months after you read it just to ensure you're still folling the advice. Sometimes you'll be doing things right; sometimes you're far off the mark.

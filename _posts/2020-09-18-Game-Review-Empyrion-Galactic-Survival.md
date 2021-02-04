@@ -5,7 +5,6 @@ categories: [games,review, scifi, survival]
 title: "Game Review: Empyrion - Galactic Survival"
 description: "Complexity is the Name of the Game."
 ---
-# Game Review: Empyrion - Galactic Survival
 If you’re looking for a TL:DR: game is fun but has some challenges.
 
 The first time I opened the map to see all the different systems we could visit I was basically sold on the game. The first time we made our system hop, we almost got trapped in hellscape and had a blast trying to get off that planet.

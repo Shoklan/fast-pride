@@ -27,7 +27,7 @@ import pandas as pd
 st.text("Hello World")
 ```
 ... and save that to a file called `irisExplore.py`. Once that's done, you'll run it from the console using `streamlit run irisExplore.py`:
-[Hello World Streamlit!](images/intro-to-streamlit/hello-world-streamlit.png)
+![Hello World Streamlit!](images/intro-to-streamlit/hello-world-streamlit.png)
 
 And there we have our first Web Application. Calling the HTML elements that you want and expect is just that simple. If you want a paragraph then you'll use `st.title()`:
 ```python
@@ -35,7 +35,7 @@ st.title("Turtles Turtles Turtles")
 st.subheader("But, which movie reference is it?")
 st.text("Hello World")
 ```
-[Hello World, Now With Titles!](images/intro-to-streamlit/hello-world-with-titles.png)
+![Hello World, Now With Titles!](images/intro-to-streamlit/hello-world-with-titles.png)
 And, there is even support for Latex too!:
 ```python
 st.title("Turtles Turtles Turtles")
@@ -47,7 +47,7 @@ st.latex(r'''
     a \left(\frac{1-r^{n}}{1-r}\right)
     ''')
 ```
-[Hello World, Now With Latex!](images/intro-to-streamlit/hello-world-with-latex.png)
+![Hello World, Now With Latex!](images/intro-to-streamlit/hello-world-with-latex.png)
 
 ## Now with Data!
 So, now we're going to take a quick look at how to add charts. First we're going to collect the iris dataset. If you have R or something like Tensorflow installed then you can import it from there. I'm going to collect it from someone random on the internet. You should probably download this dataset and store it somewhere; you'll never get away from it.
@@ -59,7 +59,7 @@ Adding the chart is just as easy and you would expect:
 ```python
 st.line_chart(iris)
 ```
-[Iris Squiggles](images/intro-to-streamlit/iris-squiggles.png)
+![Iris Squiggles](images/intro-to-streamlit/iris-squiggles.png)
 Not exactly what we're looking but it's kind of neat.
 This should serve as a reminder that when it comes to tools, it's **Garbage In, Garbage Out** for what you feed it.
 Be careful what you're doing because our tools wont know any better.

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Quick Itroduction to Streamlit | Orgulo.us</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Quick Itroduction to Streamlit" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="You should use this framework too." />
+<meta property="og:description" content="You should use this framework too." />
+<link rel="canonical" href="https://orgulo.us/python/data%20vis/data%20visualization/sreamlit/2021/02/04/Introduction-To-Streamlit.html" />
+<meta property="og:url" content="https://orgulo.us/python/data%20vis/data%20visualization/sreamlit/2021/02/04/Introduction-To-Streamlit.html" />
+<meta property="og:site_name" content="Orgulo.us" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-04T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"You should use this framework too.","@type":"BlogPosting","headline":"Quick Itroduction to Streamlit","dateModified":"2021-02-04T00:00:00-06:00","url":"https://orgulo.us/python/data%20vis/data%20visualization/sreamlit/2021/02/04/Introduction-To-Streamlit.html","datePublished":"2021-02-04T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/python/data%20vis/data%20visualization/sreamlit/2021/02/04/Introduction-To-Streamlit.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://orgulo.us/feed.xml" title="Orgulo.us" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Quick Itroduction to Streamlit | Orgulo.us</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Quick Itroduction to Streamlit" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="You should use this framework too." />
+<meta property="og:description" content="You should use this framework too." />
+<link rel="canonical" href="https://orgulo.us/python/data%20vis/data%20visualization/sreamlit/2021/02/04/Introduction-To-Streamlit.html" />
+<meta property="og:url" content="https://orgulo.us/python/data%20vis/data%20visualization/sreamlit/2021/02/04/Introduction-To-Streamlit.html" />
+<meta property="og:site_name" content="Orgulo.us" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-04T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"You should use this framework too.","@type":"BlogPosting","headline":"Quick Itroduction to Streamlit","dateModified":"2021-02-04T00:00:00-06:00","url":"https://orgulo.us/python/data%20vis/data%20visualization/sreamlit/2021/02/04/Introduction-To-Streamlit.html","datePublished":"2021-02-04T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/python/data%20vis/data%20visualization/sreamlit/2021/02/04/Introduction-To-Streamlit.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://orgulo.us/feed.xml" title="Orgulo.us" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Orgulo.us</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Readings/">Reading Challenge</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Quick Itroduction to Streamlit</h1><p class="page-description">You should use this framework too.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-02-04T00:00:00-06:00" itemprop="datePublished">
+        Feb 4, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#Python">Python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#Data Vis">Data Vis</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#Data Visualization">Data Visualization</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#sreamlit">sreamlit</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#what-is-streamlit">What is Streamlit?</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#now-with-data">Now with Data!</a></li>
+</ul>
+</li>
+</ul><h1 id="what-is-streamlit">
+<a class="anchor" href="#what-is-streamlit" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is Streamlit?</h1>
+<p>Streamlit is a Framework which is growing in popularity among Python Data Scientists. And the reason for this is rather obvious if you’ve every tried mixing building Web Applications with Data Exporation or Reporting for other people inside your company - or just in general for your projects.</p>
+
+<p>We’re going to build a little Web App with the Iris dataset. And yes, please don’t groan; I am also sick of the Iris dataset but it’s clean and simple and accessible.</p>
+
+<p>So, first we start with actually downloading and it’s just their namesake:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python <span class="nt">-m</span> pip <span class="nb">install </span>streamlit
+</code></pre></div></div>
+
+<p>Next we’ll import and scaffold off their introduction application:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="n">st</span>
+<span class="c1"># To make things easier later, we're also importing numpy and pandas for
+# working with sample data.
+</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="n">st</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">)</span>
+</code></pre></div></div>
+<p>… and save that to a file called <code class="highlighter-rouge">irisExplore.py</code>. Once that’s done, you’ll run it from the console using <code class="highlighter-rouge">streamlit run irisExplore.py</code>:
+<a href="images/intro-to-streamlit/hello-world-streamlit.png">Hello World Streamlit!</a></p>
+
+<p>And there we have our first Web Application. Calling the HTML elements that you want and expect is just that simple. If you want a paragraph then you’ll use <code class="highlighter-rouge">st.title()</code>:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Turtles Turtles Turtles"</span><span class="p">)</span>
+<span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s">"But, which movie reference is it?"</span><span class="p">)</span>
+<span class="n">st</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">)</span>
+</code></pre></div></div>
+<p><a href="images/intro-to-streamlit/hello-world-with-titles.png">Hello World, Now With Titles!</a>
+And, there is even support for Latex too!:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Turtles Turtles Turtles"</span><span class="p">)</span>
+<span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s">"But, which movie reference is it?"</span><span class="p">)</span>
+<span class="n">st</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">)</span>
+<span class="n">st</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="s">r'''
+    a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
+    \sum_{k=0}^{n-1} ar^k =
+    a \left(\frac{1-r^{n}}{1-r}\right)
+    '''</span><span class="p">)</span>
+</code></pre></div></div>
+<p><a href="images/intro-to-streamlit/hello-world-with-latex.png">Hello World, Now With Latex!</a></p>
+
+<h2 id="now-with-data">
+<a class="anchor" href="#now-with-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Now with Data!</h2>
+<p>So, now we’re going to take a quick look at how to add charts. First we’re going to collect the iris dataset. If you have R or something like Tensorflow installed then you can import it from there. I’m going to collect it from someone random on the internet. You should probably download this dataset and store it somewhere; you’ll never get away from it.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"https://datahub.io/machine-learning/iris/r/iris.csv"</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Adding the chart is just as easy and you would expect:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">st</span><span class="o">.</span><span class="n">line_chart</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
+</code></pre></div></div>
+<p><a href="images/intro-to-streamlit/iris-squiggles.png">Iris Squiggles</a>
+Not exactly what we’re looking but it’s kind of neat.
+This should serve as a reminder that when it comes to tools, it’s <strong>Garbage In, Garbage Out</strong> for what you feed it.
+Be careful what you’re doing because our tools wont know any better.</p>
+
+  </div><a class="u-url" href="/python/data%20vis/data%20visualization/sreamlit/2021/02/04/Introduction-To-Streamlit.html" hidden></a>
+</article>
+      </div>
+    </main></body>
+
+</html>

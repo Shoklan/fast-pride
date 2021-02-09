@@ -2,8 +2,8 @@
 toc: False
 layout: post
 categories: [CYSA+,Review]
-title: What is a Momorandum of Understanding?
-description: Cyber Security+ Series.
+title: What is a Memorandum of Understanding?
+description: Cybersecurity+ Series.
 ---
 
 ## This post is for the Review and understanding of concepts related to the Comptia Cybersecurity Analyst+ Certificate.

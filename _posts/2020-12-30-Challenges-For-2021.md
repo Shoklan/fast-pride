@@ -4,6 +4,7 @@ layout: post
 categories: [projects,challenges]
 title: Challenges for 2021
 description: Public Record For Accountability
+sticky_rank: 1
 ---
 
 ### Read 100 Books.

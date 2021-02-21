@@ -14,7 +14,7 @@ Everyone is worried about having their credit card information stolen at some po
 4. Getting your Personal Details
 
 ## Getting the Credit Card Number
-There are a total of 10000000000000000 total numbers that can exist for a credit card number. The odds, therefore, to get your number is 1:10000000000000000. But, it's worse than that because the entire collection of numbers are not used to generate credit cards. In fact, credit cards can pass or fail passed on something called Luhn's Algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) This algorithm is used to create what is called a subgroup inside of the total number of cards. We don't want criminals to just guess numbers and accidentally hit anyone. This is formula is a first line of defense to ensure fake numbers cannot be submitted.
+There are a total of 10000000000000000 total numbers that can exist for a credit card number. The odds, therefore, to get your number is 1:10000000000000000. But, it's worse than that because the entire collection of numbers are not used to generate credit cards. In fact, credit cards can pass or fail passed on something called [Luhn's Algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) This algorithm is used to create what is called a subgroup inside of the total number of cards. We don't want criminals to just guess numbers and accidentally hit anyone. This is formula is a first line of defense to ensure fake numbers cannot be submitted.
 
 ```python
 ALGORITHM_CONSTANT = 9

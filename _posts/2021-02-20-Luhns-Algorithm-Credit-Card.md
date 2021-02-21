@@ -18,31 +18,31 @@ There are a total of 10000000000000000 total numbers that can exist for a credit
 
 ```python
 ALGORITHM_CONSTANT = 9
-def confirmLuhn(number):                           #==== Luhn's Algo ==========================
-	count = 0                                        # Sum all numbers excluding the last number.
-	sum = 0                                          # For every other number, square it.
-                                                   # Compare the last digit of the CC number
-	for digit in number:                             # against the last digit of the sum.
+def confirmLuhn(number):														#==== Luhn's Algo ==========================
+		count = 0																				# Sum all numbers excluding the last number.
+	sum = 0																						# For every other number, square it.
+																										# Compare the last digit of the CC number
+	for digit in number:															# against the last digit of the sum.
 		num = int(digit)
-		if count == 15:                                # If final digit,
-			return (sum * ALGORITHM_CONSTANT % 10 == num)# compare final digits.
-		elif count % 2 == 1:                           # If off number,
-			  sum += num*num                             # square number.
+		if count == 15:																	# If final digit,
+			return (sum * ALGORITHM_CONSTANT % 10 == num) # compare final digits.
+		elif count % 2 == 1:														# If off number,
+			  sum += num*num															# square number.
 			count +=1
-		else:                                          # If not off number,
-			  sum += num                                 # just add the number to the sum
-			count += 1                                   #===========================================
+		else:																						# If not off number,
+			  sum += num																	# just add the number to the sum
+			count += 1																		#===========================================
 
 
-outfile = open("CCNumbers.txt", 'w')             # First we generate the number space that we're testing.
-                                                 # The real CC number space is actually
-for x in range(0, 0000000000000100):             # [0, 9999999999999999], but that's too much.
-	xString = "%.16d" % x                          # Lazy design, but just filling 0's
+outfile = open("CCNumbers.txt", 'w')								# First we generate the number space that we're testing.
+																										# The real CC number space is actually
+for x in range(0, 0000000000000100):								# [0, 9999999999999999], but that's too much.
+	xString = "%.16d" % x															# Lazy design, but just filling 0's
 	if confirmLuhn(xString): outfile.write(xString+"n")  # If it's one of them
-	                                               # write the result to the file.
+																										# write the result to the file.
 
-outfile.close()                                  # BILLIONS OF YEARS OF WORK AND YOU
-																								 # FORGOT TO CLOSE THE STORAGE FILE?!?
+outfile.close()																			# BILLIONS OF YEARS OF WORK AND YOU
+																										# FORGOT TO CLOSE THE STORAGE FILE?!
 ```
 
 I wrote a basic CC number finder that uses a *very* small space of numbers to check against as existing numbers - and, you can find it [here](https://github.com/Shoklan/LuhnAlgorithm)for those wishing to pull it and build on it.

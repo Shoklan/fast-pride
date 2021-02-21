@@ -152,31 +152,31 @@ window.onload = wrap_img;
 <p>There are a total of 10000000000000000 total numbers that can exist for a credit card number. The odds, therefore, to get your number is 1:10000000000000000. But, it’s worse than that because the entire collection of numbers are not used to generate credit cards. In fact, credit cards can pass or fail passed on something called Luhn’s Algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) This algorithm is used to create what is called a subgroup inside of the total number of cards. We don’t want criminals to just guess numbers and accidentally hit anyone. This is formula is a first line of defense to ensure fake numbers cannot be submitted.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ALGORITHM_CONSTANT</span> <span class="o">=</span> <span class="mi">9</span>
-<span class="k">def</span> <span class="nf">confirmLuhn</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>                           <span class="c1">#==== Luhn's Algo ==========================
-</span>	<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>                                        <span class="c1"># Sum all numbers excluding the last number.
-</span>	<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>                                          <span class="c1"># For every other number, square it.
-</span>                                                   <span class="c1"># Compare the last digit of the CC number
-</span>	<span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="n">number</span><span class="p">:</span>                             <span class="c1"># against the last digit of the sum.
+<span class="k">def</span> <span class="nf">confirmLuhn</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>														<span class="c1">#==== Luhn's Algo ==========================
+</span>		<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>																				<span class="c1"># Sum all numbers excluding the last number.
+</span>	<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>																						<span class="c1"># For every other number, square it.
+</span>																										<span class="c1"># Compare the last digit of the CC number
+</span>	<span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="n">number</span><span class="p">:</span>															<span class="c1"># against the last digit of the sum.
 </span>		<span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span>
-		<span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">15</span><span class="p">:</span>                                <span class="c1"># If final digit,
-</span>			<span class="k">return</span> <span class="p">(</span><span class="nb">sum</span> <span class="o">*</span> <span class="n">ALGORITHM_CONSTANT</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="n">num</span><span class="p">)</span><span class="c1"># compare final digits.
-</span>		<span class="k">elif</span> <span class="n">count</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>                           <span class="c1"># If off number,
-</span>			  <span class="nb">sum</span> <span class="o">+=</span> <span class="n">num</span><span class="o">*</span><span class="n">num</span>                             <span class="c1"># square number.
+		<span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">15</span><span class="p">:</span>																	<span class="c1"># If final digit,
+</span>			<span class="k">return</span> <span class="p">(</span><span class="nb">sum</span> <span class="o">*</span> <span class="n">ALGORITHM_CONSTANT</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="n">num</span><span class="p">)</span> <span class="c1"># compare final digits.
+</span>		<span class="k">elif</span> <span class="n">count</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>														<span class="c1"># If off number,
+</span>			  <span class="nb">sum</span> <span class="o">+=</span> <span class="n">num</span><span class="o">*</span><span class="n">num</span>															<span class="c1"># square number.
 </span>			<span class="n">count</span> <span class="o">+=</span><span class="mi">1</span>
-		<span class="k">else</span><span class="p">:</span>                                          <span class="c1"># If not off number,
-</span>			  <span class="nb">sum</span> <span class="o">+=</span> <span class="n">num</span>                                 <span class="c1"># just add the number to the sum
-</span>			<span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>                                   <span class="c1">#===========================================
+		<span class="k">else</span><span class="p">:</span>																						<span class="c1"># If not off number,
+</span>			  <span class="nb">sum</span> <span class="o">+=</span> <span class="n">num</span>																	<span class="c1"># just add the number to the sum
+</span>			<span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>																		<span class="c1">#===========================================
 </span>
 
-<span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"CCNumbers.txt"</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>             <span class="c1"># First we generate the number space that we're testing.
-</span>                                                 <span class="c1"># The real CC number space is actually
-</span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0000000000000100</span><span class="p">):</span>             <span class="c1"># [0, 9999999999999999], but that's too much.
-</span>	<span class="n">xString</span> <span class="o">=</span> <span class="s">"</span><span class="si">%.16</span><span class="s">d"</span> <span class="o">%</span> <span class="n">x</span>                          <span class="c1"># Lazy design, but just filling 0's
+<span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"CCNumbers.txt"</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>								<span class="c1"># First we generate the number space that we're testing.
+</span>																										<span class="c1"># The real CC number space is actually
+</span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0000000000000100</span><span class="p">):</span>								<span class="c1"># [0, 9999999999999999], but that's too much.
+</span>	<span class="n">xString</span> <span class="o">=</span> <span class="s">"</span><span class="si">%.16</span><span class="s">d"</span> <span class="o">%</span> <span class="n">x</span>															<span class="c1"># Lazy design, but just filling 0's
 </span>	<span class="k">if</span> <span class="n">confirmLuhn</span><span class="p">(</span><span class="n">xString</span><span class="p">):</span> <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">xString</span><span class="o">+</span><span class="s">"n"</span><span class="p">)</span>  <span class="c1"># If it's one of them
-</span>	                                               <span class="c1"># write the result to the file.
+</span>																										<span class="c1"># write the result to the file.
 </span>
-<span class="n">outfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>                                  <span class="c1"># BILLIONS OF YEARS OF WORK AND YOU
-</span>																								 <span class="c1"># FORGOT TO CLOSE THE STORAGE FILE?!?
+<span class="n">outfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>																			<span class="c1"># BILLIONS OF YEARS OF WORK AND YOU
+</span>																										<span class="c1"># FORGOT TO CLOSE THE STORAGE FILE?!
 </span></code></pre></div></div>
 
 <p>I wrote a basic CC number finder that uses a <em>very</em> small space of numbers to check against as existing numbers - and, you can find it <a href="https://github.com/Shoklan/LuhnAlgorithm">here</a>for those wishing to pull it and build on it.</p>

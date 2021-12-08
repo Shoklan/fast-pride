@@ -1,4 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://orgulo.us/feed.xml" rel="self" type="application/atom+xml" /><link href="https://orgulo.us/" rel="alternate" type="text/html" /><updated>2021-09-07T22:05:48-05:00</updated><id>https://orgulo.us/feed.xml</id><title type="html">Orgulo.us</title><subtitle></subtitle><entry><title type="html">Monthly Game Review: Ethereal Estate</title><link href="https://orgulo.us/games/review/sandbox/ethereal/estate/simulation/funny/2021/09/07/game-review-ethereal-estate.html" rel="alternate" type="text/html" title="Monthly Game Review: Ethereal Estate" /><published>2021-09-07T00:00:00-05:00</published><updated>2021-09-07T00:00:00-05:00</updated><id>https://orgulo.us/games/review/sandbox/ethereal/estate/simulation/funny/2021/09/07/game-review-ethereal-estate</id><content type="html" xml:base="https://orgulo.us/games/review/sandbox/ethereal/estate/simulation/funny/2021/09/07/game-review-ethereal-estate.html">&lt;p&gt;&lt;img src=&quot;https://cdn.cloudflare.steamstatic.com/steam/apps/1529470/header.jpg?t=1615838798&quot; alt=&quot;Game Header Image&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://orgulo.us/feed.xml" rel="self" type="application/atom+xml" /><link href="https://orgulo.us/" rel="alternate" type="text/html" /><updated>2021-12-08T12:36:50-06:00</updated><id>https://orgulo.us/feed.xml</id><title type="html">Orgulo.us</title><subtitle></subtitle><entry><title type="html">Review of 2021 - Challenges, Thoughts</title><link href="https://orgulo.us/projects/challenges/future/2021/12/08/Review-Of-2021-Challenges.html" rel="alternate" type="text/html" title="Review of 2021 - Challenges, Thoughts" /><published>2021-12-08T00:00:00-06:00</published><updated>2021-12-08T00:00:00-06:00</updated><id>https://orgulo.us/projects/challenges/future/2021/12/08/Review-Of-2021-Challenges</id><content type="html" xml:base="https://orgulo.us/projects/challenges/future/2021/12/08/Review-Of-2021-Challenges.html">&lt;h1 id=&quot;how-did-the-challenges-go&quot;&gt;How did the challenges go?&lt;/h1&gt;
+&lt;p&gt;The honest truth is that I what I wanted to get done this year was pretty fluid and I did not get many of the commits done. Looking at what I have been working on though - and what I ended up spending my time on - I didn’t do so bad this year.&lt;/p&gt;
+
+&lt;p&gt;Firstly, I finally got a macro workflow that is working for pushing my projects forward along with learning new topics. One of the problems which I have been struggling with is how to both learn enough new concepts and frameworks along with actually using them. The normal process being used it to&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Find something of interest.&lt;/li&gt;
+  &lt;li&gt;See what’s been made in it.&lt;/li&gt;
+  &lt;li&gt;Work on tutorials, docs for the framework/tool/information.&lt;/li&gt;
+  &lt;li&gt;Try to apply it to pet projects.&lt;/li&gt;
+  &lt;li&gt;Maybe use it in a real project.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This process has problems that I needed solved. Since I have my hands in multiple different places - Data Science, Linux, Programming, Web Design, Secret Project I can’t discuss yet, etc - then this simply doesn’t work. With my life growing in so many dimensions, I simply cannot sit down and follow this process for a single framework and then maybe add it to what I am working on. If it takes a month or two to apply and become comfortable with the framework then it’s too slow and the other aspects of my life will end up neglected. So, what do I do now?
+	I have split the months of the year up into four quarters - just like a a business calendar. Then, the first month of that quarter is a &lt;strong&gt;Learning Month&lt;/strong&gt; which means I review what I need to learn, allocate out a set of classes for the month and then do power through them in that month. I take notes about what I’m learning and for some parts will actually practice with a very small pet project which is meant to implement a single thing. After that month is over, the next two months are &lt;strong&gt;Apply Months&lt;/strong&gt; which means that I take everything that I learned in that month, review it, and then start adding it to my projects.
+	This allows me to schedule up to four of classes covering any material I might need coming up in the next few months. This is also better because it keeps learning and application separate. When my schedule was fluid I kept finding ways to not work on projects since I constantly fell back into learning about new frameworks and tools. Now, the clear separation is allowing me to be strict about when and what tasks are supposed to be done. It is already paying out dividends – even though the first attempt at it I was sick for most of the first month of &lt;strong&gt;Apply&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;read-100-books&quot;&gt;Read 100 Books&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Of all the challenges that I wanted to complete, this is the one. And, I did worse than last year too: 81 books last year vs 31 books this year. Looking over how my life has changed since the Pandemic started, I think the biggest reason is that much of my reading was done in between. If I was waiting in line at a store then I was reading; while walking from the parking garage at work into the office I was reading. Now that we’re remote only and there are no lines when I am out running errands, I just don’t really read books as much as I used to. I do listen to them while walking around stores but often I don’t count those in the totals; I finished all of the Dragonlance Chronicles books via Audible for example and they’re not filled out on Goodreads. This means setting up time at home to read and I’m always working on projects or doing chores or watching lecture videos. That really only leaves downtime at work to read and we’ve been relatively busy lately. And, I happen to also have projects for Datto that I work on so that’s not really in the cards either. I’ll have a separate post to what the Challenges of 2022 are going to be so strategies will be discussed in that post.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;create-three-potential-streams-of-income&quot;&gt;Create Three Potential Streams of Income&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;For this one, I was successful. Currently, I have two streams of income: one active (Datto) and one semi-passive (Crypto) to work with. I am making money in both of those realms at this point which was more than I had set for the goal. The goal was to identify three potential streams of income that I could have for the year and there was no shortage of ideas for this one. I’ll discuss some of my favorites in the real Challenges of 2022 post but there are plenty more than three,
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;new-job-title&quot;&gt;New Job Title&lt;/h2&gt;
+&lt;p&gt;This is was a failed challenge.
+After exploring and talking with lots of people, this is going to be the hardest one. And, you’d consider that since I already have so many useful skills that it would be the easiest but it’s simply not. Realistically, I like where I work and I don’t really want to leave any time soon. All the positions that are within reach are jobs that I simply don’t want. And, I am not willing to trade in the job I have for those other jobs since they’d change something fundamental about what I want: working overnights, well limiting interacting with users, flexible time table for my own work. I’ll discuss more details in the Challenges of 2022 post when I write it.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-blog-post-a-month&quot;&gt;A Blog Post a Month&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;This is another place that I did decent but did not hold myself too. The biggest factor for this was simply not setting aside the time for it. It’s lower on the list of priorities which need to get done so I simply didn’t schedule out the time. Along side that was anything I wanted to write about I didn’t feel either qualified to write about or didn’t feel what I was willing to write would be be long or interesting enough to justify the post. This is a mindset problem which I should be able to easily solve in the coming year. Especially after looking at what the average person on Medium is writing about; they’re not even trying to write quality content most of the time but instead are simply writing very short not-even-tutorial posts about how to use a framework. There is also a surprising amount of “X Ideas fro Passive Income” posts which are mostly all the same thing over and over. I can do better than that.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;draw-an-original-comic&quot;&gt;Draw an Original Comic&lt;/h2&gt;
+&lt;p&gt;I dropped this one entirely – and I’m dropping it for next year too.
+I have a list of Daily Tasks which include things like exercise, typing practice along with drawing practice and by far the task I skip the most is drawing. I need to change this so I can actually start drawing at an ok level. Right now, I am struggling with curved lines and that’s quite basic for this level of challenge. I have a few ideas – when don’t I? - but this is a long road which I need to build basic habits out before even trying some kind of real challenge like a Comic.&lt;/p&gt;</content><author><name></name></author><summary type="html">How did the challenges go? The honest truth is that I what I wanted to get done this year was pretty fluid and I did not get many of the commits done. Looking at what I have been working on though - and what I ended up spending my time on - I didn’t do so bad this year.</summary></entry><entry><title type="html">Monthly Game Review: Ethereal Estate</title><link href="https://orgulo.us/games/review/sandbox/ethereal/estate/simulation/funny/2021/09/07/game-review-ethereal-estate.html" rel="alternate" type="text/html" title="Monthly Game Review: Ethereal Estate" /><published>2021-09-07T00:00:00-05:00</published><updated>2021-09-07T00:00:00-05:00</updated><id>https://orgulo.us/games/review/sandbox/ethereal/estate/simulation/funny/2021/09/07/game-review-ethereal-estate</id><content type="html" xml:base="https://orgulo.us/games/review/sandbox/ethereal/estate/simulation/funny/2021/09/07/game-review-ethereal-estate.html">&lt;p&gt;&lt;img src=&quot;https://cdn.cloudflare.steamstatic.com/steam/apps/1529470/header.jpg?t=1615838798&quot; alt=&quot;Game Header Image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I had quite a bit of fun with this game.
 While working on a Data Science project to try and make predictions on “What Genre Is this Game Based on it’s Header Image?” I stumbled across this weird little game trying to solve an error. Looking through the sample set of games, &lt;a href=&quot;https://store.steampowered.com/app/1529470/Ethereal_Estate/&quot;&gt;&lt;strong&gt;Ethereal Estate&lt;/strong&gt;&lt;/a&gt; pops out among all the other DLC headers and who knows what else these other images are supposed to inspire. The game is free and you play as a ghost - along with maybe your friend - to terrorize, ruin and throw everything within reach around: like a proper ghost should!&lt;/p&gt;
@@ -354,150 +388,4 @@ While I have some projects to show, they are far fewer than how much I want to h
 
 &lt;p&gt;That isn’t to say don’t purchase or read it; I think you should just because there is some good history here. The author’s knowledge about such topics as the speech &lt;em&gt;Mutation or Death&lt;/em&gt; was quite a surprise and the relationship between &lt;strong&gt;Old Pub&lt;/strong&gt; and &lt;strong&gt;New Pub&lt;/strong&gt; is a meaningful distinction that Cowan does well. Personally, I think he’s overselling it as there is enough poor writing on display via Amazon Unlimited or niches such as LitRPG where the divide between practiced writers or amateurs shows up from the first page.&lt;/p&gt;
 
-&lt;p&gt;All in all, spend the money but get it in digital.&lt;/p&gt;</content><author><name></name></author><summary type="html">This book is about something worth noticing as the access to writing and publishing has broadened. There are healthy and helpful tips for writing and about writing learned from reading the Pulps of the past - and as someone that hasn’t read much of them and slowly breaking that particular seal I cannot agree more. However, reading the book feels more like what my own essays in high school felt like with repetition spread around and re-wordings of the same ideas.</summary></entry><entry><title type="html">Simple Introduction to Python Debugging</title><link href="https://orgulo.us/python/programming/debugging/2020/10/21/Simple-Python-Debugging-Example.html" rel="alternate" type="text/html" title="Simple Introduction to Python Debugging" /><published>2020-10-21T00:00:00-05:00</published><updated>2020-10-21T00:00:00-05:00</updated><id>https://orgulo.us/python/programming/debugging/2020/10/21/Simple-Python-Debugging-Example</id><content type="html" xml:base="https://orgulo.us/python/programming/debugging/2020/10/21/Simple-Python-Debugging-Example.html">&lt;h2 id=&quot;inspiration&quot;&gt;Inspiration&lt;/h2&gt;
-&lt;p&gt;While working on a script that I’m writing for work, I was having trouble really tracking down where my logic was failing. After looking over the code, everything looked correct but the results were showing me otherwise. So, I opened up python’s debugging system and started to dig in.&lt;/p&gt;
-
-&lt;h2 id=&quot;what-is-debugging&quot;&gt;What is Debugging?&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;In computer programming and software development, debugging is the process of finding and resolving bugs (defects or problems that prevent correct operation) within computer programs, software, or systems.
-cf: https://en.wikipedia.org/wiki/Debugging&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;There are plenty of tools to do stuff like this but Python comes with its own: pdb — &lt;a href=&quot;https://docs.python.org/3/library/pdb.html&quot;&gt;The Python Debugger&lt;/a&gt;.
-To activate it, you’d simply go into your terminal and type:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;user@station# python3 -m pdb &amp;lt;script-name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;This with start the script from the top and immediately stop before running anything:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;user@station:/scripts# python3 -m pdb keyIntegrityCheck.py
-&amp;gt; /scripts/keyIntegrityCheck.py(5)&amp;lt;module&amp;gt;()
--&amp;gt; from pathlib import Path
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;While this is useful, we need to be able to explore the file. You could keep an editor open on a different monitor and move around but sometimes that’s not going to be an option. To print all the lines in the file  you’d use:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) ll                                                                                    
-1     #!/usr/bin/env python3                                        
-2     ## Author: Collin Mitchell                                 
-3     ## Purpose: To check the integrity of keys without user input.  
-4                                                                               
-5  -&amp;gt; from pathlib import Path                                                   
-6     from itertools import filterfalse                                            
-7     import subprocess as sp                                                          
-8     import json                                                                     
-9     import sys    
-# ...
-370                 integrityFunc = dd.get(str(filename).split('.')[-1])
-371                 if integrityFunc:
-372                     consistent = integrityFunc( filename )
-373                     if not consistent: print(&quot;{} is not consistent.&quot;.format(filename))
-374                 else:
-375                     print(&quot;{} is missing a checker; please report {} so it can be added.&quot;.format(filename,filename))
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;You can see the pointer on line five telling us where the current execution point is. We can move the pointer a single line using &lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) n                                                                                                                                                                   [336/1995]
-&amp;gt; /scripts/keyIntegrityCheck.py(6)&amp;lt;module&amp;gt;()
--&amp;gt; from itertools import filterfalse                   
-(Pdb) ll                                                                                    
-  1     #!/usr/bin/env python3                                        
-  2     ## Author: Collin Mitchell                                 
-  3     ## Purpose: To check the integrity of keys without user input.  
-  4                                                                               
-  5     from pathlib import Path                                                   
-  6  -&amp;gt; from itertools import filterfalse                                            
-  7     import subprocess as sp                                                          
-  8     import json                                                                     
-  9     import sys     
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;You can see the next 11 lines in the console buffer using &lt;code class=&quot;highlighter-rouge&quot;&gt;l&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) l
-  1     #!/usr/bin/env python3
-  2     ## Author: Collin Mitchell
-  3     ## Purpose: To check the integrity of keys without user input.
-  4  
-  5     from pathlib import Path
-  6  -&amp;gt; from itertools import filterfalse
-  7     import subprocess as sp
-  8     import json
-  9     import sys
- 10  
- 11     # stuff to do with phpserialize:
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Not that if you do this and run it again that you wont get the same result:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) l
- 12     import codecs
- 13     try:
- 14         codecs.lookup_error('surrogateescape')
- 15         default_errors = 'surrogateescape'
- 16     except LookupError:
- 17         default_errors = 'strict'
- 18     try:
- 19         xrange
- 20     except NameError:
- 21         xrange = range
- 22     try:
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;… but you will get the &lt;strong&gt;next&lt;/strong&gt; 11 lines instead. You can tell it which lines to list centered on a line number using &lt;code class=&quot;highlighter-rouge&quot;&gt;l 10&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) l 10
-  5     from pathlib import Path
-  6  -&amp;gt; from itertools import filterfalse
-  7     import subprocess as sp
-  8     import json
-  9     import sys
- 10  
- 11     # stuff to do with phpserialize:
- 12     import codecs
- 13     try:
- 14         codecs.lookup_error('surrogateescape')
- 15         default_errors = 'surrogateescape'
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Now that we can move around, let’s discuss how to actually stop code execution using &lt;strong&gt;breakpoints&lt;/strong&gt;. These are locations you set - sometimes with conditions - to stop the code execution and explore the current state. You can set these using ‘b’:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) b
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Since we don’t have any breakpoints set, then it makes sense we don’t see any listed. So, now lets set one:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) b 9
-Breakpoint 1 at /scripts/keyIntegrityCheck.py:9
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;… and continue execution until the breakpoint using &lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) c
-&amp;gt; /scripts/keyIntegrityCheck.py(9)&amp;lt;module&amp;gt;()
--&amp;gt; import sys
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;… and list the active breakpoints again:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) b
-Num Type         Disp Enb   Where
-1   breakpoint   keep yes   at /scripts/keyIntegrityCheck.py:9
-        breakpoint already hit 1 time
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;You can clear that breakpoint using the number of the breakpoint as well:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) b
-Num Type         Disp Enb   Where
-1   breakpoint   keep yes   at /scripts/keyIntegrityCheck.py:9
-        breakpoint already hit 1 time
-(Pdb) cl 1
-Deleted breakpoint 1 at /scripts/keyIntegrityCheck.py:9
-(Pdb) b
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Conditional breakpoints I found a bit tricky to get to work correctly because you need to place a comma after the statement:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(Pdb) b 371, integrityFunc.__name__ == 'integrityPhp'
-Breakpoint 3 at /scripts/keyIntegrityCheck.py:371
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;… and then you &lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt; until it triggers:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt; /scripts/keyIntegrityCheck.py(371)&amp;lt;module&amp;gt;()
--&amp;gt; if integrityFunc:
-(Pdb) integrityFunc
-&amp;lt;function integrityPhp at 0x7f99291477b8&amp;gt;
-(Pdb)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;I couldn’t find much outside of the official documentation when I needed it so hopefully you find the highlights useful.
-There are also tools for whichever IDE you’re using so look out for those as well.&lt;/p&gt;</content><author><name></name></author><summary type="html">Inspiration While working on a script that I’m writing for work, I was having trouble really tracking down where my logic was failing. After looking over the code, everything looked correct but the results were showing me otherwise. So, I opened up python’s debugging system and started to dig in.</summary></entry></feed>
+&lt;p&gt;All in all, spend the money but get it in digital.&lt;/p&gt;</content><author><name></name></author><summary type="html">This book is about something worth noticing as the access to writing and publishing has broadened. There are healthy and helpful tips for writing and about writing learned from reading the Pulps of the past - and as someone that hasn’t read much of them and slowly breaking that particular seal I cannot agree more. However, reading the book feels more like what my own essays in high school felt like with repetition spread around and re-wordings of the same ideas.</summary></entry></feed>

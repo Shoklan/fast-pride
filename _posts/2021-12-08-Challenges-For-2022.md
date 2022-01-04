@@ -26,8 +26,8 @@ Obviously, my job is the primary source of income - and I have no real interest 
 ### Streaming
 I'm going to take a serious attempt at making money on Content Creation sites like Youtube, Twitch and TikTok.
 The competition here is enormous and this is not the kind of job I admit I'm naturally good at but it fits well into my life. I play games with my friends and coworkers consistenly enough that these can be put online without too much trouble. Getting people to watch or care about the content is a totally different problem. Doing the research that I have so far, we're really going to have to lean on Personality quite a bit otherwise this simply wont work. Due to being on Linux, there really is nothing but Splitgate which I can play competitively and stream. And looking at the numbers, Splitgate is struggling both as a streamed game as well as keeping an audiance of players:
-![images/2022-challenges/splitgate-numbers.png]
-![images/2022-challenges/splitgate-twitch.png]
+![Splitgate Numbers]({{ site.baseurl }}/images/2022-challenges/splitgate-numbers.png)
+![Splitgate Twitch Numbers]({{ site.baseurl }}/images/2022-challenges/splitgate-twitch.png)
 
 So, maybe I could try and niche with Splitgate but I would be concerned with getting locked into playing a game struggling to grow.
 To start though, I will need:

@@ -6,7 +6,7 @@ title: "Game Review: Post Void"
 description: Nostalgia with a Side of Adrenaline
 ---
 
-> Post Void is a hypnotic scramble of early first-person shooter design that values speed above all else. Keep your head full and reach the end; Kill what you can to see it mend; Get the high score or try again.”
+> Post Void is a hypnotic scramble of early first-person shooter design that values speed above all else. Keep your head full and reach the end; Kill what you can to see it mend; Get the high score or try again.
 
 
 About a month ago I Steam was kind enough to recommend a rough looking LSD-inspired shooter. And, this little gem is called Post Void created by a little Developer group called YCJY Games. Looking at the videos, screenshots and description I was immediately sold:

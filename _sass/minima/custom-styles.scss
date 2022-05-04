@@ -11,44 +11,35 @@
 // If you want to turn off dark background for syntax highlighting, comment or delete the below line.
 @import "minima/fastpages-dracula-highlight";
 
-body{
-	/* background-color: rgba(200, 200, 200, .3); */
-	
+.wrapper > .site-title {
+  color: white;
+  font-family: 'Space Mono', monospace;
+  text-transform: lowercase;
+}
+
+.site-nav .page-link{
+	color: white;
+	font-family: 'Space Mono', monospace;
+	text-transform: lowercase;
 }
 
 body > header {
   background-color: #000000;
   min-height: 23px;
   max-height: 23px;
-
-}
-
-.wrapper > .site-title {
-  color: #E2DFD2;
-  font-family: 'Space Mono', monospace;
-  text-transform: lowercase;
-}
-
-.site-nav .page-link{
-	color: E2DFD2;
-	font-family: 'Space Mono', monospace;
-	text-transform: lowercase;
 }
 
 .post-content {
 	box-sizing: content-box;
-	color: #E2DFD2;
+	color: #FFFFF0;
 }
 
-.post-content > a:hover {
-	color: #5D3FD3;
+
+.post-content p, .post-content li {
+	color: #e2dfd2
 }
 
 .page-content{
 	background-color: #282828;
 	color: #E2DFD2;
-}
-
-.page-content > a:hover {
-	color: #5D3FD3;
 }

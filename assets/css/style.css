@@ -486,13 +486,15 @@ body { /* background-color: rgba(200, 200, 200, .3); */ }
 
 body > header { background-color: #000000; min-height: 23px; max-height: 23px; }
 
-.wrapper > .site-title { color: white; font-family: 'Space Mono', monospace; text-transform: lowercase; }
+.wrapper > .site-title { color: #E2DFD2; font-family: 'Space Mono', monospace; text-transform: lowercase; }
 
-.site-nav .page-link { color: white; font-family: 'Space Mono', monospace; text-transform: lowercase; }
+.site-nav .page-link { color: E2DFD2; font-family: 'Space Mono', monospace; text-transform: lowercase; }
 
-.post-content { box-sizing: content-box; }
+.post-content { box-sizing: content-box; color: #E2DFD2; }
 
-.page-content { background-color: #282828; }
+.post-content > a:hover { color: #5D3FD3; }
+
+.page-content { background-color: #282828; color: #E2DFD2; }
 
 .page-content > a:hover { color: #5D3FD3; }
 

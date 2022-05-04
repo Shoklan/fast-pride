@@ -429,16 +429,6 @@ table th { text-align: center !important; }
 
 .svg-icon.orange { width: 30px; height: 23px; }
 
-body { background-color: rgba(200, 200, 200, 0.3); }
-
-body > header { background-color: #000000; min-height: 23px; max-height: 23px; }
-
-.wrapper > .site-title { color: white; font-family: 'Space Mono', monospace; text-transform: lowercase; }
-
-.site-nav .page-link { color: white; font-family: 'Space Mono', monospace; text-transform: lowercase; }
-
-.post-content { box-sizing: content-box; }
-
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
 .language-python + .language-plaintext { border-left: 1px solid grey; margin-left: 1rem !important; }
@@ -491,5 +481,15 @@ body > header { background-color: #000000; min-height: 23px; max-height: 23px; }
 .highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo, .highlight .il { color: #bd93f9; }
 
 .highlight .gd { color: #ff5555; }
+
+body { /* background-color: rgba(200, 200, 200, .3); */ background-color: #282828; }
+
+body > header { background-color: #000000; min-height: 23px; max-height: 23px; }
+
+.wrapper > .site-title { color: white; font-family: 'Space Mono', monospace; text-transform: lowercase; }
+
+.site-nav .page-link { color: white; font-family: 'Space Mono', monospace; text-transform: lowercase; }
+
+.post-content { box-sizing: content-box; }
 
 /*# sourceMappingURL=style.css.map */

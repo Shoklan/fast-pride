@@ -37,5 +37,11 @@ body > header {
 
 .post-content {
 	box-sizing: content-box;
+}
+
+.page-content{
 	background-color: #282828;
+}
+.page-content > a:hover {
+	color: #5D3FD3;
 }

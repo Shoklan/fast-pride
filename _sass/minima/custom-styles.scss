@@ -24,24 +24,31 @@ body > header {
 }
 
 .wrapper > .site-title {
-  color: white;
+  color: #E2DFD2;
   font-family: 'Space Mono', monospace;
   text-transform: lowercase;
 }
 
 .site-nav .page-link{
-	color: white;
+	color: E2DFD2;
 	font-family: 'Space Mono', monospace;
 	text-transform: lowercase;
 }
 
 .post-content {
 	box-sizing: content-box;
+	color: #E2DFD2;
+}
+
+.post-content > a:hover {
+	color: #5D3FD3;
 }
 
 .page-content{
 	background-color: #282828;
+	color: #E2DFD2;
 }
+
 .page-content > a:hover {
 	color: #5D3FD3;
 }

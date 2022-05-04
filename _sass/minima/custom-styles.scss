@@ -2,8 +2,18 @@
 /*--- IMPORT STYLES FOR FASTPAGES ---*/
 @import "minima/fastpages-styles";
 
+
+
+/*-----------------------------------*/
+/*----- ADD YOUR STYLES BELOW -------*/
+
+
+// If you want to turn off dark background for syntax highlighting, comment or delete the below line.
+@import "minima/fastpages-dracula-highlight";
+
 body{
-	background-color: rgba(200, 200, 200, .3);
+	/* background-color: rgba(200, 200, 200, .3); */
+	background-color: #282828;
 }
 
 body > header {
@@ -28,11 +38,3 @@ body > header {
 .post-content {
 	box-sizing: content-box;
 }
-
-
-/*-----------------------------------*/
-/*----- ADD YOUR STYLES BELOW -------*/
-
-
-// If you want to turn off dark background for syntax highlighting, comment or delete the below line.
-@import "minima/fastpages-dracula-highlight";

@@ -42,4 +42,3 @@ Get your Blender project back open and hop into the *Shading* Pane once more. Ad
 
 And, that's how you Make a Normal Map, and add it into blender. You can improve it some using other options like adding a *Bump Node* between it.
 <img src="{{ site.baseurl }}/images/blender-bake/add-the-normal-map-to-the-texture.png" width="500" height="400">
-

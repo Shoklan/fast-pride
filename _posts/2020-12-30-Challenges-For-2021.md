@@ -27,3 +27,18 @@ I have this place where I can drop interesting project ideas or discuss problems
 
 ### Draw An Original Comic.
 If you're following me on any social media then you've probably seen some crude drawings. While I admit I'm doing them for my own enjoyment - and challenge - I should push towards something tangible.
+
+
+- \[A book you’ve been meaning to read.]: The Grammer of Science by Karl Pearson
+- \[A book about a topic that fascinates.\]: Unrestricted Warfare by Qiao Liang, Wang Xiangsui
+- \[A book in the backlist of a favorite author.\]: Legionaire by Jason Anspath, Nick Cole
+- \[A book recommended by someone with great taste.\]: Awake in the Nightland by John C. Wright
+- \[Three books by the same author.\]:
+    * Forgotten Ruin by Jason Anspath, Nick Cole
+    * Hit And Fade by Jason Anspath, Nick Cole
+    * Violence of Action by Jason Anspath, Nick Cole
+- \[A book you chose for the cover.\]: JinJang by Iris Paustian
+- \[A book by an author who is new to you.\]: The Forge of Christendom: The End of Days and the Epic Rise of the West by Tom Holland
+- \[A book in translation.\]: The Nine Chapters on the Mathematical Art: Companion and Commentary by Shen Kangshen
+- \[A book outside your comfort zone.\]: The Social Construction of Reality: A Treatise In the Sociology of Knowledge
+- \[A book published before you were born\]: The Constitution of the United States of America by The Found Fathers

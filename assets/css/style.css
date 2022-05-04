@@ -488,7 +488,7 @@ table th { text-align: center !important; }
 
 body > header { background-color: #000000; min-height: 23px; max-height: 23px; }
 
-.post-content { box-sizing: content-box; color: #FFFFF0; }
+.post-content { box-sizing: content-box; color: white; }
 
 .post-content p, .post-content li { color: #e2dfd2; }
 

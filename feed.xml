@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://orgulo.us/feed.xml" rel="self" type="application/atom+xml" /><link href="https://orgulo.us/" rel="alternate" type="text/html" /><updated>2022-05-04T05:42:26-05:00</updated><id>https://orgulo.us/feed.xml</id><title type="html">Orgulo.us</title><subtitle></subtitle><entry><title type="html">How Do You Create a Normal Map?</title><link href="https://orgulo.us/gimp/blender/baking/normal/map/game/2022/02/02/How-To-Make-Matching-Textures-And-Normals.html" rel="alternate" type="text/html" title="How Do You Create a Normal Map?" /><published>2022-02-02T00:00:00-06:00</published><updated>2022-02-02T00:00:00-06:00</updated><id>https://orgulo.us/gimp/blender/baking/normal/map/game/2022/02/02/How-To-Make-Matching-Textures-And-Normals</id><content type="html" xml:base="https://orgulo.us/gimp/blender/baking/normal/map/game/2022/02/02/How-To-Make-Matching-Textures-And-Normals.html">&lt;h2 id=&quot;how-we-got-here&quot;&gt;How We Got Here&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://orgulo.us/feed.xml" rel="self" type="application/atom+xml" /><link href="https://orgulo.us/" rel="alternate" type="text/html" /><updated>2022-06-01T17:46:30-05:00</updated><id>https://orgulo.us/feed.xml</id><title type="html">Orgulo.us</title><subtitle></subtitle><entry><title type="html">How to Setup V Rising on Linux</title><link href="https://orgulo.us/dedicated/gaming/v%20rising/linux/instructions/2022/06/01/how-to-setup-a-dedicated-v-rising-server-on-linux.html" rel="alternate" type="text/html" title="How to Setup V Rising on Linux" /><published>2022-06-01T00:00:00-05:00</published><updated>2022-06-01T00:00:00-05:00</updated><id>https://orgulo.us/dedicated/gaming/v%20rising/linux/instructions/2022/06/01/how-to-setup-a-dedicated-v-rising-server-on-linux</id><content type="html" xml:base="https://orgulo.us/dedicated/gaming/v%20rising/linux/instructions/2022/06/01/how-to-setup-a-dedicated-v-rising-server-on-linux.html">&lt;h1 id=&quot;the-quick-version&quot;&gt;The Quick Version:&lt;/h1&gt;
+&lt;p&gt;If you’re here becuase you just want the answer then here are the exact steps that always work for me.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Download the V Rising Dedicted Server from steam to your account.&lt;/li&gt;
+  &lt;li&gt;Download Proton Experimental and change to the Bleeding Edge Beta branch.&lt;/li&gt;
+  &lt;li&gt;Run this command:
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;STEAM_COMPAT_CLIENT_INSTALL_PATH=/tmp STEAM_COMPAT_DATA_PATH=/tmp &amp;lt;Path/to/proton/experimental/install/location/proton&amp;gt; run VRisingServer.exe &amp;lt;args-from-offical-repo&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;If this doesn’t work then proceed to the below:&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Download Lutris and install the dependecies it asks for.&lt;/li&gt;
+  &lt;li&gt;Find and install the Epic Games laucher from Lutris.&lt;/li&gt;
+  &lt;li&gt;Do the steps it asks you to run through: including those dependencies.&lt;/li&gt;
+  &lt;li&gt;Reboot.&lt;/li&gt;
+  &lt;li&gt;Run the command:
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;STEAM_COMPAT_CLIENT_INSTALL_PATH=/tmp STEAM_COMPAT_DATA_PATH=/tmp &amp;lt;Path/to/proton/experimental/install/location/proton&amp;gt; run VRisingServer.exe &amp;lt;args-from-offical-repo&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;story-time&quot;&gt;Story Time&lt;/h1&gt;
+&lt;p&gt;I have been looking forward to playing this game since I accidently found it a while back. As someone who’s favorite genre is definitely Survival Games and Vampires are one of my favorite supernatural creatures, this game was going to be at the top of the list. Adding to that the skills along with skillshots for combat and this is about as perfect as it gets. Sadly, the game does not support linux and - per the &lt;a href=&quot;https://www.protondb.com/app/1604030&quot;&gt;Protondb page&lt;/a&gt; - most people were simply not able to get the game running.
+End of Story.&lt;/p&gt;
+
+&lt;p&gt;But in actuality, after a few days of work and some investigation by the wonderful Proton Community they found that it was &lt;a href=&quot;https://github.com/ValveSoftware/Proton/issues/5845#issuecomment-1133871512&quot;&gt;missing some configuration files&lt;/a&gt; and they were taken from another game the developer had released. Once you copied those into the proper place then the game could launch. Luckily, Proton is very active and soon this change was pushed into the the &lt;strong&gt;Bleeding Edge Beta&lt;/strong&gt; of Proton and once swapped over the game would run without issues. I also confirmed this myself and happily booted the game into my first test world!
+End of Story.&lt;/p&gt;
+
+&lt;h1 id=&quot;so-what-about-the-dedicated&quot;&gt;So, What About the Dedicated?&lt;/h1&gt;
+&lt;p&gt;So, the problem is that this cannot work for the Dedicated server. Since launching the dedicated server only shows a link to the &lt;a href=&quot;https://github.com/StunlockStudios/vrising-dedicated-server-instructions&quot;&gt;Instructions to configure the server&lt;/a&gt; and it assumes that it is running on a Windows Computer. All we have locally is the simple example .bat file for windows which is of little use to us. What we need to do is run the Dedicated server somehow with Proton and we’ll have to find a way to put this into a script.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-do-we-run-something-manaully-with-proton&quot;&gt;How Do We Run Something Manaully With Proton?&lt;/h2&gt;
+&lt;p&gt;Luckily, just like the wonder people over at the Github Page, we can find that answer online! According to this old thread from &lt;a href=&quot;https://old.reddit.com/r/linux_gaming/comments/9au2qp/how_do_i_use_proton_via_command_line/&quot;&gt;Reddit&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;STEAM_COMPAT_DATA_PATH=~/.proton/ ~/.steam/steam/steamapps/common/Proton\ 3.7/proton run whatever.exe&lt;/em&gt;&lt;br /&gt;
+You need to create ~/.proton (it can be any directory and can be empty)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Excellent! Now we have something to work with. Looking at the command I built, I simply put those in &lt;code class=&quot;highlighter-rouge&quot;&gt;/tmp&lt;/code&gt; since I didn’t want to think about what compatdata is; I still don’t really know what this is after a quick Google but it works like this.
+So, simply create a little script to be ran in bash:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/bash&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;STEAM_COMPAT_CLIENT_INSTALL_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/tmp &lt;span class=&quot;nv&quot;&gt;STEAM_COMPAT_DATA_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/tmp &amp;lt;Path/to/proton/experimental/install/location/proton&amp;gt; run VRisingServer.exe &amp;lt;args-from-offical-repo&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;… and then &lt;code class=&quot;highlighter-rouge&quot;&gt;chmod +x scriptName.sh&lt;/code&gt; and run it to start the server.&lt;/p&gt;
+
+&lt;h2 id=&quot;this-didnt-work&quot;&gt;This Didn’t Work!&lt;/h2&gt;
+&lt;p&gt;So, in my own troubleshooting I found that I ended up with an error &lt;code class=&quot;highlighter-rouge&quot;&gt;Failed to create batch mode window: Success.&lt;/code&gt; when I ran this a second time on my server. However, after doing some testing on multiple different distributions - Ubuntu 20.10, EndevourOS, Manajaro - I found that it didn’t work on any of my systems even though it had ran once. Adding to my confusion, the dedicated server ran find on my own Desktop and without issues at all. Considering one of my servers was Manjaro just like my desktop then there must be something installed on locally which is not being installed along with the Steam Proton Dependencies. The only noticable difference in dependencies was that I have Lutris Installed on my own Destktop and it’s not on any of my other systems. So, I ran through exacty what is installed via Lutris and once I rebooted my other server it worked without issues.&lt;/p&gt;
+
+&lt;h2 id=&quot;so-what-is-missing&quot;&gt;So, What Is Missing?&lt;/h2&gt;
+&lt;p&gt;The honest answer is that I don’t know. The list of dependences that gets installed along with the process is &lt;a href=&quot;https://github.com/lutris/docs/blob/master/InstallingDrivers.md&quot;&gt;quite&lt;/a&gt; a  &lt;a href=&quot;https://github.com/lutris/docs/blob/master/WineDependencies.md&quot;&gt;list&lt;/a&gt; and I simply don’t have time to isolate which ones are the correct packages. If you have the time to figure it out then please let me know so I can update this post.
+Otherwise, Happy Hunting!&lt;/p&gt;</content><author><name></name></author><summary type="html">The Quick Version: If you’re here becuase you just want the answer then here are the exact steps that always work for me. Download the V Rising Dedicted Server from steam to your account. Download Proton Experimental and change to the Bleeding Edge Beta branch. Run this command: STEAM_COMPAT_CLIENT_INSTALL_PATH=/tmp STEAM_COMPAT_DATA_PATH=/tmp &amp;lt;Path/to/proton/experimental/install/location/proton&amp;gt; run VRisingServer.exe &amp;lt;args-from-offical-repo&amp;gt; If this doesn’t work then proceed to the below: Download Lutris and install the dependecies it asks for. Find and install the Epic Games laucher from Lutris. Do the steps it asks you to run through: including those dependencies. Reboot. Run the command: STEAM_COMPAT_CLIENT_INSTALL_PATH=/tmp STEAM_COMPAT_DATA_PATH=/tmp &amp;lt;Path/to/proton/experimental/install/location/proton&amp;gt; run VRisingServer.exe &amp;lt;args-from-offical-repo&amp;gt;</summary></entry><entry><title type="html">How Do You Create a Normal Map?</title><link href="https://orgulo.us/gimp/blender/baking/normal/map/game/2022/02/02/How-To-Make-Matching-Textures-And-Normals.html" rel="alternate" type="text/html" title="How Do You Create a Normal Map?" /><published>2022-02-02T00:00:00-06:00</published><updated>2022-02-02T00:00:00-06:00</updated><id>https://orgulo.us/gimp/blender/baking/normal/map/game/2022/02/02/How-To-Make-Matching-Textures-And-Normals</id><content type="html" xml:base="https://orgulo.us/gimp/blender/baking/normal/map/game/2022/02/02/How-To-Make-Matching-Textures-And-Normals.html">&lt;h2 id=&quot;how-we-got-here&quot;&gt;How We Got Here&lt;/h2&gt;
 &lt;p&gt;Looking around the Internet, it ended up being much harder to find the information about how to make a Custom Normal Map then I though it should be. After finally figuring this out, I thought I’d formalize/share it here so that it doesn’t get lost among everything else.&lt;/p&gt;
 
 &lt;h2 id=&quot;where-were-going&quot;&gt;Where We’re Going&lt;/h2&gt;
@@ -44,41 +95,7 @@ You should now see the image show up in the &lt;em&gt;Image Editor&lt;/em&gt; in
 Somewhere along the way, the levels make it harder to fall to to the beginning so there isn’t even really a &lt;em&gt;checkpoint&lt;/em&gt; system as much as the design makes it harder to return to the beginning.&lt;/p&gt;
 
 &lt;p&gt;The game itself is just smooth to play. The musical theme of simple classical fits nicely with the theme of the game of being a simple stick figure in a simple world full of simple enemies and obstacles.
-I’d definitely recommend picking it up and playing it for a few minutes when you don’t have a lot of time to commit to something else - and it’s free on Steam!&lt;/p&gt;</content><author><name></name></author><summary type="html">Throw your stick-figure-self at cannonballs and airplanes in an upward pursuit of the eraser! Play cooperatively online to share the journey! Who’s to say whether the company will help or hinder, though…</summary></entry><entry><title type="html">Review of 2021 - Challenges, Thoughts</title><link href="https://orgulo.us/projects/challenges/future/2021/12/08/Review-Of-2021-Challenges.html" rel="alternate" type="text/html" title="Review of 2021 - Challenges, Thoughts" /><published>2021-12-08T00:00:00-06:00</published><updated>2021-12-08T00:00:00-06:00</updated><id>https://orgulo.us/projects/challenges/future/2021/12/08/Review-Of-2021-Challenges</id><content type="html" xml:base="https://orgulo.us/projects/challenges/future/2021/12/08/Review-Of-2021-Challenges.html">&lt;h1 id=&quot;how-did-the-challenges-go&quot;&gt;How did the challenges go?&lt;/h1&gt;
-&lt;p&gt;The honest truth is that I what I wanted to get done this year was pretty fluid and I did not get many of the commits done. Looking at what I have been working on though - and what I ended up spending my time on - I didn’t do so bad this year.&lt;/p&gt;
-
-&lt;p&gt;Firstly, I finally got a macro workflow that is working for pushing my projects forward along with learning new topics. One of the problems which I have been struggling with is how to both learn enough new concepts and frameworks along with actually using them. The normal process being used it to&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Find something of interest.&lt;/li&gt;
-  &lt;li&gt;See what’s been made in it.&lt;/li&gt;
-  &lt;li&gt;Work on tutorials, docs for the framework/tool/information.&lt;/li&gt;
-  &lt;li&gt;Try to apply it to pet projects.&lt;/li&gt;
-  &lt;li&gt;Maybe use it in a real project.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;This process has problems that I needed solved. Since I have my hands in multiple different places - Data Science, Linux, Programming, Web Design, Secret Project I can’t discuss yet, etc - then this simply doesn’t work. With my life growing in so many dimensions, I simply cannot sit down and follow this process for a single framework and then maybe add it to what I am working on. If it takes a month or two to apply and become comfortable with the framework then it’s too slow and the other aspects of my life will end up neglected. So, what do I do now?&lt;/p&gt;
-
-&lt;p&gt;I have split the months of the year up into four quarters - just like a a business calendar. Then, the first month of that quarter is a &lt;strong&gt;Learning Month&lt;/strong&gt; which means I review what I need to learn, allocate out a set of classes for the month and then do power through them in that month. I take notes about what I’m learning and for some parts will actually practice with a very small pet project which is meant to implement a single thing. After that month is over, the next two months are &lt;strong&gt;Apply Months&lt;/strong&gt; which means that I take everything that I learned in that month, review it, and then start adding it to my projects.&lt;/p&gt;
-
-&lt;p&gt;This allows me to schedule up to four of classes covering any material I might need coming up in the next few months. This is also better because it keeps learning and application separate. When my schedule was fluid I kept finding ways to not work on projects since I constantly fell back into learning about new frameworks and tools. Now, the clear separation is allowing me to be strict about when and what tasks are supposed to be done. It is already paying out dividends – even though the first attempt at it I was sick for most of the first month of &lt;strong&gt;Apply&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;read-100-books&quot;&gt;Read 100 Books&lt;/h2&gt;
-&lt;p&gt;Of all the challenges that I wanted to complete, this is the one. And, I did worse than last year too: 81 books last year vs 31 books this year. Looking over how my life has changed since the Pandemic started, I think the biggest reason is that much of my reading was done in between. If I was waiting in line at a store then I was reading; while walking from the parking garage at work into the office I was reading. Now that we’re remote only and there are no lines when I am out running errands, I just don’t really read books as much as I used to. I do listen to them while walking around stores but often I don’t count those in the totals; I finished all of the Dragonlance Chronicles books via Audible for example and they’re not filled out on Goodreads. This means setting up time at home to read and I’m always working on projects or doing chores or watching lecture videos. That really only leaves downtime at work to read and we’ve been relatively busy lately. And, I happen to also have projects for Datto that I work on so that’s not really in the cards either. I’ll have a separate post to what the Challenges of 2022 are going to be so strategies will be discussed in that post.&lt;/p&gt;
-
-&lt;h2 id=&quot;create-three-potential-streams-of-income&quot;&gt;Create Three Potential Streams of Income&lt;/h2&gt;
-&lt;p&gt;For this one, I was successful. Currently, I have two streams of income: one active (Datto) and one semi-passive (Crypto) to work with. I am making money in both of those realms at this point which was more than I had set for the goal. The goal was to identify three potential streams of income that I could have for the year and there was no shortage of ideas for this one. I’ll discuss some of my favorites in the real Challenges of 2022 post but there are plenty more than three,&lt;/p&gt;
-
-&lt;h2 id=&quot;new-job-title&quot;&gt;New Job Title&lt;/h2&gt;
-&lt;p&gt;This is was a failed challenge.
-After exploring and talking with lots of people, this is going to be the hardest one. And, you’d consider that since I already have so many useful skills that it would be the easiest but it’s simply not. Realistically, I like where I work and I don’t really want to leave any time soon. All the positions that are within reach are jobs that I simply don’t want. And, I am not willing to trade in the job I have for those other jobs since they’d change something fundamental about what I want: working overnights, well limiting interacting with users, flexible time table for my own work. I’ll discuss more details in the Challenges of 2022 post when I write it.&lt;/p&gt;
-
-&lt;h2 id=&quot;a-blog-post-a-month&quot;&gt;A Blog Post a Month&lt;/h2&gt;
-&lt;p&gt;This is another place that I did decent but did not hold myself too. The biggest factor for this was simply not setting aside the time for it. It’s lower on the list of priorities which need to get done so I simply didn’t schedule out the time. Along side that was anything I wanted to write about I didn’t feel either qualified to write about or didn’t feel what I was willing to write would be be long or interesting enough to justify the post. This is a mindset problem which I should be able to easily solve in the coming year. Especially after looking at what the average person on Medium is writing about; they’re not even trying to write quality content most of the time but instead are simply writing very short not-even-tutorial posts about how to use a framework. There is also a surprising amount of “X Ideas fro Passive Income” posts which are mostly all the same thing over and over.
-I can do better than that.&lt;/p&gt;
-
-&lt;h2 id=&quot;draw-an-original-comic&quot;&gt;Draw an Original Comic&lt;/h2&gt;
-&lt;p&gt;I dropped this one entirely – and I’m dropping it for next year too.
-I have a list of Daily Tasks which include things like exercise, typing practice along with drawing practice and by far the task I skip the most is drawing. I need to change this so I can actually start drawing at an ok level. Right now, I am struggling with curved lines and that’s quite basic for this level of challenge. I have a few ideas – when don’t I? - but this is a long road which I need to build basic habits out before even trying some kind of real challenge like a Comic.&lt;/p&gt;</content><author><name></name></author><summary type="html">How did the challenges go? The honest truth is that I what I wanted to get done this year was pretty fluid and I did not get many of the commits done. Looking at what I have been working on though - and what I ended up spending my time on - I didn’t do so bad this year.</summary></entry><entry><title type="html">Challenges for The Year: 2022 Edition</title><link href="https://orgulo.us/projects/challenges/future/2021/12/08/Challenges-For-2022.html" rel="alternate" type="text/html" title="Challenges for The Year: 2022 Edition" /><published>2021-12-08T00:00:00-06:00</published><updated>2021-12-08T00:00:00-06:00</updated><id>https://orgulo.us/projects/challenges/future/2021/12/08/Challenges-For-2022</id><content type="html" xml:base="https://orgulo.us/projects/challenges/future/2021/12/08/Challenges-For-2022.html">&lt;h2 id=&quot;read-50-books&quot;&gt;Read 50 Books&lt;/h2&gt;
+I’d definitely recommend picking it up and playing it for a few minutes when you don’t have a lot of time to commit to something else - and it’s free on Steam!&lt;/p&gt;</content><author><name></name></author><summary type="html">Throw your stick-figure-self at cannonballs and airplanes in an upward pursuit of the eraser! Play cooperatively online to share the journey! Who’s to say whether the company will help or hinder, though…</summary></entry><entry><title type="html">Challenges for The Year: 2022 Edition</title><link href="https://orgulo.us/projects/challenges/future/2021/12/08/Challenges-For-2022.html" rel="alternate" type="text/html" title="Challenges for The Year: 2022 Edition" /><published>2021-12-08T00:00:00-06:00</published><updated>2021-12-08T00:00:00-06:00</updated><id>https://orgulo.us/projects/challenges/future/2021/12/08/Challenges-For-2022</id><content type="html" xml:base="https://orgulo.us/projects/challenges/future/2021/12/08/Challenges-For-2022.html">&lt;h2 id=&quot;read-50-books&quot;&gt;Read 50 Books&lt;/h2&gt;
 &lt;p&gt;I’m lowering the number back to 50 books even though 100 books is still the larger goal. The real reason is I need to find a way to fit reading back into my schedule. With so many projects, I will be shifting to audiobooks which is depressing since I read faster than I can process audiobooks. I do have a trick for this: listen to ebooks via the Kindle Store in a Web Browser. This is probably a good enough place to explain how this works.&lt;/p&gt;
 
 &lt;p&gt;Install an extension for your Web Browswer which does Text-To-Speech - such as &lt;strong&gt;Read Aloud&lt;/strong&gt;. Honestly, finding a quaility Text-to-Speech reader and paying for the extension is a better idea than free; the lack of intonation from the extension I am using makes listening much harder. Concentrating is harder compared to a professionally done book from Audible. Go to &lt;a href=&quot;https://read.amazon.com/&quot;&gt;Your Online Kindle Library&lt;/a&gt; and find a book to listen to. Open the book up and then hit the play button inside your Text-To-Speech extension. You will need to adjust the speed, voice, volume and location when you hit play per new book for tuning. But, this is a good way to fit more average fiction reading into your day.&lt;/p&gt;
@@ -125,7 +142,41 @@ So, three posts per month on anything I feel like: Game Design, Data Science, et
 
 &lt;h2 id=&quot;make-the-secret-project-public&quot;&gt;Make the Secret Project Public&lt;/h2&gt;
 &lt;p&gt;By the end of the year, there will be public posts about this project.
-Watch for a reveal in the future.&lt;/p&gt;</content><author><name></name></author><summary type="html">Read 50 Books I’m lowering the number back to 50 books even though 100 books is still the larger goal. The real reason is I need to find a way to fit reading back into my schedule. With so many projects, I will be shifting to audiobooks which is depressing since I read faster than I can process audiobooks. I do have a trick for this: listen to ebooks via the Kindle Store in a Web Browser. This is probably a good enough place to explain how this works.</summary></entry><entry><title type="html">Monthly Game Review: Ethereal Estate</title><link href="https://orgulo.us/games/review/sandbox/ethereal/estate/simulation/funny/2021/09/07/game-review-ethereal-estate.html" rel="alternate" type="text/html" title="Monthly Game Review: Ethereal Estate" /><published>2021-09-07T00:00:00-05:00</published><updated>2021-09-07T00:00:00-05:00</updated><id>https://orgulo.us/games/review/sandbox/ethereal/estate/simulation/funny/2021/09/07/game-review-ethereal-estate</id><content type="html" xml:base="https://orgulo.us/games/review/sandbox/ethereal/estate/simulation/funny/2021/09/07/game-review-ethereal-estate.html">&lt;p&gt;&lt;img src=&quot;https://cdn.cloudflare.steamstatic.com/steam/apps/1529470/header.jpg?t=1615838798&quot; alt=&quot;Game Header Image&quot; /&gt;&lt;/p&gt;
+Watch for a reveal in the future.&lt;/p&gt;</content><author><name></name></author><summary type="html">Read 50 Books I’m lowering the number back to 50 books even though 100 books is still the larger goal. The real reason is I need to find a way to fit reading back into my schedule. With so many projects, I will be shifting to audiobooks which is depressing since I read faster than I can process audiobooks. I do have a trick for this: listen to ebooks via the Kindle Store in a Web Browser. This is probably a good enough place to explain how this works.</summary></entry><entry><title type="html">Review of 2021 - Challenges, Thoughts</title><link href="https://orgulo.us/projects/challenges/future/2021/12/08/Review-Of-2021-Challenges.html" rel="alternate" type="text/html" title="Review of 2021 - Challenges, Thoughts" /><published>2021-12-08T00:00:00-06:00</published><updated>2021-12-08T00:00:00-06:00</updated><id>https://orgulo.us/projects/challenges/future/2021/12/08/Review-Of-2021-Challenges</id><content type="html" xml:base="https://orgulo.us/projects/challenges/future/2021/12/08/Review-Of-2021-Challenges.html">&lt;h1 id=&quot;how-did-the-challenges-go&quot;&gt;How did the challenges go?&lt;/h1&gt;
+&lt;p&gt;The honest truth is that I what I wanted to get done this year was pretty fluid and I did not get many of the commits done. Looking at what I have been working on though - and what I ended up spending my time on - I didn’t do so bad this year.&lt;/p&gt;
+
+&lt;p&gt;Firstly, I finally got a macro workflow that is working for pushing my projects forward along with learning new topics. One of the problems which I have been struggling with is how to both learn enough new concepts and frameworks along with actually using them. The normal process being used it to&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Find something of interest.&lt;/li&gt;
+  &lt;li&gt;See what’s been made in it.&lt;/li&gt;
+  &lt;li&gt;Work on tutorials, docs for the framework/tool/information.&lt;/li&gt;
+  &lt;li&gt;Try to apply it to pet projects.&lt;/li&gt;
+  &lt;li&gt;Maybe use it in a real project.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This process has problems that I needed solved. Since I have my hands in multiple different places - Data Science, Linux, Programming, Web Design, Secret Project I can’t discuss yet, etc - then this simply doesn’t work. With my life growing in so many dimensions, I simply cannot sit down and follow this process for a single framework and then maybe add it to what I am working on. If it takes a month or two to apply and become comfortable with the framework then it’s too slow and the other aspects of my life will end up neglected. So, what do I do now?&lt;/p&gt;
+
+&lt;p&gt;I have split the months of the year up into four quarters - just like a a business calendar. Then, the first month of that quarter is a &lt;strong&gt;Learning Month&lt;/strong&gt; which means I review what I need to learn, allocate out a set of classes for the month and then do power through them in that month. I take notes about what I’m learning and for some parts will actually practice with a very small pet project which is meant to implement a single thing. After that month is over, the next two months are &lt;strong&gt;Apply Months&lt;/strong&gt; which means that I take everything that I learned in that month, review it, and then start adding it to my projects.&lt;/p&gt;
+
+&lt;p&gt;This allows me to schedule up to four of classes covering any material I might need coming up in the next few months. This is also better because it keeps learning and application separate. When my schedule was fluid I kept finding ways to not work on projects since I constantly fell back into learning about new frameworks and tools. Now, the clear separation is allowing me to be strict about when and what tasks are supposed to be done. It is already paying out dividends – even though the first attempt at it I was sick for most of the first month of &lt;strong&gt;Apply&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;read-100-books&quot;&gt;Read 100 Books&lt;/h2&gt;
+&lt;p&gt;Of all the challenges that I wanted to complete, this is the one. And, I did worse than last year too: 81 books last year vs 31 books this year. Looking over how my life has changed since the Pandemic started, I think the biggest reason is that much of my reading was done in between. If I was waiting in line at a store then I was reading; while walking from the parking garage at work into the office I was reading. Now that we’re remote only and there are no lines when I am out running errands, I just don’t really read books as much as I used to. I do listen to them while walking around stores but often I don’t count those in the totals; I finished all of the Dragonlance Chronicles books via Audible for example and they’re not filled out on Goodreads. This means setting up time at home to read and I’m always working on projects or doing chores or watching lecture videos. That really only leaves downtime at work to read and we’ve been relatively busy lately. And, I happen to also have projects for Datto that I work on so that’s not really in the cards either. I’ll have a separate post to what the Challenges of 2022 are going to be so strategies will be discussed in that post.&lt;/p&gt;
+
+&lt;h2 id=&quot;create-three-potential-streams-of-income&quot;&gt;Create Three Potential Streams of Income&lt;/h2&gt;
+&lt;p&gt;For this one, I was successful. Currently, I have two streams of income: one active (Datto) and one semi-passive (Crypto) to work with. I am making money in both of those realms at this point which was more than I had set for the goal. The goal was to identify three potential streams of income that I could have for the year and there was no shortage of ideas for this one. I’ll discuss some of my favorites in the real Challenges of 2022 post but there are plenty more than three,&lt;/p&gt;
+
+&lt;h2 id=&quot;new-job-title&quot;&gt;New Job Title&lt;/h2&gt;
+&lt;p&gt;This is was a failed challenge.
+After exploring and talking with lots of people, this is going to be the hardest one. And, you’d consider that since I already have so many useful skills that it would be the easiest but it’s simply not. Realistically, I like where I work and I don’t really want to leave any time soon. All the positions that are within reach are jobs that I simply don’t want. And, I am not willing to trade in the job I have for those other jobs since they’d change something fundamental about what I want: working overnights, well limiting interacting with users, flexible time table for my own work. I’ll discuss more details in the Challenges of 2022 post when I write it.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-blog-post-a-month&quot;&gt;A Blog Post a Month&lt;/h2&gt;
+&lt;p&gt;This is another place that I did decent but did not hold myself too. The biggest factor for this was simply not setting aside the time for it. It’s lower on the list of priorities which need to get done so I simply didn’t schedule out the time. Along side that was anything I wanted to write about I didn’t feel either qualified to write about or didn’t feel what I was willing to write would be be long or interesting enough to justify the post. This is a mindset problem which I should be able to easily solve in the coming year. Especially after looking at what the average person on Medium is writing about; they’re not even trying to write quality content most of the time but instead are simply writing very short not-even-tutorial posts about how to use a framework. There is also a surprising amount of “X Ideas fro Passive Income” posts which are mostly all the same thing over and over.
+I can do better than that.&lt;/p&gt;
+
+&lt;h2 id=&quot;draw-an-original-comic&quot;&gt;Draw an Original Comic&lt;/h2&gt;
+&lt;p&gt;I dropped this one entirely – and I’m dropping it for next year too.
+I have a list of Daily Tasks which include things like exercise, typing practice along with drawing practice and by far the task I skip the most is drawing. I need to change this so I can actually start drawing at an ok level. Right now, I am struggling with curved lines and that’s quite basic for this level of challenge. I have a few ideas – when don’t I? - but this is a long road which I need to build basic habits out before even trying some kind of real challenge like a Comic.&lt;/p&gt;</content><author><name></name></author><summary type="html">How did the challenges go? The honest truth is that I what I wanted to get done this year was pretty fluid and I did not get many of the commits done. Looking at what I have been working on though - and what I ended up spending my time on - I didn’t do so bad this year.</summary></entry><entry><title type="html">Monthly Game Review: Ethereal Estate</title><link href="https://orgulo.us/games/review/sandbox/ethereal/estate/simulation/funny/2021/09/07/game-review-ethereal-estate.html" rel="alternate" type="text/html" title="Monthly Game Review: Ethereal Estate" /><published>2021-09-07T00:00:00-05:00</published><updated>2021-09-07T00:00:00-05:00</updated><id>https://orgulo.us/games/review/sandbox/ethereal/estate/simulation/funny/2021/09/07/game-review-ethereal-estate</id><content type="html" xml:base="https://orgulo.us/games/review/sandbox/ethereal/estate/simulation/funny/2021/09/07/game-review-ethereal-estate.html">&lt;p&gt;&lt;img src=&quot;https://cdn.cloudflare.steamstatic.com/steam/apps/1529470/header.jpg?t=1615838798&quot; alt=&quot;Game Header Image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I had quite a bit of fun with this game.
 While working on a Data Science project to try and make predictions on “What Genre Is this Game Based on it’s Header Image?” I stumbled across this weird little game trying to solve an error. Looking through the sample set of games, &lt;a href=&quot;https://store.steampowered.com/app/1529470/Ethereal_Estate/&quot;&gt;&lt;strong&gt;Ethereal Estate&lt;/strong&gt;&lt;/a&gt; pops out among all the other DLC headers and who knows what else these other images are supposed to inspire. The game is free and you play as a ghost - along with maybe your friend - to terrorize, ruin and throw everything within reach around: like a proper ghost should!&lt;/p&gt;
@@ -271,178 +322,4 @@ And, there is even support for Latex too!:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/intro-to-streamlit/iris-squiggles.png&quot; alt=&quot;Iris Squiggles&quot; /&gt;
 Not exactly what we’re looking but it’s kind of neat.
 This should serve as a reminder that when it comes to tools, it’s &lt;strong&gt;Garbage In, Garbage Out&lt;/strong&gt; for what you feed it.
-Be careful what you’re doing because our tools wont know any better.&lt;/p&gt;</content><author><name></name></author><summary type="html">What is Streamlit? Streamlit is a Framework which is growing in popularity among Python Data Scientists. And the reason for this is rather obvious if you’ve every tried mixing building Web Applications with Data Exporation or Reporting for other people inside your company - or just in general for your projects.</summary></entry><entry><title type="html">Minimal Spark Cluster</title><link href="https://orgulo.us/python/data%20science/apache/spark/2021/01/18/Minimal-Spark-Cluster-Without-Hadoop.html" rel="alternate" type="text/html" title="Minimal Spark Cluster" /><published>2021-01-18T00:00:00-06:00</published><updated>2021-01-18T00:00:00-06:00</updated><id>https://orgulo.us/python/data%20science/apache/spark/2021/01/18/Minimal-Spark-Cluster-Without-Hadoop</id><content type="html" xml:base="https://orgulo.us/python/data%20science/apache/spark/2021/01/18/Minimal-Spark-Cluster-Without-Hadoop.html">&lt;!--
-#################################################
-### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
-#################################################
-# file to edit: _notebooks/2021-01-18-Minimal-Spark-Cluster-Without-Hadoop.ipynb
---&gt;
-
-&lt;div class=&quot;container&quot; id=&quot;notebook-container&quot;&gt;
-        
-    
-    
-&lt;div class=&quot;cell border-box-sizing code_cell rendered&quot;&gt;
-
-&lt;/div&gt;
-    
-
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h1 id=&quot;Introduction&quot;&gt;Introduction&lt;a class=&quot;anchor-link&quot; href=&quot;#Introduction&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;If you'd like to setup Apache Spark to experiment with but you don't want to use a premade ISO or setup your own then I'm going to show you how. This configuration will be a minimal one using Linux Operating Sytems; I'm going to use Ubuntu so change the install based on your package mananger.
-I'm going to assume that you've setup the hosts, their networking and have some way to configure and deploy them. There are options like Puppet or Salt but I'll be avoiding those and leave them up to you.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h1 id=&quot;Installation&quot;&gt;Installation&lt;a class=&quot;anchor-link&quot; href=&quot;#Installation&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;I have script that does all of this but we're going to go over it so you understand each part and then I'll attach the bash script at the end.
-To start with, we're going to need Java since Spark is dependent on it. Login to each host - Master and Slaves - and you'll want to run:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;apt update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt install openjdk-8-jre openjdk-8-jdk -y
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Remember to adjust this for own Linux Distribution.&lt;/p&gt;
-&lt;p&gt;Figure out which directory you want to install Apache Spark into; Normally, you'd use &lt;code&gt;/opt&lt;/code&gt; so that's what we're going to be using. Download the archive of the files from the website:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget -O /opt/spark-2.4.6-bin-hadoop2.7.tgz https://downloads.apache.org/spark/spark-2.4.6/spark-2.4.6-bin-hadoop2.7.tgz
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;If they obsolete the download link then you can find the versions online &lt;a href=&quot;https://spark.apache.org/downloads.html&quot;&gt;here&lt;/a&gt;. I'm using the 3.0.1 version Pre-built for Apache Hadoop 2.7 for this but feel free to experiment.
-Once the file is downloaded, you'll want to unpack the archive:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;tar -xzvf /opt/spark-2.4.6-bin-hadoop2.7.tgz  -C /opt
-rm /opt/spark-2.4.6-bin-hadoop2.7.tgz
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Now you'll have files ready for usage.
-Next you'll want to add the environmental variables so that linux will know where to look for the binary when you call it:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;s2&quot;&gt;&amp;quot;\nexport SPARK_HOME=/opt/spark-2.4.6-bin-hadoop2.7\nexport PATH=/opt/spark-2.4.6-bin-hadoop2.7/bin:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; tee -a ~/.bashrc
-&lt;span class=&quot;nb&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;SPARK_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/spark-2.4.6-bin-hadoop2.7
-&lt;span class=&quot;nb&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/spark-2.4.6-bin-hadoop2.7/bin
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Do this for all the hosts that you'll need to run Spark on.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h1 id=&quot;Configuration-Files&quot;&gt;Configuration Files&lt;a class=&quot;anchor-link&quot; href=&quot;#Configuration-Files&quot;&gt; &lt;/a&gt;&lt;/h1&gt;&lt;p&gt;It is best to create a master copy of these next few configuratoin files to copy to each host in turn.
-This way you only need to edit each file ones and then copy them all the the appropriate hosts&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;For your master server, you'll need to update two files: &lt;code&gt;spark-defaults.conf&lt;/code&gt; and &lt;code&gt;spark-env.sh&lt;/code&gt;. Both of these should be found inside the &lt;strong&gt;conf&lt;/strong&gt; directory of your spark home.
-Make sure you make a backup of them before you do anything else:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cp spark-defaults.conf spark-defaults.conf.bkp
-cp spark-env.sh spark-env.sh.bkp
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Next you'll want to open them and add the master info information. For the defaults file simple uncomment and modify the line to look like:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;spark.master                       spark://&amp;lt;host or IP Addr&amp;gt;:7077&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;... and the env file you'll want to look for the line:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;SPARK_MASTER_HOST='&amp;lt;host of IP Addr&amp;gt;'&lt;/code&gt;&lt;/pre&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;You shouldn't need to change anything else in this file so long as you have full control of the systems you're using. In my case, I happen to not and changed where shuffle and worker logs are ran to avoid the operating system from filling up and crashing the host. If you need to worrry about those then update the lines &lt;code&gt;SPARK_LOCAL_DIRS&lt;/code&gt;, &lt;code&gt;SPARK_WORKER_DIR&lt;/code&gt; and &lt;code&gt;SPARK_PID_DIR&lt;/code&gt; to point to somewhere else on the system which wont fill up the partition.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;Next you'll want to collect the names or IP addresses of all the hosts in your cluster and add them to the &lt;code&gt;slaves&lt;/code&gt; file in &lt;code&gt;config&lt;/code&gt; directory just like were the others are.
-Make sure to test the connectivity of your hosts using &lt;code&gt;ping&lt;/code&gt; or something else to confirm they can actually talk to one another!&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Datastore&quot;&gt;Datastore&lt;a class=&quot;anchor-link&quot; href=&quot;#Datastore&quot;&gt; &lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Now we're going to work around not having a Hadoop cluster. How this works, is that we're going to create a shared folder on all of the hosts which references the Master as the &lt;strong&gt;Source of Truth&lt;/strong&gt;.
-First, create a folder in your spark home to hold the data:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mdkir &lt;span class=&quot;nv&quot;&gt;$SPARK_HOME&lt;/span&gt;/Data
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Go ahead and create a file in here for future usage: &lt;code&gt;touch turtles&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Next you'll go ahead and install a package called &lt;code&gt;sshfs&lt;/code&gt; which is used to remotely mount a folder from one host and another:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt install sshfs
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Repeat this for all the hosts in your cluster. Once that is done, you'll connect the slaves to the master using:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sshfs &amp;lt;username&amp;gt;@&amp;lt;master-address&amp;gt;:/opt/spark-2.4.6-bin-hadoop2.7/Data /opt/spark-2.4.6-bin-hadoop2.7/Data
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Now you should be able to see the &lt;code&gt;turtles&lt;/code&gt; file we created earlier if you list the files in the Data directory&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ls Data
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;If you see the file then feel free to move on! If not, then double back and troubleshoot the connection between those two computers.
-Could also be permissions or something like that as well!&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Connect-the-Dots,-Start-the-Services&quot;&gt;Connect the Dots, Start the Services&lt;a class=&quot;anchor-link&quot; href=&quot;#Connect-the-Dots,-Start-the-Services&quot;&gt; &lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;Now that we've got it all connected together, go ahead and run the appropriate commands on the masters and servers to start them all up:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# master:&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$SPARK_HOME&lt;/span&gt;/sbin/start-master.sh
-
-&lt;span class=&quot;c1&quot;&gt;# slaves:&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$SPARK_HOME&lt;/span&gt;/sbin/start-slave.sh spark://&amp;lt;master-Addr&amp;gt;:7077
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;h2 id=&quot;Success!&quot;&gt;Success!&lt;a class=&quot;anchor-link&quot; href=&quot;#Success!&quot;&gt; &lt;/a&gt;&lt;/h2&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;Now try and run it on the master:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;username@HOST:~# &lt;span class=&quot;nv&quot;&gt;$SPARK_HOME&lt;/span&gt;/bin/pyspark 
-Python &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;.7.12 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default, Apr &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2020&lt;/span&gt;, &lt;span class=&quot;m&quot;&gt;17&lt;/span&gt;:07:12&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;GCC &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;.4.0 &lt;span class=&quot;m&quot;&gt;20160609&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; on linux2
-Type &lt;span class=&quot;s2&quot;&gt;&amp;quot;help&amp;quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&amp;quot;copyright&amp;quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&amp;quot;credits&amp;quot;&lt;/span&gt; or &lt;span class=&quot;s2&quot;&gt;&amp;quot;license&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; more information.
-&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;/10/13 &lt;span class=&quot;m&quot;&gt;05&lt;/span&gt;:19:50 WARN Utils: Your hostname, HOST.localdomain resolves to a loopback address: &lt;span class=&quot;m&quot;&gt;127&lt;/span&gt;.0.0.1&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; using &amp;lt;address&amp;gt; instead &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;on interface eth0&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;/10/13 &lt;span class=&quot;m&quot;&gt;05&lt;/span&gt;:19:50 WARN Utils: Set SPARK_LOCAL_IP &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; you need to &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; to another address
-&lt;span class=&quot;m&quot;&gt;20&lt;/span&gt;/10/13 &lt;span class=&quot;m&quot;&gt;05&lt;/span&gt;:19:50 WARN NativeCodeLoader: Unable to load native-hadoop library &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; your platform... using builtin-java classes where applicable
-Using Spark&lt;span class=&quot;s1&quot;&gt;&amp;#39;s default log4j profile: org/apache/spark/log4j-defaults.properties&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;Setting default log level to &amp;quot;WARN&amp;quot;.&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;Welcome to&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;      ____              __&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;     / __/__  ___ _____/ /__&lt;/span&gt;
-&lt;span class=&quot;s1&quot;&gt;    _\ \/ _ \/ _ `/ __/  &amp;#39;&lt;/span&gt;_/
-   /__ / .__/&lt;span class=&quot;se&quot;&gt;\_&lt;/span&gt;,_/_/ /_/&lt;span class=&quot;se&quot;&gt;\_\ &lt;/span&gt;  version &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;.4.6
-      /_/
-
-Using Python version &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;.7.12 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default, Apr &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2020&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;17&lt;/span&gt;:07:12&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-SparkSession available as &lt;span class=&quot;s1&quot;&gt;&amp;#39;spark&amp;#39;&lt;/span&gt;.
-&amp;gt;&amp;gt;&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;That should give you the above.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;cell border-box-sizing text_cell rendered&quot;&gt;&lt;div class=&quot;inner_cell&quot;&gt;
-&lt;div class=&quot;text_cell_render border-box-sizing rendered_html&quot;&gt;
-&lt;p&gt;Now you can transfer data into that directory and read from it using the &lt;code&gt;spark.read.*&lt;/code&gt; function that you need.
-Note that copying Big Data into that directory is not a good idea. If you're looking at TeraBytes or Petabytes worth of data then you'll definitely need a real Cluster. But, I've already made some interesting observations in this limited environment.&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry></feed>
+Be careful what you’re doing because our tools wont know any better.&lt;/p&gt;</content><author><name></name></author><summary type="html">What is Streamlit? Streamlit is a Framework which is growing in popularity among Python Data Scientists. And the reason for this is rather obvious if you’ve every tried mixing building Web Applications with Data Exporation or Reporting for other people inside your company - or just in general for your projects.</summary></entry></feed>

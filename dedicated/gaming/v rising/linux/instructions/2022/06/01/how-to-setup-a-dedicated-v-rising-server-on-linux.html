@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>How to Setup V Rising on Linux | Orgulo.us</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="How to Setup V Rising on Linux" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Your Milage May Vary." />
+<meta property="og:description" content="Your Milage May Vary." />
+<link rel="canonical" href="https://orgulo.us/dedicated/gaming/v%20rising/linux/instructions/2022/06/01/how-to-setup-a-dedicated-v-rising-server-on-linux.html" />
+<meta property="og:url" content="https://orgulo.us/dedicated/gaming/v%20rising/linux/instructions/2022/06/01/how-to-setup-a-dedicated-v-rising-server-on-linux.html" />
+<meta property="og:site_name" content="Orgulo.us" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-01T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Your Milage May Vary.","@type":"BlogPosting","url":"https://orgulo.us/dedicated/gaming/v%20rising/linux/instructions/2022/06/01/how-to-setup-a-dedicated-v-rising-server-on-linux.html","headline":"How to Setup V Rising on Linux","dateModified":"2022-06-01T00:00:00-05:00","datePublished":"2022-06-01T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/dedicated/gaming/v%20rising/linux/instructions/2022/06/01/how-to-setup-a-dedicated-v-rising-server-on-linux.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://orgulo.us/feed.xml" title="Orgulo.us" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>How to Setup V Rising on Linux | Orgulo.us</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="How to Setup V Rising on Linux" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Your Milage May Vary." />
+<meta property="og:description" content="Your Milage May Vary." />
+<link rel="canonical" href="https://orgulo.us/dedicated/gaming/v%20rising/linux/instructions/2022/06/01/how-to-setup-a-dedicated-v-rising-server-on-linux.html" />
+<meta property="og:url" content="https://orgulo.us/dedicated/gaming/v%20rising/linux/instructions/2022/06/01/how-to-setup-a-dedicated-v-rising-server-on-linux.html" />
+<meta property="og:site_name" content="Orgulo.us" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-06-01T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Your Milage May Vary.","@type":"BlogPosting","url":"https://orgulo.us/dedicated/gaming/v%20rising/linux/instructions/2022/06/01/how-to-setup-a-dedicated-v-rising-server-on-linux.html","headline":"How to Setup V Rising on Linux","dateModified":"2022-06-01T00:00:00-05:00","datePublished":"2022-06-01T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/dedicated/gaming/v%20rising/linux/instructions/2022/06/01/how-to-setup-a-dedicated-v-rising-server-on-linux.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://orgulo.us/feed.xml" title="Orgulo.us" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Orgulo.us</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Readings/">Reading Challenge</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">How to Setup V Rising on Linux</h1><p class="page-description">Your Milage May Vary.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-06-01T00:00:00-05:00" itemprop="datePublished">
+        Jun 1, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#dedicated">dedicated</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#gaming">gaming</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#v rising">v rising</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#linux">linux</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#instructions">instructions</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#the-quick-version">The Quick Version:</a></li>
+<li class="toc-entry toc-h1"><a href="#story-time">Story Time</a></li>
+<li class="toc-entry toc-h1"><a href="#so-what-about-the-dedicated">So, What About the Dedicated?</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#how-do-we-run-something-manaully-with-proton">How Do We Run Something Manaully With Proton?</a></li>
+<li class="toc-entry toc-h2"><a href="#this-didnt-work">This Didn’t Work!</a></li>
+<li class="toc-entry toc-h2"><a href="#so-what-is-missing">So, What Is Missing?</a></li>
+</ul>
+</li>
+</ul><h1 id="the-quick-version">
+<a class="anchor" href="#the-quick-version" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Quick Version:</h1>
+<p>If you’re here becuase you just want the answer then here are the exact steps that always work for me.</p>
+<ol>
+  <li>Download the V Rising Dedicted Server from steam to your account.</li>
+  <li>Download Proton Experimental and change to the Bleeding Edge Beta branch.</li>
+  <li>Run this command:
+    <div class="highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>STEAM_COMPAT_CLIENT_INSTALL_PATH=/tmp STEAM_COMPAT_DATA_PATH=/tmp &lt;Path/to/proton/experimental/install/location/proton&gt; run VRisingServer.exe &lt;args-from-offical-repo&gt;
+</code></pre></div>    </div>
+    <ul>
+      <li>If this doesn’t work then proceed to the below:</li>
+    </ul>
+  </li>
+  <li>Download Lutris and install the dependecies it asks for.</li>
+  <li>Find and install the Epic Games laucher from Lutris.</li>
+  <li>Do the steps it asks you to run through: including those dependencies.</li>
+  <li>Reboot.</li>
+  <li>Run the command:
+    <div class="highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>STEAM_COMPAT_CLIENT_INSTALL_PATH=/tmp STEAM_COMPAT_DATA_PATH=/tmp &lt;Path/to/proton/experimental/install/location/proton&gt; run VRisingServer.exe &lt;args-from-offical-repo&gt;
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h1 id="story-time">
+<a class="anchor" href="#story-time" aria-hidden="true"><span class="octicon octicon-link"></span></a>Story Time</h1>
+<p>I have been looking forward to playing this game since I accidently found it a while back. As someone who’s favorite genre is definitely Survival Games and Vampires are one of my favorite supernatural creatures, this game was going to be at the top of the list. Adding to that the skills along with skillshots for combat and this is about as perfect as it gets. Sadly, the game does not support linux and - per the <a href="https://www.protondb.com/app/1604030">Protondb page</a> - most people were simply not able to get the game running.
+End of Story.</p>
+
+<p>But in actuality, after a few days of work and some investigation by the wonderful Proton Community they found that it was <a href="https://github.com/ValveSoftware/Proton/issues/5845#issuecomment-1133871512">missing some configuration files</a> and they were taken from another game the developer had released. Once you copied those into the proper place then the game could launch. Luckily, Proton is very active and soon this change was pushed into the the <strong>Bleeding Edge Beta</strong> of Proton and once swapped over the game would run without issues. I also confirmed this myself and happily booted the game into my first test world!
+End of Story.</p>
+
+<h1 id="so-what-about-the-dedicated">
+<a class="anchor" href="#so-what-about-the-dedicated" aria-hidden="true"><span class="octicon octicon-link"></span></a>So, What About the Dedicated?</h1>
+<p>So, the problem is that this cannot work for the Dedicated server. Since launching the dedicated server only shows a link to the <a href="https://github.com/StunlockStudios/vrising-dedicated-server-instructions">Instructions to configure the server</a> and it assumes that it is running on a Windows Computer. All we have locally is the simple example .bat file for windows which is of little use to us. What we need to do is run the Dedicated server somehow with Proton and we’ll have to find a way to put this into a script.</p>
+
+<h2 id="how-do-we-run-something-manaully-with-proton">
+<a class="anchor" href="#how-do-we-run-something-manaully-with-proton" aria-hidden="true"><span class="octicon octicon-link"></span></a>How Do We Run Something Manaully With Proton?</h2>
+<p>Luckily, just like the wonder people over at the Github Page, we can find that answer online! According to this old thread from <a href="https://old.reddit.com/r/linux_gaming/comments/9au2qp/how_do_i_use_proton_via_command_line/">Reddit</a>:</p>
+<blockquote>
+  <p><em>STEAM_COMPAT_DATA_PATH=~/.proton/ ~/.steam/steam/steamapps/common/Proton\ 3.7/proton run whatever.exe</em><br>
+You need to create ~/.proton (it can be any directory and can be empty)</p>
+</blockquote>
+
+<p>Excellent! Now we have something to work with. Looking at the command I built, I simply put those in <code class="highlighter-rouge">/tmp</code> since I didn’t want to think about what compatdata is; I still don’t really know what this is after a quick Google but it works like this.
+So, simply create a little script to be ran in bash:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/bash</span>
+<span class="nv">STEAM_COMPAT_CLIENT_INSTALL_PATH</span><span class="o">=</span>/tmp <span class="nv">STEAM_COMPAT_DATA_PATH</span><span class="o">=</span>/tmp &lt;Path/to/proton/experimental/install/location/proton&gt; run VRisingServer.exe &lt;args-from-offical-repo&gt;
+</code></pre></div></div>
+<p>… and then <code class="highlighter-rouge">chmod +x scriptName.sh</code> and run it to start the server.</p>
+
+<h2 id="this-didnt-work">
+<a class="anchor" href="#this-didnt-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>This Didn’t Work!</h2>
+<p>So, in my own troubleshooting I found that I ended up with an error <code class="highlighter-rouge">Failed to create batch mode window: Success.</code> when I ran this a second time on my server. However, after doing some testing on multiple different distributions - Ubuntu 20.10, EndevourOS, Manajaro - I found that it didn’t work on any of my systems even though it had ran once. Adding to my confusion, the dedicated server ran find on my own Desktop and without issues at all. Considering one of my servers was Manjaro just like my desktop then there must be something installed on locally which is not being installed along with the Steam Proton Dependencies. The only noticable difference in dependencies was that I have Lutris Installed on my own Destktop and it’s not on any of my other systems. So, I ran through exacty what is installed via Lutris and once I rebooted my other server it worked without issues.</p>
+
+<h2 id="so-what-is-missing">
+<a class="anchor" href="#so-what-is-missing" aria-hidden="true"><span class="octicon octicon-link"></span></a>So, What Is Missing?</h2>
+<p>The honest answer is that I don’t know. The list of dependences that gets installed along with the process is <a href="https://github.com/lutris/docs/blob/master/InstallingDrivers.md">quite</a> a  <a href="https://github.com/lutris/docs/blob/master/WineDependencies.md">list</a> and I simply don’t have time to isolate which ones are the correct packages. If you have the time to figure it out then please let me know so I can update this post.
+Otherwise, Happy Hunting!</p>
+
+  </div><a class="u-url" href="/dedicated/gaming/v%20rising/linux/instructions/2022/06/01/how-to-setup-a-dedicated-v-rising-server-on-linux.html" hidden></a>
+</article>
+      </div>
+    </main></body>
+
+</html>

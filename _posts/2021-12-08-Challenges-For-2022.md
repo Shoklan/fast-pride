@@ -41,10 +41,6 @@ This is the least fun option but I'm capable of this. I have found a set of fram
 ### Logo Design
 Between slowly expanding Blender skills and working on my drawing skills, this would be something fun that I could doodle designs and then try to sell to others. There is quite a bit about communicating concepts artistically along with a good amount of Color Theory to learn before I can do this. 
 
-### Crypto
-This is already my second source of income and I'm already positive.
-Pushing for Six Figures in Crypto this year.
-
 
 ## New Job Title
 This year is the real year that matters though for my job; I have a patent pending for the company and this should be year I get the nay/yay for whether it goes through. No matter how that goes, I'm pushing for an Analytics Job either inside or outside the company. I am familiar enough and competent enough to be doing this as a real job and I am well bored of doing Technical Support. It also is not a real future for me; there is no where to go that I want to be. So, if by six months in I don't see any progress here then I'm going to start applying for part time Analytics jobs to build experience and push into a new career.

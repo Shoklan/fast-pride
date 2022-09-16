@@ -494,4 +494,8 @@ body > header { background-color: #000000; min-height: 23px; max-height: 23px; }
 
 .highlighter-rouge { background-color: #282828; }
 
+pre, code { background-color: #282828; }
+
+.pagination a, .pagination span, .pagination em { color: #e2dfd2; }
+
 /*# sourceMappingURL=style.css.map */

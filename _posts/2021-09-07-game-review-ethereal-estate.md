@@ -2,7 +2,7 @@
 toc: False
 layout: post
 categories: [games, review, sandbox, ethereal, estate, simulation, funny]
-title: "Monthly Game Review: Ethereal Estate"
+title: "Game Review: Ethereal Estate"
 description: "Make a Mess With a Fried."
 ---
 

@@ -59,3 +59,15 @@ pre {
 .pagination a, .pagination span, .pagination em {
 	color: #e2dfd2;
 }
+
+table {
+	color: #e2dfd2;
+}
+
+table th {
+	background-color: #282828;
+}
+
+table tr:nth-child(2n) {
+		background-color: #282828;
+}

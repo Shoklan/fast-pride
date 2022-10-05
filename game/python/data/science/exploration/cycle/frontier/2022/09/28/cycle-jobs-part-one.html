@@ -168,7 +168,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This post series was inspired by the <em>Korolev</em> Job <strong>And Two Smoking Barrels</strong> where upon accepting the quest I realized how terrible the rewards were in comparison. For those that don't play the game a little background will be necessary. <strong>The Cycle: Frontier</strong> is a game that's <em>Evacuation Shooter</em> and there are three main Corporations - or Organizations, if you prefer - who act as quest and reward givers in the game. There are two kinds of these: <strong>Campaign</strong> and <strong>Jobs</strong>. Whereas the <em>campaign quests</em> will push you along to different areas of the world, instead the <em>Jobs</em> function as a way to collect scrips and excuse to send players to the planet.</p>
+<p>This post series was inspired by the <em>Korolev</em> Job <strong>And Two Smoking Barrels</strong> where upon accepting the quest I realized how terrible the rewards were in comparison. For those that don't play the game a little background will be necessary. <strong>The Cycle: Frontier</strong> is an <em>Evacuation Shooter</em> game and there are three main Corporations - or Organizations, if you prefer - who act as quest and reward givers in the game. There are two kinds of these: <strong>Campaign</strong> and <strong>Jobs</strong>. Whereas the <em>campaign quests</em> will push you along to different areas of the world, instead the <em>Jobs</em> function as a way to collect scrips and excuse to send players to the planet.</p>
 
 </div>
 </div>
@@ -185,7 +185,7 @@ window.onload = wrap_img;
 <li>
 <strong>Kill Stuff</strong>: <em>including players</em>.</li>
 </ol>
-<p>For <em>Deposit Jobs</em>, you carry the requested items to a <strong>Dead Drop</strong> and then deposit the items in question. For this one, it requires you deposit a gun you purchase from the shop. Now, you could <em>find</em> this weapon or loot it from other people but those are not garunteed at all. The Kmark - which is cash, basically - reward is K$ 19,000 and the gun it wants you to deposit is K$ 22,000 so there is no reason to take this job unless you already have this gun. Anyways, lets get to the fun part.</p>
+<p>For <em>Deposit Jobs</em>, you carry the requested items to a <strong>Dead Drop</strong> and then deposit the items in question. For this one, it requires you deposit a gun you purchase from the shop. Now, you could <em>find</em> this weapon or loot it from other people but those are not garunteed at all. The Kmark - which is cash, basically - reward is $19,000 and the gun it wants you to deposit is $22,000 so there is no reason to take this job unless you already have this gun. Anyways, lets get to the fun part.</p>
 
 </div>
 </div>
@@ -860,7 +860,7 @@ So, what we need to do now is pull the <em>Job Title</em> from the <code>Units</
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Next we'll want a <em>numpy array</em> of the offsets. We don't want to use a list because then it will add the values to a python list instead of creating a set of indexes. In effect, we're trying to take advantage of <strong>Braodcasting</strong> in numpy. We'll do an illustration of this quick.</p>
+<p>Next we'll want a <em>numpy array</em> of the offsets. We don't want to use a list because then it will add the values to a python list instead of creating a set of indexes. In effect, we're trying to take advantage of <strong>Broadcasting</strong> in numpy. We'll do an illustration of this quick.</p>
 
 </div>
 </div>
@@ -904,7 +904,7 @@ So, what we need to do now is pull the <em>Job Title</em> from the <code>Units</
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Above you can see <code>[4, 1, 2, 3]</code> is definitely not what we're after. So, after setting up the proper offset lets make sure we're getting what we want. I often sanity check my initial design since experience as taught me you can still trip over even after the initial testing works. So, lets do that now.</p>
+<p>Above you can see <code>[4, 1, 2, 3]</code> is definitely not what we're after. So, after setting up the proper offset lets make sure we're getting what we want. I often sanity check my initial design since experience as taught me you can still trip even after the initial testing works. So, lets do that now.</p>
 
 </div>
 </div>
@@ -1823,7 +1823,7 @@ Mining Bot is at index 8
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="n">KorolevRewards</span><span class="o">.</span><span class="n">Units</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">icaRewards</span><span class="o">.</span><span class="n">Units</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">osirisRewards</span><span class="o">.</span><span class="n">Units</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">KorolevRewards</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"Rewards == 'K-Marks'"</span><span class="p">)</span><span class="o">.</span><span class="n">Units</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -1838,7 +1838,44 @@ Mining Bot is at index 8
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(7748.1, 7815.51, 7142.99)</pre>
+<pre>22936.956521739132</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span>
+    <span class="nb">round</span><span class="p">(</span><span class="n">KorolevRewards</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"Rewards == 'K-Marks'"</span><span class="p">)</span><span class="o">.</span><span class="n">Units</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">2</span><span class="p">),</span>
+    <span class="nb">round</span><span class="p">(</span><span class="n">icaRewards</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"Rewards == 'K-Marks'"</span><span class="p">)</span><span class="o">.</span><span class="n">Units</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">2</span><span class="p">),</span>
+    <span class="nb">round</span><span class="p">(</span><span class="n">osirisRewards</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"Rewards == 'K-Marks'"</span><span class="p">)</span><span class="o">.</span><span class="n">Units</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(22936.96, 23158.33, 21136.17)</pre>
 </div>
 
 </div>

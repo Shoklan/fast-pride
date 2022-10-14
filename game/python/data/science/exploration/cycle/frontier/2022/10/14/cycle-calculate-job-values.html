@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Which Cycle Frontier Jobs Are Worth Doing? - Part Three. | Orgulo.us</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Which Cycle Frontier Jobs Are Worth Doing? - Part Three." />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Let’s do the calculations!" />
+<meta property="og:description" content="Let’s do the calculations!" />
+<link rel="canonical" href="https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/10/14/cycle-calculate-job-values.html" />
+<meta property="og:url" content="https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/10/14/cycle-calculate-job-values.html" />
+<meta property="og:site_name" content="Orgulo.us" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-14T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Let’s do the calculations!","@type":"BlogPosting","headline":"Which Cycle Frontier Jobs Are Worth Doing? - Part Three.","dateModified":"2022-10-14T00:00:00-05:00","datePublished":"2022-10-14T00:00:00-05:00","url":"https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/10/14/cycle-calculate-job-values.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/10/14/cycle-calculate-job-values.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://orgulo.us/feed.xml" title="Orgulo.us" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Which Cycle Frontier Jobs Are Worth Doing? - Part Three. | Orgulo.us</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Which Cycle Frontier Jobs Are Worth Doing? - Part Three." />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Let’s do the calculations!" />
+<meta property="og:description" content="Let’s do the calculations!" />
+<link rel="canonical" href="https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/10/14/cycle-calculate-job-values.html" />
+<meta property="og:url" content="https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/10/14/cycle-calculate-job-values.html" />
+<meta property="og:site_name" content="Orgulo.us" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-14T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Let’s do the calculations!","@type":"BlogPosting","headline":"Which Cycle Frontier Jobs Are Worth Doing? - Part Three.","dateModified":"2022-10-14T00:00:00-05:00","datePublished":"2022-10-14T00:00:00-05:00","url":"https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/10/14/cycle-calculate-job-values.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/10/14/cycle-calculate-job-values.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://orgulo.us/feed.xml" title="Orgulo.us" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Orgulo.us</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Readings/">Reading Challenge</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Which Cycle Frontier Jobs Are Worth Doing? - Part Three.</h1><p class="page-description">Let's do the calculations!</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-14T00:00:00-05:00" itemprop="datePublished">
+        Oct 14, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      10 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#game">game</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#data">data</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#science">science</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#exploration">exploration</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#cycle">cycle</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#frontier">frontier</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-10-14-cycle-calculate-job-values.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is the third post in a series about collecting, cleaning and analyzing which Jobs are worth doing in The Cycle: Frontier game. If you've found this post before the others I would recommend the other posts first to catch up: <a href="">Post One</a> and <a href="">Post Two</a>. We'll pick up where we left off having separate datasets for the faction rewards as well as all the loot. Let's get our imports!</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>             <span class="c1"># for the data.</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>              <span class="c1"># for a NaN type</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># For plotting, and some customization of plots.</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>           <span class="c1"># For pretty plots.</span>
+<span class="kn">import</span> <span class="nn">requests</span> <span class="k">as</span> <span class="nn">r</span>            <span class="c1"># For downloading from websites</span>
+
+<span class="c1"># Fix the size of the graphs</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">:(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">8</span><span class="p">)})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Workspace">Workspace<a class="anchor-link" href="#Workspace"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are two tasks we'll need to adjust before we continue. The first is that our <em>Tasks</em> work was only for one faction so we'll need to loop through each faction's tasks and then append them all together into a single dataset; the code is included simply for observation but it's the same just basically in a loop.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">breakLoot</span><span class="p">(</span><span class="n">taskString</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="n">taskString</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">parts</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># This shouldn&#39;t be called.</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="n">tasks</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">tasksSubset</span> <span class="o">=</span> <span class="n">siteJobs</span><span class="p">[</span><span class="n">index</span><span class="p">][[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Description&quot;</span><span class="p">,</span> <span class="s2">&quot;Tasks&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">tasksSubset</span> <span class="o">=</span> <span class="n">tasksSubset</span><span class="p">[</span> <span class="o">~</span><span class="n">tasksSubset</span><span class="o">.</span><span class="n">Tasks</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+    <span class="n">tasksSubset</span> <span class="o">=</span> <span class="n">tasksSubset</span><span class="p">[</span> <span class="o">~</span><span class="n">tasksSubset</span><span class="o">.</span><span class="n">Tasks</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Kill&quot;</span><span class="p">)]</span>
+
+    <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(\d+\s[\w]+\s[\w]+)&quot;</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">tasksSubset</span><span class="o">.</span><span class="n">Tasks</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">regex</span><span class="p">)</span>
+
+    <span class="n">count</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">breakLoot</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">aLoot</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">breakLoot</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">count</span><span class="p">,</span>
+        <span class="n">loot</span> <span class="o">=</span> <span class="n">aLoot</span>
+    <span class="p">)</span>
+
+    <span class="n">nameDescriptSlice</span> <span class="o">=</span> <span class="n">tasksSubset</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">tmp</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[</span><span class="s2">&quot;level_0&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Description&#39;</span><span class="p">]]</span>
+
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">nameDescriptSlice</span><span class="o">.</span><span class="n">Name</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="n">nameDescriptSlice</span><span class="o">.</span><span class="n">Description</span><span class="o">.</span><span class="n">values</span>
+    <span class="p">)</span>
+
+    <span class="n">taskSlice</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span>
+        <span class="s1">&#39;level_0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;match&#39;</span><span class="p">,</span>
+        <span class="mi">0</span>
+    <span class="p">],</span> <span class="n">axis</span> <span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+
+    <span class="n">taskSlice</span> <span class="o">=</span> <span class="n">taskSlice</span><span class="p">[[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;loot&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">]]</span>
+    <span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">taskSlice</span><span class="p">)</span>
+<span class="n">tasks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="o">*</span><span class="n">tasks</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The second task is that we need a single dataset for all the job rewards. We'll definitely want to tag each so we don't lose track of which task belongs to which Faction.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># want the faction when we join them all:</span>
+<span class="n">korolevRewards</span><span class="p">[</span><span class="s1">&#39;Faction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Korolev&quot;</span>
+<span class="n">icaRewards</span><span class="p">[</span><span class="s1">&#39;Faction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ICA&quot;</span>
+<span class="n">osirisRewards</span><span class="p">[</span><span class="s1">&#39;Faction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Osiris&quot;</span>
+
+<span class="n">allJobs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">korolevRewards</span><span class="p">,</span> <span class="n">icaRewards</span><span class="p">,</span> <span class="n">osirisRewards</span><span class="p">])</span>
+
+<span class="c1"># Proof they&#39;re all in there:</span>
+<span class="n">allJobs</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Faction&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>&lt;div id=88e98c4d-edc3-4d2c-bfc1-f353191cdcef style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('88e98c4d-edc3-4d2c-bfc1-f353191cdcef').style.display = 'flex' </script> <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Units</th>
+      <th>Rewards</th>
+      <th>Job</th>
+    </tr>
+    <tr>
+      <th>Faction</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ICA</th>
+      <th>1</th>
+      <td>4400</td>
+      <td>K-Marks</td>
+      <td>Water Filtration System</td>
+    </tr>
+    <tr>
+      <th>Korolev</th>
+      <th>1</th>
+      <td>3800</td>
+      <td>K-Marks</td>
+      <td>New Mining Tools</td>
+    </tr>
+    <tr>
+      <th>Osiris</th>
+      <th>1</th>
+      <td>2200</td>
+      <td>K-Marks</td>
+      <td>Lab equipment</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For this analysis, we're really only interested in the Kmarks so we'll need to only pull those rows; we'll do some work with the others later but for now just the money.</p>
+
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lootKMarks</span> <span class="o">=</span> <span class="n">loot</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Name == &quot;K-Marks&quot;&#39;</span><span class="p">)</span>
+<span class="n">lootKMarks</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>&lt;div id=4109f7c4-a7fa-4e0c-976d-2eddbe659b50 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('4109f7c4-a7fa-4e0c-976d-2eddbe659b50').style.display = 'flex' </script> <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unit</th>
+      <th>Name</th>
+      <th>Rarity</th>
+      <th>Personal Quarters</th>
+      <th>Campaigns</th>
+      <th>Jobs</th>
+      <th>Printing</th>
+      <th>Loot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>150.0</td>
+      <td>K-Marks</td>
+      <td>Common</td>
+      <td>Yes x11</td>
+      <td>Yes x10</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Flawed Veltecite</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>570.0</td>
+      <td>K-Marks</td>
+      <td>Uncommon</td>
+      <td>Yes x8</td>
+      <td>Yes x14</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Cloudy Veltecite</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>854.0</td>
+      <td>K-Marks</td>
+      <td>Rare</td>
+      <td>Yes x11</td>
+      <td>Yes x25</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Clear Veltecite</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>1922.0</td>
+      <td>K-Marks</td>
+      <td>Epic</td>
+      <td>Yes x7</td>
+      <td>Yes x9</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Pure Veltecite</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>6487.0</td>
+      <td>K-Marks</td>
+      <td>Legendary</td>
+      <td>Yes x4</td>
+      <td>Yes x2</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Veltecite Heart</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>570.0</td>
+      <td>K-Marks</td>
+      <td>Uncommon</td>
+      <td>Yes x36</td>
+      <td>Yes x7</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Brittle Titan Ore</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>854.0</td>
+      <td>K-Marks</td>
+      <td>Rare</td>
+      <td>Yes x6</td>
+      <td>Yes x8</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Titan Ore</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>150.0</td>
+      <td>K-Marks</td>
+      <td>Common</td>
+      <td>Yes x46</td>
+      <td>Yes x1</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Nickel</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<p>&lt;/div&gt;</p>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># # Correct this:</span>
+<span class="c1"># lootKMarks = lootKMarks.assign(</span>
+<span class="c1">#      Unit = lootKMarks.Unit.astype(float)</span>
+<span class="c1">#  )</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Joins are a complicated topic which I'm not going to flesh out here. In this instance, what we want is the loot table with the Kmark value connected to the jobs table with respect to the name of the loot. And, we'll tell Pandas to join those together below making sure that as long as it exists in the left table that it gets connected to something in the right table.</p>
+
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">taskLoot</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">lootKMarks</span><span class="p">[[</span><span class="s1">&#39;Loot&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">]],</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;loot&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Loot&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+<span class="n">taskLoot</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>&lt;div id=85e1a5e7-77d1-45df-9801-bb64d19df791 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('85e1a5e7-77d1-45df-9801-bb64d19df791').style.display = 'flex' </script> <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>count</th>
+      <th>loot</th>
+      <th>description</th>
+      <th>Loot</th>
+      <th>Unit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>New Mining Tools</td>
+      <td>2.0</td>
+      <td>Hydraulic Piston</td>
+      <td>We are producing new Mining Tools for new Prospectors and need Hydraulic Pistons and Hardened Metals for it. You know what to do.</td>
+      <td>Hydraulic Piston</td>
+      <td>338.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Excavator Improvements</td>
+      <td>3.0</td>
+      <td>Hydraulic Piston</td>
+      <td>The suspension on our mining excavators need improvements to handle rocky terrain. We need Multitools, Ball Bearings and Hydraulic Pistons.</td>
+      <td>Hydraulic Piston</td>
+      <td>338.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>New Mining Tools</td>
+      <td>10.0</td>
+      <td>Hardened Metals</td>
+      <td>We are producing new Mining Tools for new Prospectors and need Hydraulic Pistons and Hardened Metals for it. You know what to do.</td>
+      <td>Hardened Metals</td>
+      <td>150.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Automated Security</td>
+      <td>16.0</td>
+      <td>Hardened Metals</td>
+      <td>We will have to build new turrets to help protect our mining sites and landing pads. Bring us Zero Systems CPUs and Hardened Metals.</td>
+      <td>Hardened Metals</td>
+      <td>150.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Air Lock Upgrades</td>
+      <td>12.0</td>
+      <td>Hardened Metals</td>
+      <td>Our engineers designed a safer airlock system that should reduce fatalities. We need Hardened Metals, Alloys and Polymetallic Prefabricate.</td>
+      <td>Hardened Metals</td>
+      <td>150.0</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<p>&lt;/div&gt;</p>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># taskLoot</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">taskLoot</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">tmp</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>name                                            New Mining Tools
+count                                                        2.0
+loot                                            Hydraulic Piston
+description    We are producing new Mining Tools for new Pros...
+Loot                                            Hydraulic Piston
+Unit                                                       338.0
+Name: 0, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We'll now multiply the <code>count</code> of the <code>loot</code> times their values to get the <code>cost</code> per resource in the quest.</p>
+
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">taskLoot</span><span class="p">[</span><span class="s1">&#39;Cost&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">taskLoot</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">taskLoot</span><span class="p">[</span><span class="s1">&#39;Unit&#39;</span><span class="p">]</span>
+<span class="n">taskLoot</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>&lt;div id=3848c8b3-6ec0-46d3-988d-c49f58ecc78b style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('3848c8b3-6ec0-46d3-988d-c49f58ecc78b').style.display = 'flex' </script> <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>count</th>
+      <th>loot</th>
+      <th>description</th>
+      <th>Loot</th>
+      <th>Unit</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>New Mining Tools</td>
+      <td>2.0</td>
+      <td>Hydraulic Piston</td>
+      <td>We are producing new Mining Tools for new Prospectors and need Hydraulic Pistons and Hardened Metals for it. You know what to do.</td>
+      <td>Hydraulic Piston</td>
+      <td>338.0</td>
+      <td>676.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Excavator Improvements</td>
+      <td>3.0</td>
+      <td>Hydraulic Piston</td>
+      <td>The suspension on our mining excavators need improvements to handle rocky terrain. We need Multitools, Ball Bearings and Hydraulic Pistons.</td>
+      <td>Hydraulic Piston</td>
+      <td>338.0</td>
+      <td>1014.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>New Mining Tools</td>
+      <td>10.0</td>
+      <td>Hardened Metals</td>
+      <td>We are producing new Mining Tools for new Prospectors and need Hydraulic Pistons and Hardened Metals for it. You know what to do.</td>
+      <td>Hardened Metals</td>
+      <td>150.0</td>
+      <td>1500.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Automated Security</td>
+      <td>16.0</td>
+      <td>Hardened Metals</td>
+      <td>We will have to build new turrets to help protect our mining sites and landing pads. Bring us Zero Systems CPUs and Hardened Metals.</td>
+      <td>Hardened Metals</td>
+      <td>150.0</td>
+      <td>2400.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Air Lock Upgrades</td>
+      <td>12.0</td>
+      <td>Hardened Metals</td>
+      <td>Our engineers designed a safer airlock system that should reduce fatalities. We need Hardened Metals, Alloys and Polymetallic Prefabricate.</td>
+      <td>Hardened Metals</td>
+      <td>150.0</td>
+      <td>1800.0</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<p>&lt;/div&gt;</p>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we'll just group by the name of the task to and take the sume of each to get the total <code>cost</code> per task.</p>
+
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">taskLoot</span><span class="p">[[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Cost&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>&lt;div id=2b39f718-a2ae-4ebd-9c22-ab6525fbbe74 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('2b39f718-a2ae-4ebd-9c22-ab6525fbbe74').style.display = 'flex' </script> <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Cost</th>
+    </tr>
+    <tr>
+      <th>name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A Craving</th>
+      <td>4048.0</td>
+    </tr>
+    <tr>
+      <th>A Solution</th>
+      <td>10125.0</td>
+    </tr>
+    <tr>
+      <th>A new Energy Source</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>A new type of Alloy</th>
+      <td>1800.0</td>
+    </tr>
+    <tr>
+      <th>Air Lock Upgrades</th>
+      <td>3900.0</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<p>&lt;/div&gt;</p>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is the first piece we'll need to get the results we're after; the other part is all the jobs we collected in the previous post - and brought here.</p>
+
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">allJobs</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Rewards == &quot;K-Marks&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+    <span class="n">taskLoot</span><span class="p">[[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Cost&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">left_on</span><span class="o">=</span><span class="s2">&quot;Job&quot;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>&lt;div id=bf74ca3b-9588-46c5-aa5e-3165d4b43c7f style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('bf74ca3b-9588-46c5-aa5e-3165d4b43c7f').style.display = 'flex' </script> <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Units</th>
+      <th>Rewards</th>
+      <th>Job</th>
+      <th>Faction</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3800</td>
+      <td>K-Marks</td>
+      <td>New Mining Tools</td>
+      <td>Korolev</td>
+      <td>2176.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>11000</td>
+      <td>K-Marks</td>
+      <td>Explosive Excavation</td>
+      <td>Korolev</td>
+      <td>6836.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6900</td>
+      <td>K-Marks</td>
+      <td>Mining Bot</td>
+      <td>Korolev</td>
+      <td>1014.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7600</td>
+      <td>K-Marks</td>
+      <td>None of your Business</td>
+      <td>Korolev</td>
+      <td>1800.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10000</td>
+      <td>K-Marks</td>
+      <td>Insufficient Processing Power</td>
+      <td>Korolev</td>
+      <td>3845.0</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<p>&lt;/div&gt;</p>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we have the rewards and the cost per task we can finally calculate the <strong>Balance</strong> of each job!</p>
+
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;Balance&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;Units&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;Cost&#39;</span><span class="p">]</span>
+<span class="n">results</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Faction&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>&lt;div id=67dc99c6-337d-420f-a8e1-a5a8027e43bb style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('67dc99c6-337d-420f-a8e1-a5a8027e43bb').style.display = 'flex' </script> <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Units</th>
+      <th>Rewards</th>
+      <th>Job</th>
+      <th>Cost</th>
+      <th>Balance</th>
+    </tr>
+    <tr>
+      <th>Faction</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">ICA</th>
+      <th>46</th>
+      <td>4400</td>
+      <td>K-Marks</td>
+      <td>Water Filtration System</td>
+      <td>2700.0</td>
+      <td>1700.0</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>12000</td>
+      <td>K-Marks</td>
+      <td>Air Lock Upgrades</td>
+      <td>3900.0</td>
+      <td>8100.0</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Korolev</th>
+      <th>0</th>
+      <td>3800</td>
+      <td>K-Marks</td>
+      <td>New Mining Tools</td>
+      <td>2176.0</td>
+      <td>1624.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7600</td>
+      <td>K-Marks</td>
+      <td>None of your Business</td>
+      <td>1800.0</td>
+      <td>5800.0</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Osiris</th>
+      <th>94</th>
+      <td>2200</td>
+      <td>K-Marks</td>
+      <td>Lab equipment</td>
+      <td>676.0</td>
+      <td>1524.0</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>26000</td>
+      <td>K-Marks</td>
+      <td>Cretins</td>
+      <td>6300.0</td>
+      <td>19700.0</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<p>&lt;/div&gt;</p>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Conclusions---and-Questions!">Conclusions - and Questions!<a class="anchor-link" href="#Conclusions---and-Questions!"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So, now that we have the data let's work on some questions!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Given any particular faction, which task has the highest Balance?</p>
+
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">balanceMax</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">Balance</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">results</span><span class="o">.</span><span class="n">Balance</span> <span class="o">==</span> <span class="n">balanceMax</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>&lt;div id=3db4925a-cb9b-448b-ac6f-9e90795a67af style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('3db4925a-cb9b-448b-ac6f-9e90795a67af').style.display = 'flex' </script> <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Units</th>
+      <th>Rewards</th>
+      <th>Job</th>
+      <th>Faction</th>
+      <th>Cost</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>91</th>
+      <td>227000</td>
+      <td>K-Marks</td>
+      <td>Striking Big</td>
+      <td>ICA</td>
+      <td>0.0</td>
+      <td>227000.0</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<p>&lt;/div&gt;</p>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Looks like it is the <em>Job</em> <strong>Striking Big</strong>. What's this job about?:</p>
+<blockquote><p>Damn it! We ran out of Fuel for our Radiation Shields here on the Station. And there's no replacement for Nanite Infused Crude Oil. You know what to do.</p>
+</blockquote>
+<p>It's collecting Oil Cannisters! Those are worth a lot of money so it's not a surprise that a task which wants you to collect them would also pay out so highly.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What about the job that pays the least?</p>
+
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">balanceMin</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">Balance</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">results</span><span class="o">.</span><span class="n">Balance</span> <span class="o">==</span> <span class="n">balanceMin</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>&lt;div id=c642b96b-dc02-41a1-96aa-818d5c65ad30 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('c642b96b-dc02-41a1-96aa-818d5c65ad30').style.display = 'flex' </script> <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Units</th>
+      <th>Rewards</th>
+      <th>Job</th>
+      <th>Faction</th>
+      <th>Cost</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>94</th>
+      <td>2200</td>
+      <td>K-Marks</td>
+      <td>Lab equipment</td>
+      <td>Osiris</td>
+      <td>676.0</td>
+      <td>1524.0</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<p>&lt;/div&gt;</p>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Well, it our good friends <em>Osiris</em> failing the station again. That looks like a low level job from a cost and reward that low. Not really much of a surprise here.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So, what about the mean balance - and how many tasks are there which reward more than that average value?</p>
+
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">balanceMean</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">Balance</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">balanceMean</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;$20600.89&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span> <span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">results</span><span class="o">.</span><span class="n">Balance</span> <span class="o">&gt;=</span> <span class="n">balanceMean</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>40</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># How many are there per faction?</span>
+<span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">Balance</span> <span class="o">&gt;=</span> <span class="n">balanceMean</span> <span class="p">]</span>\
+        <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Faction&#39;</span><span class="p">)</span>\
+        <span class="o">.</span><span class="n">count</span><span class="p">()</span>\
+        <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>\
+        <span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Units&#39;</span><span class="p">:</span><span class="s1">&#39;Count&#39;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[[</span>
+    <span class="s1">&#39;Faction&#39;</span><span class="p">,</span> <span class="s1">&#39;Count&#39;</span>
+<span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>&lt;div id=91259f22-0547-473e-ac2d-f9919723b5d7 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('91259f22-0547-473e-ac2d-f9919723b5d7').style.display = 'flex' </script> <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Faction</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ICA</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Korolev</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Osiris</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<p>&lt;/div&gt;</p>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And, unsurpisingly <em>Osiris</em> is slightly behind but they're mostly the same.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ok, so what's the cost of the Job that inspired all this work: <em>And Two Smoking Barrels</em>?</p>
+
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">results</span><span class="o">.</span><span class="n">Job</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Barrel&quot;</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>&lt;div id=15ca782e-4997-48b8-9e03-4ceb0ff842d7 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('15ca782e-4997-48b8-9e03-4ceb0ff842d7').style.display = 'flex' </script> <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Units</th>
+      <th>Rewards</th>
+      <th>Job</th>
+      <th>Faction</th>
+      <th>Cost</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>39</th>
+      <td>19000</td>
+      <td>K-Marks</td>
+      <td>And two smoking Barrels</td>
+      <td>Korolev</td>
+      <td>0.0</td>
+      <td>19000.0</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<p>&lt;/div&gt;</p>
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wait a minute! There should be a cost here and it is missing! Well, that's because there are no guns in the loot table. So, there is no cost when we connect the data together. And, after some further checking there are some missing values here. That quest we checked above with the Oil? They're not named the same betwee the tables: <em>NiC Oil</em> vs <em>NiC Oil Cannister</em>. It's not the only one like this either.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Looks like we've got more work to do.</strong></p>
+
+</div>
+</div>
+</div>
+<p>&lt;/div&gt;</p>
+
+
+
+  </div><a class="u-url" href="/game/python/data/science/exploration/cycle/frontier/2022/10/14/cycle-calculate-job-values.html" hidden></a>
+</article>
+      </div>
+    </main></body>
+
+</html>

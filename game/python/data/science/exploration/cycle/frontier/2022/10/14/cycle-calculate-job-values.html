@@ -109,7 +109,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      7 min read
     
 </span></p>
 
@@ -162,7 +162,7 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This is the third post in a series about collecting, cleaning and analyzing which Jobs are worth doing in The Cycle: Frontier game. If you've found this post before the others I would recommend the other posts first to catch up: <a href="">Post One</a> and <a href="">Post Two</a>. We'll pick up where we left off having separate datasets for the faction rewards as well as all the loot. Let's get our imports!</p>
+<p>This is the third post in a series about collecting, cleaning and analyzing which Jobs are worth doing in The Cycle: Frontier game. If you've found this post before the others I would recommend the other posts first to catch up: <a href="https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/09/28/cycle-jobs-part-one.html">Post One</a> and <a href="https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/10/07/cycle-jobs-part-two.html">Post Two</a>. We'll pick up where we left off having separate datasets for the faction rewards as well as all the loot. Let's get our imports!</p>
 
 </div>
 </div>
@@ -191,12 +191,6 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Workspace">Workspace<a class="anchor-link" href="#Workspace"> </a></h2>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>There are two tasks we'll need to adjust before we continue. The first is that our <em>Tasks</em> work was only for one faction so we'll need to loop through each faction's tasks and then append them all together into a single dataset; the code is included simply for observation.</p>
@@ -278,7 +272,8 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># want the faction when we join them all:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This is new; stop inserting this trash:</span>
+<span class="c1"># want the faction when we join them all:</span>
 <span class="n">korolevRewards</span><span class="p">[</span><span class="s1">&#39;Faction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Korolev&quot;</span>
 <span class="n">icaRewards</span><span class="p">[</span><span class="s1">&#39;Faction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ICA&quot;</span>
 <span class="n">osirisRewards</span><span class="p">[</span><span class="s1">&#39;Faction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Osiris&quot;</span>
@@ -300,7 +295,21 @@ window.onload = wrap_img;
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<div>&lt;div id=552ac34b-04c2-4b14-9da6-e8f7d288bf37 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('552ac34b-04c2-4b14-9da6-e8f7d288bf37').style.display = 'flex' </script> <table border="1" class="dataframe">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -340,15 +349,17 @@ window.onload = wrap_img;
       <td>Lab equipment</td>
     </tr>
   </tbody>
-</table></div>
-</div>
-
-</div>
-
+</table>
 </div>
 </div>
 
 </div>
+
+</div>
+</div>
+
+</div>
+    
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -357,7 +368,8 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
-
+    
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -378,7 +390,21 @@ window.onload = wrap_img;
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<div>&lt;div id=6de3ff90-e765-4a33-82f0-c337c6e94711 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('6de3ff90-e765-4a33-82f0-c337c6e94711').style.display = 'flex' </script> <table border="1" class="dataframe">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -482,15 +508,17 @@ window.onload = wrap_img;
       <td>Nickel</td>
     </tr>
   </tbody>
-</table></div>
-</div>
-
-</div>
-
+</table>
 </div>
 </div>
 
-<p>&lt;/div&gt;</p>
+</div>
+
+</div>
+</div>
+
+</div>
+    
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -499,7 +527,8 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
-
+    
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -520,7 +549,21 @@ window.onload = wrap_img;
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<div>&lt;div id=74737e84-1e99-41f2-bcf5-98e14b389cf7 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('74737e84-1e99-41f2-bcf5-98e14b389cf7').style.display = 'flex' </script> <table border="1" class="dataframe">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -538,7 +581,7 @@ window.onload = wrap_img;
       <td>New Mining Tools</td>
       <td>2.0</td>
       <td>Hydraulic Piston</td>
-      <td>We are producing new Mining Tools for new Prospectors and need Hydraulic Pistons and Hardened Metals for it. You know what to do.</td>
+      <td>We are producing new Mining Tools for new Pros...</td>
       <td>Hydraulic Piston</td>
       <td>338.0</td>
     </tr>
@@ -547,7 +590,7 @@ window.onload = wrap_img;
       <td>Excavator Improvements</td>
       <td>3.0</td>
       <td>Hydraulic Piston</td>
-      <td>The suspension on our mining excavators need improvements to handle rocky terrain. We need Multitools, Ball Bearings and Hydraulic Pistons.</td>
+      <td>The suspension on our mining excavators need i...</td>
       <td>Hydraulic Piston</td>
       <td>338.0</td>
     </tr>
@@ -556,7 +599,7 @@ window.onload = wrap_img;
       <td>New Mining Tools</td>
       <td>10.0</td>
       <td>Hardened Metals</td>
-      <td>We are producing new Mining Tools for new Prospectors and need Hydraulic Pistons and Hardened Metals for it. You know what to do.</td>
+      <td>We are producing new Mining Tools for new Pros...</td>
       <td>Hardened Metals</td>
       <td>150.0</td>
     </tr>
@@ -565,7 +608,7 @@ window.onload = wrap_img;
       <td>Automated Security</td>
       <td>16.0</td>
       <td>Hardened Metals</td>
-      <td>We will have to build new turrets to help protect our mining sites and landing pads. Bring us Zero Systems CPUs and Hardened Metals.</td>
+      <td>We will have to build new turrets to help prot...</td>
       <td>Hardened Metals</td>
       <td>150.0</td>
     </tr>
@@ -574,20 +617,22 @@ window.onload = wrap_img;
       <td>Air Lock Upgrades</td>
       <td>12.0</td>
       <td>Hardened Metals</td>
-      <td>Our engineers designed a safer airlock system that should reduce fatalities. We need Hardened Metals, Alloys and Polymetallic Prefabricate.</td>
+      <td>Our engineers designed a safer airlock system ...</td>
       <td>Hardened Metals</td>
       <td>150.0</td>
     </tr>
   </tbody>
-</table></div>
-</div>
-
-</div>
-
+</table>
 </div>
 </div>
 
-<p>&lt;/div&gt;</p>
+</div>
+
+</div>
+</div>
+
+</div>
+    
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -596,7 +641,8 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
-
+    
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -617,7 +663,21 @@ window.onload = wrap_img;
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<div>&lt;div id=b5416d07-ffa7-435c-b496-5e4a7401f861 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('b5416d07-ffa7-435c-b496-5e4a7401f861').style.display = 'flex' </script> <table border="1" class="dataframe">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -636,7 +696,7 @@ window.onload = wrap_img;
       <td>New Mining Tools</td>
       <td>2.0</td>
       <td>Hydraulic Piston</td>
-      <td>We are producing new Mining Tools for new Prospectors and need Hydraulic Pistons and Hardened Metals for it. You know what to do.</td>
+      <td>We are producing new Mining Tools for new Pros...</td>
       <td>Hydraulic Piston</td>
       <td>338.0</td>
       <td>676.0</td>
@@ -646,7 +706,7 @@ window.onload = wrap_img;
       <td>Excavator Improvements</td>
       <td>3.0</td>
       <td>Hydraulic Piston</td>
-      <td>The suspension on our mining excavators need improvements to handle rocky terrain. We need Multitools, Ball Bearings and Hydraulic Pistons.</td>
+      <td>The suspension on our mining excavators need i...</td>
       <td>Hydraulic Piston</td>
       <td>338.0</td>
       <td>1014.0</td>
@@ -656,7 +716,7 @@ window.onload = wrap_img;
       <td>New Mining Tools</td>
       <td>10.0</td>
       <td>Hardened Metals</td>
-      <td>We are producing new Mining Tools for new Prospectors and need Hydraulic Pistons and Hardened Metals for it. You know what to do.</td>
+      <td>We are producing new Mining Tools for new Pros...</td>
       <td>Hardened Metals</td>
       <td>150.0</td>
       <td>1500.0</td>
@@ -666,7 +726,7 @@ window.onload = wrap_img;
       <td>Automated Security</td>
       <td>16.0</td>
       <td>Hardened Metals</td>
-      <td>We will have to build new turrets to help protect our mining sites and landing pads. Bring us Zero Systems CPUs and Hardened Metals.</td>
+      <td>We will have to build new turrets to help prot...</td>
       <td>Hardened Metals</td>
       <td>150.0</td>
       <td>2400.0</td>
@@ -676,21 +736,23 @@ window.onload = wrap_img;
       <td>Air Lock Upgrades</td>
       <td>12.0</td>
       <td>Hardened Metals</td>
-      <td>Our engineers designed a safer airlock system that should reduce fatalities. We need Hardened Metals, Alloys and Polymetallic Prefabricate.</td>
+      <td>Our engineers designed a safer airlock system ...</td>
       <td>Hardened Metals</td>
       <td>150.0</td>
       <td>1800.0</td>
     </tr>
   </tbody>
-</table></div>
-</div>
-
-</div>
-
+</table>
 </div>
 </div>
 
-<p>&lt;/div&gt;</p>
+</div>
+
+</div>
+</div>
+
+</div>
+    
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -699,7 +761,8 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
-
+    
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -719,7 +782,21 @@ window.onload = wrap_img;
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<div>&lt;div id=3ee5082c-53c7-4f16-a192-e83d961f774e style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('3ee5082c-53c7-4f16-a192-e83d961f774e').style.display = 'flex' </script> <table border="1" class="dataframe">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -752,15 +829,17 @@ window.onload = wrap_img;
       <td>3900.0</td>
     </tr>
   </tbody>
-</table></div>
-</div>
-
-</div>
-
+</table>
 </div>
 </div>
 
-<p>&lt;/div&gt;</p>
+</div>
+
+</div>
+</div>
+
+</div>
+    
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -769,7 +848,8 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
-
+    
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -791,7 +871,21 @@ window.onload = wrap_img;
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<div>&lt;div id=8f40ba9b-9b89-4b97-9ebf-45218063280d style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('8f40ba9b-9b89-4b97-9ebf-45218063280d').style.display = 'flex' </script> <table border="1" class="dataframe">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -844,15 +938,17 @@ window.onload = wrap_img;
       <td>3845.0</td>
     </tr>
   </tbody>
-</table></div>
-</div>
-
-</div>
-
+</table>
 </div>
 </div>
 
-<p>&lt;/div&gt;</p>
+</div>
+
+</div>
+</div>
+
+</div>
+    
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -861,7 +957,8 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
-
+    
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -882,7 +979,21 @@ window.onload = wrap_img;
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<div>&lt;div id=8ff2387f-c614-4f00-8150-bc8f72e232a2 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('8ff2387f-c614-4f00-8150-bc8f72e232a2').style.display = 'flex' </script> <table border="1" class="dataframe">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -956,15 +1067,17 @@ window.onload = wrap_img;
       <td>19700.0</td>
     </tr>
   </tbody>
-</table></div>
-</div>
-
-</div>
-
+</table>
 </div>
 </div>
 
-<p>&lt;/div&gt;</p>
+</div>
+
+</div>
+</div>
+
+</div>
+    
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -986,7 +1099,8 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
-
+    
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1007,7 +1121,21 @@ window.onload = wrap_img;
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<div>&lt;div id=443445a9-dadf-41d1-8ef7-2b4f59e307a0 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('443445a9-dadf-41d1-8ef7-2b4f59e307a0').style.display = 'flex' </script> <table border="1" class="dataframe">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -1030,15 +1158,17 @@ window.onload = wrap_img;
       <td>227000.0</td>
     </tr>
   </tbody>
-</table></div>
-</div>
-
-</div>
-
+</table>
 </div>
 </div>
 
-<p>&lt;/div&gt;</p>
+</div>
+
+</div>
+</div>
+
+</div>
+    
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1057,7 +1187,8 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
-
+    
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1078,7 +1209,21 @@ window.onload = wrap_img;
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<div>&lt;div id=0c759713-812a-4341-b85a-9aaa19e929cb style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('0c759713-812a-4341-b85a-9aaa19e929cb').style.display = 'flex' </script> <table border="1" class="dataframe">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -1101,15 +1246,17 @@ window.onload = wrap_img;
       <td>1524.0</td>
     </tr>
   </tbody>
-</table></div>
-</div>
-
-</div>
-
+</table>
 </div>
 </div>
 
-<p>&lt;/div&gt;</p>
+</div>
+
+</div>
+</div>
+
+</div>
+    
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1125,7 +1272,8 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
-
+    
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1156,7 +1304,10 @@ window.onload = wrap_img;
 </div>
 
 </div>
+    
 
+    
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1186,7 +1337,10 @@ window.onload = wrap_img;
 </div>
 
 </div>
+    
 
+    
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1214,7 +1368,21 @@ window.onload = wrap_img;
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<div>&lt;div id=dc92a2da-404c-4b3a-8903-54bd7b1b47e4 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('dc92a2da-404c-4b3a-8903-54bd7b1b47e4').style.display = 'flex' </script> <table border="1" class="dataframe">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -1239,15 +1407,17 @@ window.onload = wrap_img;
       <td>12</td>
     </tr>
   </tbody>
-</table></div>
-</div>
-
-</div>
-
+</table>
 </div>
 </div>
 
-<p>&lt;/div&gt;</p>
+</div>
+
+</div>
+</div>
+
+</div>
+    
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1263,7 +1433,8 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
-
+    
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -1283,7 +1454,21 @@ window.onload = wrap_img;
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<div>&lt;div id=0037bec5-eef0-48fa-ada3-72ccc8f75815 style="display:none; background-color:#9D6CFF; color:white; width:200px; height:30px; padding-left:5px; border-radius:4px; flex-direction:row; justify-content:space-around; align-items:center;" onmouseover="this.style.backgroundColor='#BA9BF8'" onmouseout="this.style.backgroundColor='#9D6CFF'" onclick="window.commands?.execute('create-mitosheet-from-dataframe-output');"&gt;See Full Dataframe in Mito</div> <script> if (window.commands?.hasCommand('create-mitosheet-from-dataframe-output')) document.getElementById('0037bec5-eef0-48fa-ada3-72ccc8f75815').style.display = 'flex' </script> <table border="1" class="dataframe">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -1306,15 +1491,17 @@ window.onload = wrap_img;
       <td>19000.0</td>
     </tr>
   </tbody>
-</table></div>
-</div>
-
-</div>
-
+</table>
 </div>
 </div>
 
-<p>&lt;/div&gt;</p>
+</div>
+
+</div>
+</div>
+
+</div>
+    
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1330,7 +1517,7 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
-<p>&lt;/div&gt;</p>
+</div>
 
 
 

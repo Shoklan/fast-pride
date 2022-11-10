@@ -10,13 +10,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Not Sure I Trust This" />
 <meta property="og:description" content="Not Sure I Trust This" />
-<link rel="canonical" href="https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/11/09/fp-discounted-cash-flows.html" />
-<meta property="og:url" content="https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/11/09/fp-discounted-cash-flows.html" />
+<link rel="canonical" href="https://orgulo.us/python/code/finanical/analyst/2022/11/09/fp-discounted-cash-flows.html" />
+<meta property="og:url" content="https://orgulo.us/python/code/finanical/analyst/2022/11/09/fp-discounted-cash-flows.html" />
 <meta property="og:site_name" content="Orgulo.us" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-11-09T00:00:00-06:00" />
 <script type="application/ld+json">
-{"headline":"Financial Planner Review - Discounting Cash Flows","dateModified":"2022-11-09T00:00:00-06:00","datePublished":"2022-11-09T00:00:00-06:00","description":"Not Sure I Trust This","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/11/09/fp-discounted-cash-flows.html"},"@type":"BlogPosting","url":"https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/11/09/fp-discounted-cash-flows.html","@context":"https://schema.org"}</script>
+{"headline":"Financial Planner Review - Discounting Cash Flows","dateModified":"2022-11-09T00:00:00-06:00","datePublished":"2022-11-09T00:00:00-06:00","description":"Not Sure I Trust This","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/python/code/finanical/analyst/2022/11/09/fp-discounted-cash-flows.html"},"@type":"BlogPosting","url":"https://orgulo.us/python/code/finanical/analyst/2022/11/09/fp-discounted-cash-flows.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://orgulo.us/feed.xml" title="Orgulo.us" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Financial Planner Review - Discounting Cash Flows | Orgulo.us</title>
@@ -25,13 +25,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Not Sure I Trust This" />
 <meta property="og:description" content="Not Sure I Trust This" />
-<link rel="canonical" href="https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/11/09/fp-discounted-cash-flows.html" />
-<meta property="og:url" content="https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/11/09/fp-discounted-cash-flows.html" />
+<link rel="canonical" href="https://orgulo.us/python/code/finanical/analyst/2022/11/09/fp-discounted-cash-flows.html" />
+<meta property="og:url" content="https://orgulo.us/python/code/finanical/analyst/2022/11/09/fp-discounted-cash-flows.html" />
 <meta property="og:site_name" content="Orgulo.us" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-11-09T00:00:00-06:00" />
 <script type="application/ld+json">
-{"headline":"Financial Planner Review - Discounting Cash Flows","dateModified":"2022-11-09T00:00:00-06:00","datePublished":"2022-11-09T00:00:00-06:00","description":"Not Sure I Trust This","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/11/09/fp-discounted-cash-flows.html"},"@type":"BlogPosting","url":"https://orgulo.us/game/python/data/science/exploration/cycle/frontier/2022/11/09/fp-discounted-cash-flows.html","@context":"https://schema.org"}</script>
+{"headline":"Financial Planner Review - Discounting Cash Flows","dateModified":"2022-11-09T00:00:00-06:00","datePublished":"2022-11-09T00:00:00-06:00","description":"Not Sure I Trust This","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/python/code/finanical/analyst/2022/11/09/fp-discounted-cash-flows.html"},"@type":"BlogPosting","url":"https://orgulo.us/python/code/finanical/analyst/2022/11/09/fp-discounted-cash-flows.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -116,25 +116,16 @@ window.onload = wrap_img;
     
       <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
       
-        <a class="category-tags-link" href="/categories/#game">game</a>
-        &nbsp;
-      
         <a class="category-tags-link" href="/categories/#python">python</a>
         &nbsp;
       
-        <a class="category-tags-link" href="/categories/#data">data</a>
+        <a class="category-tags-link" href="/categories/#code">code</a>
         &nbsp;
       
-        <a class="category-tags-link" href="/categories/#science">science</a>
+        <a class="category-tags-link" href="/categories/#finanical">finanical</a>
         &nbsp;
       
-        <a class="category-tags-link" href="/categories/#exploration">exploration</a>
-        &nbsp;
-      
-        <a class="category-tags-link" href="/categories/#cycle">cycle</a>
-        &nbsp;
-      
-        <a class="category-tags-link" href="/categories/#frontier">frontier</a>
+        <a class="category-tags-link" href="/categories/#analyst">analyst</a>
         
       
       </p>
@@ -196,7 +187,7 @@ window.onload = wrap_img;
 <li>
 <strong>n</strong> is the period of discount.</li>
 </ul>
-<p>This all follows from the simple idea that money now is more valuble than money in the future. If given the choice between $100 now and $100 in a year then you'd obviously take the $100 now. This also applies to money we earn in the future: $60 now is better than the $60 we'd earn in the future. So, example time.</p>
+<p>This all follows from the simple idea that money now is more valuble than money in the future. If given the choice between \$100 now and \$100 in a year then you'd obviously take the \$100 now. This also applies to money we earn in the future: \$60 now is better than the $60 we'd earn in the future. So, example time.</p>
 
 </div>
 </div>
@@ -478,7 +469,7 @@ window.onload = wrap_img;
 
 
 
-  </div><a class="u-url" href="/game/python/data/science/exploration/cycle/frontier/2022/11/09/fp-discounted-cash-flows.html" hidden></a>
+  </div><a class="u-url" href="/python/code/finanical/analyst/2022/11/09/fp-discounted-cash-flows.html" hidden></a>
 </article>
       </div>
     </main></body>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Simple Introduction to Memcached | Orgulo.us</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Simple Introduction to Memcached" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="And Maybe a Real World Use" />
+<meta property="og:description" content="And Maybe a Real World Use" />
+<link rel="canonical" href="https://orgulo.us/python/code/data/scientist/analyst/db/cache/2022/11/10/simple-idea-using-memcached.html" />
+<meta property="og:url" content="https://orgulo.us/python/code/data/scientist/analyst/db/cache/2022/11/10/simple-idea-using-memcached.html" />
+<meta property="og:site_name" content="Orgulo.us" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-10T00:00:00-06:00" />
+<script type="application/ld+json">
+{"headline":"Simple Introduction to Memcached","dateModified":"2022-11-10T00:00:00-06:00","datePublished":"2022-11-10T00:00:00-06:00","description":"And Maybe a Real World Use","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/python/code/data/scientist/analyst/db/cache/2022/11/10/simple-idea-using-memcached.html"},"@type":"BlogPosting","url":"https://orgulo.us/python/code/data/scientist/analyst/db/cache/2022/11/10/simple-idea-using-memcached.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://orgulo.us/feed.xml" title="Orgulo.us" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Simple Introduction to Memcached | Orgulo.us</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Simple Introduction to Memcached" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="And Maybe a Real World Use" />
+<meta property="og:description" content="And Maybe a Real World Use" />
+<link rel="canonical" href="https://orgulo.us/python/code/data/scientist/analyst/db/cache/2022/11/10/simple-idea-using-memcached.html" />
+<meta property="og:url" content="https://orgulo.us/python/code/data/scientist/analyst/db/cache/2022/11/10/simple-idea-using-memcached.html" />
+<meta property="og:site_name" content="Orgulo.us" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-11-10T00:00:00-06:00" />
+<script type="application/ld+json">
+{"headline":"Simple Introduction to Memcached","dateModified":"2022-11-10T00:00:00-06:00","datePublished":"2022-11-10T00:00:00-06:00","description":"And Maybe a Real World Use","mainEntityOfPage":{"@type":"WebPage","@id":"https://orgulo.us/python/code/data/scientist/analyst/db/cache/2022/11/10/simple-idea-using-memcached.html"},"@type":"BlogPosting","url":"https://orgulo.us/python/code/data/scientist/analyst/db/cache/2022/11/10/simple-idea-using-memcached.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://orgulo.us/feed.xml" title="Orgulo.us" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Orgulo.us</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Readings/">Reading Challenge</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Simple Introduction to Memcached</h1><p class="page-description">And Maybe a Real World Use</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-11-10T00:00:00-06:00" itemprop="datePublished">
+        Nov 10, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#code">code</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#data">data</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#scientist">scientist</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#analyst">analyst</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#db">db</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#cache">cache</a>
+        
+      
+      </p>
+    
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-11-10-simple-idea-using-memcached.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>While taking a class to discover what is the currently most popular NoSQL databases for different use cases, I was informed that there is this technology called <code>Memcached</code>. From the Arch Wiki:</p>
+<blockquote><p>Memcached (pronunciation:mem-cashed, mem-cash-dee) is a general-purpose distributed memory caching system. It is often used to speed up dynamic database-driven websites by caching data and objects in RAM to reduce the number of times an external data source (such as a database or API) must be read. <br /><a href="https://wiki.archlinux.org/title/Memcached">Source</a></p>
+</blockquote>
+<p>This was a technology developed at Live Joprnal to help with - well - caching commonly used values. This is interesting but why bring any of this up? Well, this is because NoSQL Database use a Key - Value pair to look up the matching values and that happens to be how this works as well. However, there are some hard limitations with this and especially related to the size of what is allowed to be cached; Looking around the default looks to be 1MB and you can configure it up to 1GB but that's it.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I was thinking about how you could apply this to Data Science and it's pretty limited. For one, the only useful stuff to share across sessions would be either the data you are using or the actual trained model itself. Since the data to be used would assuredly be larger than the configured limit that is not of much use - at least for most interesting problems. And, as there is a glut of tooling for hosting applications online you are very unlikely to need to setup a cache for the model. The tooling online does this really for you with instances and such.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>But, I did have an interesting idea about what I could use this for. After you've worked on problems, you're bound to have functions that have been written to solve common problems. Keeping these means finding that code, then copying it into your project and finally using it for what you want. You could build a python package just for yourself but that seems overkill unless it's a general topic to share with others.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What if these simply functions could simply be a network share library? For example, date formats are something that I tend to need to convert with Python data frames. And, sadly there are no nice date format functions like there is in R; I do miss the R <code>lubridate</code> functions which has functions to convert a date into commonly needed formats: such as <code>ymd(date)</code> would convert the date into a <code>Year-Month-Day</code> format for display. I wrote a few lambda functions in python to do this for me and I would want them accessible while I do data exploration.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So, how would we go about doing this? First we'd need to install <code>memcached</code> for your Operating System; I have already done this but the guide from this <a href="https://realpython.com/python-memcache-efficient-caching/">Real Python</a> goes over how you would do it for your own system. Mine being <em>Manjaro</em>, it didn't include it and I had to find it on the Arch Wiki. Make sure to start the service and then we'll start this off.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pymemcache.client</span> <span class="kn">import</span> <span class="n">base</span>
+<span class="c1"># init a client; make sure it is already running:</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">Client</span><span class="p">((</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">11211</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using this is very simple and there really are only two functions to care about: <code>get()</code> and <code>set()</code>. If we wanted to set a value then we tell the client what the key, value pair is.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;turtles&#39;</span><span class="p">,</span> <span class="s1">&#39;Turtles&#39;</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;turtles&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>b&#39;Turtles&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And, that's really all there is to using this from Python!</p>
+<p>I would like to point out that the results are encoded as byte type. This is not a problem for that text but is a problem as soon as you need to operate on the values.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;someNumber&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+
+<span class="n">iLike</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;turtles&#39;</span><span class="p">)</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;someNumber&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;I had </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">iLike</span><span class="si">}</span><span class="s1"> but when I got 2 more I had </span><span class="si">{</span><span class="n">count</span> <span class="o">+</span><span class="mi">2</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">iLike</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">/home/shoklan/Code/fast-pride/_notebooks/2022-11-10-simple-idea-using-memcached.ipynb Cell 12&#39;</span> in <span class="ansi-cyan-fg">&lt;cell line: 6&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      &lt;a href=&#39;vscode-notebook-cell:/home/shoklan/Code/fast-pride/_notebooks/2022-11-10-simple-idea-using-memcached.ipynb#ch0000018?line=2&#39;&gt;3&lt;/a&gt;</span> iLike = client.get(&#39;turtles&#39;)
+<span class="ansi-green-intense-fg ansi-bold">      &lt;a href=&#39;vscode-notebook-cell:/home/shoklan/Code/fast-pride/_notebooks/2022-11-10-simple-idea-using-memcached.ipynb#ch0000018?line=3&#39;&gt;4&lt;/a&gt;</span> count = client.get(&#39;someNumber&#39;)
+<span class="ansi-green-fg">----&gt; &lt;a href=&#39;vscode-notebook-cell:/home/shoklan/Code/fast-pride/_notebooks/2022-11-10-simple-idea-using-memcached.ipynb#ch0000018?line=5&#39;&gt;6&lt;/a&gt;</span> print(f&#39;I had {count} {iLike} but when I got 2 more I had {count +2} {iLike}&#39;)
+
+<span class="ansi-red-fg">TypeError</span>: can&#39;t concat int to bytes</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can solve this with a cast in this case at least.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;someNumber&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+
+<span class="n">iLike</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;turtles&#39;</span><span class="p">)</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;someNumber&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;I had </span><span class="si">{</span><span class="n">count</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">iLike</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="si">}</span><span class="s1"> but when I got 2 more I had </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span><span class="mi">2</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">iLike</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>I had 42 Turtles but when I got 2 more I had 44 Turtles
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So, can we take a lambda function and put it in memcached?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> likes turtles&#39;</span><span class="p">))</span>
+<span class="n">client</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;iLike&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;iLike&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>b&#39;&lt;function &lt;lambda&gt; at 0x7f9f70829000&gt;&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It accepts it! That's the good news. The bad news is that since it was converted it no longer works as a function.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="s2">&quot;He&quot;</span><span class="p">),</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;iLike&#39;</span><span class="p">)(</span><span class="s2">&quot;He&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>He likes turtles
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">/home/shoklan/Code/fast-pride/_notebooks/2022-11-10-simple-idea-using-memcached.ipynb Cell 18&#39;</span> in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; &lt;a href=&#39;vscode-notebook-cell:/home/shoklan/Code/fast-pride/_notebooks/2022-11-10-simple-idea-using-memcached.ipynb#ch0000030?line=0&#39;&gt;1&lt;/a&gt;</span> f(&#34;He&#34;), client.get(&#39;iLike&#39;)(&#34;He&#34;)
+
+<span class="ansi-red-fg">TypeError</span>: &#39;bytes&#39; object is not callable</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You cannot just decode it and get what we want.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;iLike&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()(</span><span class="s2">&quot;He&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">/home/shoklan/Code/fast-pride/_notebooks/2022-11-10-simple-idea-using-memcached.ipynb Cell 20&#39;</span> in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; &lt;a href=&#39;vscode-notebook-cell:/home/shoklan/Code/fast-pride/_notebooks/2022-11-10-simple-idea-using-memcached.ipynb#ch0000034?line=0&#39;&gt;1&lt;/a&gt;</span> client.get(&#39;iLike&#39;).decode()(&#34;He&#34;)
+
+<span class="ansi-red-fg">TypeError</span>: &#39;str&#39; object is not callable</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can work around this by serializing the object and then deserialize it on the other side. We'll need to use <code>dill</code> and <code>pickle</code>; you may need to install the <code>dill</code> package since it is not part of the standard library but it is a requirement for this to work.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">dill</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;cereal&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="n">dill</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cereal&#39;</span><span class="p">))(</span><span class="s2">&quot;He&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>He likes turtles
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we can implement the function I want as a Network Shared Library!</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="n">aDate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="c1"># My custom function:</span>
+<span class="n">ymd</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{y}</span><span class="s2">/</span><span class="si">{m}</span><span class="s2">/</span><span class="si">{d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">day</span> <span class="p">))</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">dill</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">ymd</span><span class="p">)</span>
+
+<span class="c1"># Store in &#39;network library&#39;</span>
+<span class="n">client</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;ymd&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="n">undo</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span> <span class="n">key</span><span class="p">:</span> <span class="n">dill</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)))</span>
+
+<span class="n">undo</span><span class="p">(</span><span class="s1">&#39;ymd&#39;</span><span class="p">)(</span><span class="n">aDate</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;2022/11/10&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There you go! If you have a spare Rasberry Pi or something then you too can have a small library of custom functions shareable over your home network to use!</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/python/code/data/scientist/analyst/db/cache/2022/11/10/simple-idea-using-memcached.html" hidden></a>
+</article>
+      </div>
+    </main></body>
+
+</html>

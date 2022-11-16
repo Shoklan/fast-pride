@@ -3,8 +3,8 @@ toc: False
 layout: post
 categories: [projects,challenges,future]
 title: "Challenges for The Year: 2022 Edition"
-description: Public Record For Accountability
 sticky_rank: 1
+description: Public Record For Accountability
 ---
 
 ## Read 50 Books

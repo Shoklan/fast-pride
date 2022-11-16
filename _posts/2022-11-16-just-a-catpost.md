@@ -1,7 +1,7 @@
 ---
 toc: False
 layout: post
-categories: [deep learning, stable diffusion]
+categories: [deep,learning, stable, diffusion]
 title: "Nothing To See Here"
 description: Just some Catposting on the Internet
 ---
